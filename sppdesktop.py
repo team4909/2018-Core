@@ -34,7 +34,7 @@ def bluetoothWorker(idx):
 
 
 threads = []
-for i in range(2):
+for i in range(6):
     t = threading.Thread(target=bluetoothWorker, args=(i,))
     threads.append(t)
     t.start()
