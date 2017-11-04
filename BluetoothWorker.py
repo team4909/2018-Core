@@ -22,9 +22,11 @@ def bluetoothWorker(idx):
 
     while True:
         try:
-            data = client_sock.recv(1024)
-            if len(data) != 0:
-              client_sock.send(data+"2")
+            # Receive Data
+            # data = client_sock.recv(1024)
+            
+            # Send Data
+            # client_sock.send(data)
         except IOError:
             print("Device {}: Unable to connect...".format(idx))
             print(IOError)
