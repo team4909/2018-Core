@@ -19,11 +19,11 @@ advertise_service( server_sock, "TGA Bluetooth Server",
 # Bluetooth Worker Thread
 def bluetoothWorker(idx):
     # Thread Started
-    print("Device {}: Waiting for connection on RFCOMM channel {}...".format(idx, port))
+    print(" - Device {}: Waiting for connection on RFCOMM channel {}...".format(idx, port))
 
     # Attempt Connection
     client_sock, client_info = server_sock.accept()
-    print("Device {}: Accepted connection from {}.".format(idx, client_info))
+    print(" - Device {}: Accepted connection from {}.".format(idx, client_info))
 
     while True:
         try:
@@ -35,12 +35,12 @@ def bluetoothWorker(idx):
             # client_sock.send(data)
         except IOError:
             # Connection Failed
-            print("Device {}: Unable to connect...".format(idx))
+            print(" - Device {}: Unable to connect...".format(idx))
             print(IOError)
             
             # Attempt Reconnection
             client_sock, client_info = server_sock.accept()
-            print("Device {}: Accepted connection from {}.".format(idx, client_info))
+            print(" - Device {}: Accepted connection from {}.".format(idx, client_info))
 
     client_sock.close()
     server_sock.close()
@@ -58,3 +58,5 @@ for i in range(6):
     t = threading.Thread(target=bluetoothWorker, args=(i,))
     threads.append(t)
     t.start()
+    
+print("Started Threads...")
