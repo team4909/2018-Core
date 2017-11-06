@@ -70,7 +70,7 @@ print("Starting Threads...")
     
 # Start Threads
 threads = []
-for i in range(deviceCount)
+for i in range(deviceCount):
     t = threading.Thread(target=bluetoothWorker, args=(i,))
     threads.append(t)
     t.start()
