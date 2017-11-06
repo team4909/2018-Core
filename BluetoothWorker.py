@@ -17,6 +17,9 @@ advertise_service( server_sock, "TGA Bluetooth Server",
                    service_classes = [ uuid, SERIAL_PORT_CLASS ],
                    profiles = [ SERIAL_PORT_PROFILE ])
 
+deviceCount = 6
+deviceQueue = [[] for i in range(deviceCount)]
+
 # Bluetooth Worker Thread
 def bluetoothWorker(idx):
     # Thread Started
@@ -28,12 +31,11 @@ def bluetoothWorker(idx):
 
     while True:
         try:
-            # Receive Data
-            data = client_sock.recv(1024)
-            newDataHandler(idx, client_info, data)
+            # Receive Data from Tablets
+            receiveDataFromTablets(idx, client_sock, client_info)
             
-            # Send Data
-            # client_sock.send(data)
+            # Send Data to Tablets
+            sendDataToTablets(idx, client_sock, client_info)
         except IOError:
             # Connection Failed
             print(" - Device {}: Unable to connect...".format(idx))
@@ -46,13 +48,21 @@ def bluetoothWorker(idx):
     client_sock.close()
     server_sock.close()
 
-# New Data from BT Worker Thread
-def newDataHandler(idx, client_info, data):
+# Recv. New Data from BT Worker Thread
+def receiveDataFromTablets(idx, client_sock, client_info):
+    data = client_sock.recv(1024)
+    
     requests.post('http://127.0.0.1:4909/new_data', json={
         'idx': idx,
         'client_info': client_info,
         'data': data
     })
+    
+# Send New Data to BT Worker Thread
+def sendDataToTablets(idx, client_sock, client_info)
+    for message in deviceQueue[idx][:]:
+        client_sock.send(message)
+        deviceQueue[idx].remove(message)
     
 # Start Application
 print('Press `Ctrl+Shift+\` to Exit')
@@ -60,7 +70,7 @@ print("Starting Threads...")
     
 # Start Threads
 threads = []
-for i in range(6):
+for i in range(deviceCount)
     t = threading.Thread(target=bluetoothWorker, args=(i,))
     threads.append(t)
     t.start()
