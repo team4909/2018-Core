@@ -46,6 +46,7 @@ def bluetoothWorker(idx):
     client_sock.close()
     server_sock.close()
 
+# New Data from BT Worker Thread
 def newDataHandler(idx, client_info, data):
     requests.post('http://127.0.0.1:4909/new_data', json={
         'idx': idx,
