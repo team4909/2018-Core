@@ -1,5 +1,6 @@
 from bluetooth import *
 import threading
+import requests
 
 server_sock = BluetoothSocket( RFCOMM )
 server_sock.bind(("", PORT_ANY))
@@ -29,7 +30,7 @@ def bluetoothWorker(idx):
         try:
             # Receive Data
             data = client_sock.recv(1024)
-            dataHandler(data)
+            newDataHandler(idx, client_info, data)
             
             # Send Data
             # client_sock.send(data)
@@ -45,8 +46,12 @@ def bluetoothWorker(idx):
     client_sock.close()
     server_sock.close()
 
-def dataHandler(data):
-    print(data)
+def newDataHandler(idx, client_info, data):
+    requests.post('http://127.0.0.1:4909/new_data', json={
+        'idx': idx,
+        'client_info': client_info,
+        'data': data
+    })
     
 # Start Application
 print('Press `Ctrl+Shift+\` to Exit')

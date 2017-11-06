@@ -9,7 +9,7 @@ app.use(bodyParser.json()).use(function (error, req, res, next){
 });
 
 // Handle JSON POST Req, Sent By Py. as Data Flows In
-app.post('/', function(req, res){
+app.post('/new_data', function(req, res){
     // New Data from Tablet
     console.dir(req.body);
     res.end();
