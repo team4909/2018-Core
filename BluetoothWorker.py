@@ -59,7 +59,7 @@ def receiveDataFromTablets(idx, client_sock, client_info):
     })
     
 # Send New Data to BT Worker Thread
-def sendDataToTablets(idx, client_sock, client_info)
+def sendDataToTablets(idx, client_sock, client_info):
     for message in deviceQueue[idx][:]:
         client_sock.send(message)
         deviceQueue[idx].remove(message)
