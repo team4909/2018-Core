@@ -53,9 +53,9 @@ def receiveDataFromTablets(idx, client_sock, client_info):
     data = client_sock.recv(1024)
     
     requests.post('http://127.0.0.1:4909/new_data', json={
-        'idx': idx,
-        'client_info': client_info,
-        'data': data
+        'thread_id': idx,
+        'client_mac': client_info[0],
+        'msg_data': data
     })
     
 # Send New Data to BT Worker Thread
