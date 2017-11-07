@@ -28,8 +28,8 @@ def bluetoothWorker(idx):
 
     # Attempt Connection
     client_sock, client_info = server_sock.accept()
-    print(" - Device {}: Accepted connection from {}.".format(idx, client_info))
-
+    connectionEstablished(idx, client_sock, client_info)
+    
     while True:
         try:
             # Receive Data from Tablets
@@ -39,28 +39,48 @@ def bluetoothWorker(idx):
             sendDataToTablets(idx, client_sock, client_info)
         except IOError:
             # Connection Failed
-            print(" - Device {}: Unable to connect...".format(idx))
-            print(IOError)
+            connectionTerminated(idx, client_sock, client_info)
             
             # Attempt Reconnection
             client_sock, client_info = server_sock.accept()
-            print(" - Device {}: Accepted connection from {}.".format(idx, client_info))
+            connectionEstablished(idx, client_sock, client_info)
 
     client_sock.close()
     server_sock.close()
 
+def connectionEstablished(idx, client_sock, client_info):
+    requests.post('http://127.0.0.1:4909/new_connection', json={
+        'thread_id': idx,
+        'client_mac': client_info[0]
+    })
+    print(" - Device {}: Accepted connection from {}.".format(idx, client_info[0]))
+    
+def connectionTerminated(idx, client_sock, client_info):
+    requests.post('http://127.0.0.1:4909/lost_connection', json={
+        'thread_id': idx,
+        'client_mac': client_info[0]
+    })
+    print(" - Device {}: Lost connection to {}.".format(idx, client_info[0]))
+    
 # Recv. New Data from BT Worker Thread
 def receiveDataFromTablets(idx, client_sock, client_info):
+    raw_data = client_sock.recv(1024).decode("utf-8")
+    
     try:
-        data = json.loads(client_sock.recv(1024).decode("utf-8"))
+        json_data = json.loads(raw_data)
 
         requests.post('http://127.0.0.1:4909/new_data', json={
             'thread_id': idx,
             'client_mac': client_info[0],
-            'msg_data': data
+            'msg_data': json_data
         })
         print(" - Device {}: Succesfully Processed Data".format(idx))
     except json.decoder.JSONDecodeError:
+        requests.post('http://127.0.0.1:4909/bad_data', json={
+            'thread_id': idx,
+            'client_mac': client_info[0],
+            'msg_data': raw_data
+        })
         print(" - Device {}: Unable to Process JSON Data".format(idx))
     
 # Send New Data to BT Worker Thread
