@@ -60,7 +60,7 @@ def receiveDataFromTablets(idx, client_sock, client_info):
             'msg_data': data
         })
         print(" - Device {}: Succesfully Processed Data".format(idx))
-    except JSONDecodeError:
+    except json.decoder.JSONDecodeError:
         print(" - Device {}: Unable to Process JSON Data".format(idx))
     
 # Send New Data to BT Worker Thread
