@@ -1,6 +1,7 @@
 from bluetooth import *
 import threading
 import requests
+import json
 
 server_sock = BluetoothSocket( RFCOMM )
 server_sock.bind(("", PORT_ANY))
@@ -50,12 +51,12 @@ def bluetoothWorker(idx):
 
 # Recv. New Data from BT Worker Thread
 def receiveDataFromTablets(idx, client_sock, client_info):
-    data = client_sock.recv(1024)
+    data = client_sock.recv(1024).decode("utf-8")
     
     requests.post('http://127.0.0.1:4909/new_data', json={
         'thread_id': idx,
         'client_mac': client_info[0],
-        'msg_data': data
+        'msg_data': json.loads(data)
     })
     
 # Send New Data to BT Worker Thread
