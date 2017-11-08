@@ -12,10 +12,11 @@ Burn the attached image to your SD card using [Etcher](https://etcher.io)
 
 [The Green Alliance - Raspberry Pi Image](#)
 
-## Default Username/Password
-Username: pi
+## Default Configuration
+- Hostname: thegreenalliance.local
+- Username: pi
+- Password: TGA-4909
 
-Password: TGA-4909
 
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
