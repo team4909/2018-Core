@@ -15,9 +15,6 @@
 # following command:
 # sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/The-Green-Alliance/master/install.sh)"
 
-# Move to Desktop Directory
-cd ~/Desktop
-
 # Clone TGA Server Repository
 git clone https://github.com/FRCteam4909/TGA-Server-2018.git
 
