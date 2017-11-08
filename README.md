@@ -17,6 +17,5 @@ Burn the attached image to your SD card using [Etcher](https://etcher.io)
 - Username: pi
 - Password: TGA-4909
 
-
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
