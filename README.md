@@ -9,6 +9,7 @@ We built The Green Alliance to alleviate some of the difficulties regarding elec
 
 ## Installation
 Burn the attached image to your SD card using [Etcher](https://etcher.io)
+
 [The Green Alliance - Raspberry Pi Image](#)
 
 ## Default Username/Password
