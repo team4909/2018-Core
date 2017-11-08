@@ -11,6 +11,19 @@
 #       This can be done via the GUI or on the terminal
 #       using the `sudo raspi-config` command.
 
+# This script can be pulled an installed on a Pi with the
+# following command:
+# sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/TGA-Server-2018/master/install.sh)"
+
+# Move to Desktop Directory
+cd ~/Desktop
+
+# Clone TGA Server Repository
+git clone https://github.com/FRCteam4909/TGA-Server-2018.git
+
+# Move to Newly Cloned Repository
+cd TGA-Server-2018
+
 # Change Password for Remote Access
 echo "pi:TGA-4909" | sudo chpasswd
 
