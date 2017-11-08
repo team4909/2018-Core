@@ -13,7 +13,7 @@
 
 # This script can be pulled an installed on a Pi with the
 # following command:
-# sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/TGA-Server-2018/master/install.sh)"
+# sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/The-Green-Alliance/master/install.sh)"
 
 # Move to Desktop Directory
 cd ~/Desktop
