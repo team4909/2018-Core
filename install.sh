@@ -32,7 +32,10 @@ sudo apt-get --yes install python-bluez
 sudo pip3 install pybluez
 sudo pip3 install requests
 
-sudo sed -i 's/bluetoothd/bluetoothd -C/g' /etc/systemd/system/dbus-org.bluez.service
+sudo sed -i 's/bluetoothd/bluetoothd -C/g' /lib/systemd/system/bluetooth.service
+sudo systemctl daemon-reload
+sudo service bluetooth restart
+sudo sdptool add SP
 
 # For Bluetooth Pairing GUI (optional)
 # sudo apt-get install blueman
@@ -52,3 +55,6 @@ cd TGA-Server-2018
 
 # Install Node.JS Dependencies
 sudo npm install
+
+# Reboot for Changes to be Reflected
+sudo reboot
