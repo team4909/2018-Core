@@ -14,7 +14,7 @@
 # This script can be pulled an installed on a Pi with the
 # following command:
 # sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/The-Green-Alliance/master/install.sh)"
-
+s
 # Clone TGA Server Repository
 git clone https://github.com/FRCteam4909/TGA-Server-2018.git
 
@@ -41,8 +41,9 @@ sudo apt-get --yes install python-bluez
 # For Database Usage
 sudo apt-get --yes install mongodb
 
-# For Node.JS Server Dependencies
-sudo apt-get --yes install npm
+# For Portal Server
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 # Install Node.JS Dependencies
 npm install
