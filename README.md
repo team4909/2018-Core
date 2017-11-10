@@ -12,6 +12,8 @@ Burn the attached image to your SD card using [Etcher](https://etcher.io)
 
 [The Green Alliance - Raspberry Pi Image](#)
 
+NOTE: this is in the works, please use installer below for now:
+
 ## Default Configuration
 - Hostname: thegreenalliance.local
 - Username: pi
