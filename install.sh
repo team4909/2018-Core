@@ -15,11 +15,8 @@
 # following command:
 # sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/The-Green-Alliance/master/install.sh)"
 
-# Clone TGA Server Repository
-git clone https://github.com/FRCteam4909/TGA-Server-2018.git
-
-# Move to Newly Cloned Repository
-cd TGA-Server-2018
+# Configure Apt Repositories
+sudo sed -i 's/mirrordirector/archive/g' /etc/apt/sources.list
 
 # Change Password for Remote Access
 echo "pi:TGA-4909" | sudo chpasswd
@@ -45,5 +42,11 @@ sudo apt-get --yes install mongodb
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
+# Clone TGA Server Repository
+git clone https://github.com/FRCteam4909/TGA-Server-2018.git
+
+# Move to Newly Cloned Repository
+cd TGA-Server-2018
+
 # Install Node.JS Dependencies
-npm install
+sudo npm install
