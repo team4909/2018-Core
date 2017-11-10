@@ -17,5 +17,10 @@ Burn the attached image to your SD card using [Etcher](https://etcher.io)
 - Username: pi
 - Password: TGA-4909
 
+## Installer
+Alternatively, the following script can be run on a Raspberry Pi 3
+
+```sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/The-Green-Alliance/master/install.sh)"```
+
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
