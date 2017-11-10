@@ -15,9 +15,6 @@
 # following command:
 # sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/The-Green-Alliance/master/install.sh)"
 
-# Configure Apt Repositories
-sudo sed -i 's/mirrordirector/archive/g' /etc/apt/sources.list
-
 # Change Password for Remote Access
 echo "pi:TGA-4909" | sudo chpasswd
 
