@@ -12,8 +12,9 @@ We built The Green Alliance to alleviate many of the difficulties regarding elec
 ## Installation
 1) Install [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) on your Pi 3
 2) Run the following script to complete the the install:
-
-  ```sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/The-Green-Alliance/master/install.sh)"```
+  ```bash
+  sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/FRCteam4909/The-Green-Alliance/master/install.sh)"
+  ```
 
 ## Default Configuration
 - Hostname: `thegreenalliance.local`
