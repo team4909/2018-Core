@@ -2,7 +2,7 @@
 <plugin id="org.team4909.bluetooth" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>TGA Bluetooth</name>
     <js-module name="BluetoothSPP" src="www/BluetoothSPP.js">
-        <clobbers target="cordova.plugins.BluetoothSPP" />
+        <clobbers target="bluetooth" />
     </js-module>
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">

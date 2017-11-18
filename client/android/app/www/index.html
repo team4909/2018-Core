@@ -2,14 +2,14 @@
 <html>
 
 <head>
-	<!-- Required meta tags-->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="msapplication-tap-highlight" content="no">
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
 
-	<!--
+    <!--
 			Customize this policy to fit your own app's needs. For more guidance, see:
 				https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
 			Some notes:
@@ -18,46 +18,18 @@
 				* Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
 					* Enable inline JS: add 'unsafe-inline' to default-src
 		-->
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
 
-	<!-- Path to Framework7 Library CSS, Material Theme -->
-	<link rel="stylesheet" href="lib/css/framework7.material.min.css">
-	<link rel="stylesheet" href="lib/css/framework7.material.colors.min.css">
-
-	<!-- SVG Icons are From https://material.io/icons/ -->
-
-	<!-- Base CSS -->
-	<link rel="stylesheet" href="css/index.css">
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-	<div class="views">
-		<div class="view view-main">
-			<div class="pages navbar-fixed theme-green">
-				<div data-page="index" class="page" id="mainPage">
-					
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Cordova.JS -->
+    <script type="text/javascript" src="cordova.js"></script>
 
-	<!-- Cordova.JS -->
-	<script type="text/javascript" src="cordova.js"></script>
-
-	<!-- jQuery -->
-	<script type="text/javascript" src="lib/js/jquery-3.1.1.min.js"></script>
-	
-	<!-- Handlebars.js -->
-	<script type="text/javascript" src="lib/js/handlebars-latest.js"></script>
-	
-	<!-- Path to Framework7 Library JS-->
-	<script type="text/javascript" src="lib/js/framework7.min.js"></script>
-
-	<!-- Base JS -->
-	<script type="text/javascript" src="js/consts.js"></script>
-	<script type="text/javascript" src="js/transfer.js"></script>
-	<script type="text/javascript" src="js/form.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+    <!-- Base JS -->
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
