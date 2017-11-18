@@ -11,7 +11,7 @@ We built The Green Alliance to alleviate many of the difficulties regarding elec
   
 ## Installation
 1) Install [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) on your Pi 3
-2) Run the following script to complete the the install:
+2) Run the respective `install.sh` files found in this repo
 
 ## Debugging 
 To debug at event, it is easiest to configure SSH/VNC with [raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md). Once configured, you can connect any laptop to the Pi and SSH/VNC to `thegreenalliance.local`.
