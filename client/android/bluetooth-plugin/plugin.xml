@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="org.team4909.bluetooth" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>TGA Bluetooth</name>
+    <js-module name="BluetoothSPP" src="www/BluetoothSPP.js">
+        <clobbers target="cordova.plugins.BluetoothSPP" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="BluetoothSPP">
+                <param name="android-package" value="org.team4909.bluetooth.BluetoothSPP" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        </config-file>
+        <source-file src="src/android/BluetoothSPP.java" target-dir="src/org/team4909/bluetooth/BluetoothSPP" />
+    </platform>
+</plugin>

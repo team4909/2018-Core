@@ -1,0 +1,79 @@
+/* Cordova Preconf. */
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+.navbar-inner {
+	padding-left: 25px;
+}
+
+.page-content > .buttons-row{
+	margin: 0 20px;
+}
+
+.form-view {
+    display: none;
+}
+
+.list-block {
+    margin: 0 !important;
+}
+
+.toolbar {
+    height: 50px;
+}
+
+.page-content {
+    padding-top: 110px !important;
+}
+
+body {
+    background: #f4f4f4
+}
+
+a.list-button.item-link {
+    color: #ffffff;
+    text-align: center;
+}
+
+a.list-color-green {
+    background-color: #4caf50;
+    line-height: 140px !important;
+    font-size: 40px !important;
+    color: #ffffff !important;
+}
+
+a.list-color-red {
+    background-color: #f44336;
+    line-height: 60px !important;
+    font-size: 40px !important;
+    color: #ffffff !important;
+}
+
+ul {
+    padding: 0 !important;
+}
+
+.item-inner > .item-title.label {
+    width: 100% !important;
+}

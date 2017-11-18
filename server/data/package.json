@@ -1,0 +1,25 @@
+{
+  "name": "tga-server-2018",
+  "version": "1.0.0",
+  "description": "Team 4909's 2018+ Scouting System",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FRCteam4909/TGA-Server-2018.git"
+  },
+  "author": "Roshan Ravi <roshanravi10@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FRCteam4909/TGA-Server-2018/issues"
+  },
+  "homepage": "https://github.com/FRCteam4909/TGA-Server-2018#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  }
+}
