@@ -10,7 +10,6 @@
     "author": "Roshan Ravi <roshanravi10@gmail.com>",
     "license": "MIT",
     "dependencies": {
-        "com.uniclau.simplefile": "https://github.com/uniclau/SimpleFile.git",
         "cordova-android": "^6.2.3",
         "cordova-plugin-whitelist": "^1.3.2",
         "org.team4909.bluetooth": "../bluetooth-plugin"
@@ -18,8 +17,7 @@
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
-            "org.team4909.bluetooth": {},
-            "com.uniclau.simplefile": {}
+            "org.team4909.bluetooth": {}
         },
         "platforms": [
             "android"

@@ -19,7 +19,6 @@
         <allow-intent href="market:*" />
     </platform>
     <engine name="android" spec="^6.2.3" />
-    <plugin name="com.uniclau.simplefile" spec="https://github.com/uniclau/SimpleFile.git" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="org.team4909.bluetooth" spec="../bluetooth-plugin" />
 </widget>
