@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>The Green Alliance</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/theme-green.min.css" rel="stylesheet" />
+</head>
+
+<body class="theme-green">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html">THE GREEN ALLIANCE</a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="material-icons">home</i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/typography.html">
+                            <i class="material-icons">show_chart</i>
+                            <span>Graph</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/typography.html">
+                            <i class="material-icons">format_list_numbered</i>
+                            <span>Alliance Selection</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/typography.html">
+                            <i class="material-icons">schedule</i>
+                            <span>Match Schedule</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/typography.html">
+                            <i class="material-icons">mode_edit</i>
+                            <span>Scouting Input</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    The Green Alliance by <a href="http://team4909.org">Team 4909</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 0.1.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>DASHBOARD</h2>
+            </div>
+
+            <!-- Widgets -->
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="info-box bg-blue-grey">
+                        <div class="icon">
+                            <i class="material-icons">list</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">MATCH NUMBER</div>
+                            <div class="number">Q43</div>
+                        </div>
+                    </div>
+                    <div class="info-box bg-green">
+                        <div class="icon">
+                            <i class="material-icons">schedule</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">TIME</div>
+                            <div class="number">11:23PM</div>
+                        </div>
+                    </div>
+                    <div class="info-box bg-red">
+                        <div class="icon">
+                            <i class="material-icons">location_on</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ALLIANCE STATION</div>
+                            <div class="number">RED 3</div>
+                        </div>
+                    </div>
+                    <div class="info-box bg-amber">
+                        <div class="icon">
+                            <i class="material-icons">person</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ANALYZED TEAM</div>
+                            <div class="number">FRC 4909</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Task Info -->
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-green">
+                            <h2>PREDICTIVE ANALYSIS</h2>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-striped dashboard-task-infos">
+                                    <thead>
+                                        <th></th>
+                                        <th class="bg-red">Red Avg.</th>
+                                        <th class="bg-blue">Blue Avg.</th>
+                                        <th class="bg-red">Red Max</th>
+                                        <th class="bg-blue">Blue Max</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Auto. Gears</td>
+                                            <td class="bg-red">2.58</td>
+                                            <td>1.73</td>
+                                            <td class="bg-red">3.00</td>
+                                            <td>2.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teleop. Gears</td>
+                                            <td>8.42</td>
+                                            <td class="bg-blue">9.48</td>
+                                            <td>10.0</td>
+                                            <td class="bg-blue">11.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Climbs / Match</td>
+                                            <td>1.85</td>
+                                            <td class="bg-blue">2.35</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Climbs / Attempt</td>
+                                            <td class="bg-red">2.76</td>
+                                            <td>2.46</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>High Goal (kPa)</td>
+                                            <td class="bg-red">25</td>
+                                            <td>0</td>
+                                            <td class="bg-red">45</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Low Goal</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Score</td>
+                                            <td>150</td>
+                                            <td class="bg-blue">180</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+                <!-- Task Info -->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header bg-blue-grey">
+                            <h2>TEAM BREAKDOWN</h2>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-striped dashboard-task-infos">
+                                    <thead>
+                                        <th></th>
+                                        <th class="bg-red">FRC 2370</th>
+                                        <th class="bg-red">FRC 58</th>
+                                        <th class="bg-red">FRC 4909</th>
+                                        <th class="bg-blue">FRC 125</th>
+                                        <th class="bg-blue">FRC 3467</th>
+                                        <th class="bg-blue">FRC 5813</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Auto. Gears</td>
+                                            <td>0.86</td>
+                                            <td>0.94</td>
+                                            <td>0.78</td>
+                                            <td>0.91</td>
+                                            <td>0.82</td>
+                                            <td>0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teleop. Gears</td>
+                                            <td>2.74</td>
+                                            <td>3.05</td>
+                                            <td>2.63</td>
+                                            <td>3.45</td>
+                                            <td>3.27</td>
+                                            <td>2.76</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Climbs / Match</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Climbs / Attempt</td>
+                                        </tr>
+                                        <tr>
+                                            <td>High Goal (kPa)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Low Goal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Score</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="plugins/flot-charts/jquery.flot.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/index.js"></script>
+
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+</body>
+
+</html>

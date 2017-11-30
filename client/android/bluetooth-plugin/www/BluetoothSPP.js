@@ -7,7 +7,6 @@ var cache = {
     },
     get: function () {
         return this._cache.splice(0);
-
     }
 };
 
