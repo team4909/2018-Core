@@ -19,6 +19,8 @@
   "homepage": "https://github.com/FRCteam4909/TGA-Server-2018#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "colors": "^1.1.2",
+    "commander": "^2.12.2",
     "express": "^4.16.2",
     "mongodb": "^2.2.33"
   }

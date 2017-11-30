@@ -32,6 +32,16 @@
       "from": "bytes@3.0.0",
       "resolved": "https://registry.npmjs.org/bytes/-/bytes-3.0.0.tgz"
     },
+    "colors": {
+      "version": "1.1.2",
+      "from": "colors@latest",
+      "resolved": "https://registry.npmjs.org/colors/-/colors-1.1.2.tgz"
+    },
+    "commander": {
+      "version": "2.12.2",
+      "from": "commander@latest",
+      "resolved": "https://registry.npmjs.org/commander/-/commander-2.12.2.tgz"
+    },
     "content-disposition": {
       "version": "0.5.2",
       "from": "content-disposition@0.5.2",
@@ -193,7 +203,7 @@
     },
     "mongodb": {
       "version": "2.2.33",
-      "from": "mongodb@latest",
+      "from": "mongodb@>=2.2.33 <3.0.0",
       "resolved": "https://registry.npmjs.org/mongodb/-/mongodb-2.2.33.tgz"
     },
     "mongodb-core": {

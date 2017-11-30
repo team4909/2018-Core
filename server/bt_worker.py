@@ -3,14 +3,18 @@ import threading
 import requests
 import json
 
+# ***** CONFIG *****
+uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
+data_webhook = 'http://127.0.0.1:4909/new_msg'
+deviceCount = 6
+# ***** CONFIG *****
+
 server_sock = BluetoothSocket( RFCOMM )
 server_sock.bind(("", PORT_ANY))
 server_sock.listen(1)
 
 port = server_sock.getsockname()[1]
 
-# Unique UUID, Must Correspond w/ Tablets
-uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
 
 # Advertise Serial Port Profile
 advertise_service( server_sock, "TGA Bluetooth Server",
@@ -18,7 +22,6 @@ advertise_service( server_sock, "TGA Bluetooth Server",
                    service_classes = [ uuid, SERIAL_PORT_CLASS ],
                    profiles = [ SERIAL_PORT_PROFILE ])
 
-deviceCount = 6
 deviceQueue = [[] for i in range(deviceCount)]
 
 # Bluetooth Worker Thread
@@ -49,15 +52,15 @@ def bluetoothWorker(idx):
     server_sock.close()
 
 def connectionEstablished(idx, client_sock, client_info):
-    requests.post('http://thegreenalliance.local:4909/new_msg', json={
-        'msg_type': "New_Connection"
+    requests.post(data_webhook, json={
+        'msg_type': "New_Connection",
         'client_mac': client_info[0]
     })
     print(" - Device {}: Accepted connection from {}".format(idx, client_info[0]))
     
 def connectionTerminated(idx, client_sock, client_info):
-    requests.post('http://thegreenalliance.local:4909/new_msg', json={
-        'msg_type': "Lost_Connection"
+    requests.post(data_webhook, json={
+        'msg_type': "Lost_Connection",
         'client_mac': client_info[0]
     })
     print(" - Device {}: Lost connection to {}.".format(idx, client_info[0]))
@@ -69,7 +72,7 @@ def receiveDataFromTablets(idx, client_sock, client_info):
     try:
         json_data = json.loads(raw_data)
 
-        requests.post('http://thegreenalliance.local:4909/new_msg', json={
+        requests.post(data_webhook, json={
             'msg_type': "New_Match_Record",
             'client_mac': client_info[0],
             'msg_data': json_data
