@@ -1,0 +1,14 @@
+{
+    "_id": "_design/averages",
+    "views": {
+        "climb-score-average": {
+            "reduce": "function (keys, values, rereduce) {\n  return sum(values) / values.length;\n}",
+            "map": "function (doc) {\n  if(doc[\"team\"] && doc[\"event\"] && doc[\"climb-score\"]){\n    emit([doc[\"team\"], doc[\"event\"]], doc[\"climb-score\"]);\n  }\n}"
+        },
+        "gear-score-average": {
+            "reduce": "function (keys, values, rereduce) {\n  return sum(values) / values.length;\n}",
+            "map": "function (doc) {\n  if(doc[\"team\"] && doc[\"event\"] && doc[\"gear-score\"]){\n    emit([doc[\"team\"], doc[\"event\"]], doc[\"gear-score\"]);\n  }\n}"
+        }
+    },
+    "language": "javascript"
+}

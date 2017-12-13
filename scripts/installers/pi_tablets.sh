@@ -1,15 +1,8 @@
-# For Ethernet Tethering to Pi
-sudo apt-get --yes install avahi-daemon
-sudo update-rc.d avahi-daemon defaults
-
-# For Database Usage
-sudo apt-get --yes install mongodb
-
-# For Server (Node)
+# For Webhook Server (Node)
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-# For Server (Node Dependencies)
+# For Webhook Server (Node Dependencies)
 sudo npm install
 
 # For Python Bluetooth Dependencies
