@@ -11,7 +11,7 @@ The Green Alliance supports a variety of input device configurations to accomoda
 - 6 Kindle Fires Connected to Raspberry Pi
   - Connected via Bluetooth
 - 6 Laptops Connected to Raspberry Pi
-  - Connected via a Ethernet switch
+  - Connected via Ethernet switch
 
 In all of the above configurations, teams must have a laptop to effectively visualize the scouting data and fetching data from an offline Raspberry Pi requires the use of an Ethernet cable.
 
