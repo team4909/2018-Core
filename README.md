@@ -1,20 +1,21 @@
 # The Green Alliance
 Team 4909's 2018+ Scouting System.
 
-We built The Green Alliance to alleviate many of the difficulties regarding electronic scouting.
+We built The Green Alliance to alleviate many of the difficulties regarding scouting.
 
-## Prerequisites
-- Raspberry Pi 3 w/ 16GB SD Card
-- Data Input Devices (chose one configuration)
-  - Six Kindle Fire 7 Tablets
-  - Six Ethernet Capable Laptops with 8+ Port Switch
-  
-## Installation
-1) Install [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) on your Pi 3
-2) Run the respective `install.sh` files found in this repo
+## Input Device Configurations
+The Green Alliance supports a variety of input device configurations to accomodate the workflows of most teams, both offline and online. 
 
-## Debugging 
-To debug at event, it is easiest to configure SSH/VNC with [raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md). Once configured, you can connect any laptop to the Pi and SSH/VNC to `thegreenalliance.local`.
+- 6 Devices (Laptop/Tablet/Phone) Connected to Cloud Server
+  - Syncs directly to Cloud
+- 6 Kindle Fires Connected to Raspberry Pi
+  - Connected via Bluetooth
+- 6 Laptops Connected to Raspberry Pi
+  - Connected via a Ethernet switch
+
+In all of the above configurations, teams must have a laptop to effectively visualize the scouting data and fetching data from an offline Raspberry Pi requires the use of an Ethernet cable.
+
+Please note that all the configurations will auto-sync when any of the devices are connected to the internet.
 
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
