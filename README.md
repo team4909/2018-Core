@@ -81,8 +81,8 @@ To help scouts, TGA will reference third-party APIs to obtain team names, event 
 
 ## Data Transaction Mechanisms  
 - [ ] Event WiFi / Cellular Data (Any Device Types <-> Cloud))
-- [ ] Bluetooth SPP (Tablets <-> Pis)
-- [ ] Ethernet (Laptops <-> Pis)
+- [ ] Bluetooth SPP (Tablets <-> Pi)
+- [ ] Ethernet (Laptops <-> Pi)
 - [ ] 6LoWPAN (Pi <-> Pi)
 
 ## Bugs / Feature Requests
