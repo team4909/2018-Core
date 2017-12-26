@@ -15,13 +15,11 @@ The Green Alliance tries to accomodate the workflows of most teams using the fol
   - Connected via Ethernet switch
   
 ### Supported Analysis Device Configurations
-- Devices (Laptop/Tablet/Phone) Connected to Cloud Server
+- Device (Laptop/Tablet) Connected to Cloud Server
   - Connected via Event WiFi or Cellular
 - Laptop Connected to Raspberry Pi
   - Connected via Ethernet Switch
   - Required for Offline Data Analysis
-
-That said, a laptop is recommended for best results.
 
 ## Architecture
 ![](https://i.imgur.com/E78J5CI.png)
