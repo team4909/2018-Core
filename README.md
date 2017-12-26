@@ -7,24 +7,31 @@ The Green Alliance Scouting Platform has been designed from the ground up to ena
 The Green Alliance tries to accomodate the workflows of most teams using the following configurations.
 
 ### Input Device Configurations
-- 6 Devices (Laptop/Tablet/Phone) Connected to Cloud [CouchDB](https://github.com/apache/couchdb) Server
+- 6 Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
   - Syncs directly to Cloud
-- 6 [Kindle Fire](http://a.co/7w5EHTq)s Connected to [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+- 6 Kindle Fires Connected to Raspberry Pi 3
   - Connected via Bluetooth
-- 6 Laptops Connected to [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+- 6 Laptops Connected to Raspberry Pi 3
   - Connected via Ethernet switch
   
 ### Analysis Device Configurations
-- Device (Laptop/Tablet) Connected to Cloud [CouchDB](https://github.com/apache/couchdb) Server
+- Device (Laptop/Tablet) Connected to Cloud CouchDB Server
   - Connected via Event WiFi or Cellular
-- Laptop Connected to [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+- Laptop Connected to Raspberry Pi 3
   - Connected via Ethernet Switch
   - Required for Offline Data Analysis
+
+### Recommended Hardware
+- 6 [Kindle Fire](http://a.co/7w5EHTq) 
+- [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+- Laptop
+
+These recommendations are based upon what we found to be easiest for our scouts to use, while remaining cost effective.
 
 ## Platform Architecture
 ![](https://i.imgur.com/E78J5CI.png)
 
-### Syncing within TGA
+### Syncing within the TGA Platform
 All devices run either [CouchDB](https://github.com/apache/couchdb) or [PouchDB](https://github.com/pouchdb/pouchdb) to store and sync data. The Bluetooth transfer protocol uses the [pouchdb-replication-stream](https://github.com/pouchdb-community/pouchdb-replication-stream) project to tunnel the API calls between the Kindle Fires and the Raspberry Pi CouchDB server.
 
 When connected, devices will connect and sync data to reach [eventual consistency](http://docs.couchdb.org/en/2.1.1/intro/consistency.html).
@@ -50,6 +57,28 @@ To help scouts, TGA will reference third-party APIs to obtain team names, event 
 - [ ] Checkboxes
 - [ ] Radio Buttons
 - [ ] SVG Button Map
+
+## Analysis Portal Interface Design
+- [ ] Dashboard (Home)
+  - [ ] Upcoming Match Finder (Editable)
+    - [ ] Team #
+    - [ ] Match #
+  - [ ] Upcoming Match Metadata (API dependent)
+    - [ ] Time
+    - [ ] Alliance Station
+  - [ ] Alliance Breakdowns
+    - [ ] Average
+    - [ ] Maximum
+  - [ ] Pit Metrics
+    - [ ] Drivetrain (Wheels/Speeds)
+- [ ] Graph (Scatter Plot)
+  - [ ] Alliance Picklist Creation Utility
+- [ ] Team Averages
+  - [ ] Alliance Picklist Creation Utility
+- [ ] Match Schedule
+  - [ ] Fetched from TBA/FIRST using Event Key
+- [ ] Alliance Selection
+  - [ ] Locally Stored Picklist, Guides Alliance Selection Process
 
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
