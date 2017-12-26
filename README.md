@@ -6,7 +6,13 @@ The Green Alliance Scouting Platform has been designed from the ground up to ena
 ## Supported Devices
 The Green Alliance tries to accomodate the workflows of most teams using the following configurations.
 
-### Input Device Configurations
+### Recommended Hardware
+- 6x [Kindle Fire](http://a.co/7w5EHTq) 
+- [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+- Laptop
+
+### Supported Configurations
+#### Input Device
 - 6 Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
   - Syncs directly to Cloud
 - 6 Kindle Fires Connected to Raspberry Pi 3
@@ -14,20 +20,13 @@ The Green Alliance tries to accomodate the workflows of most teams using the fol
 - 6 Laptops Connected to Raspberry Pi 3
   - Connected via Ethernet switch
   
-### Analysis Device Configurations
+#### Analysis Device
 - Device (Laptop/Tablet) Connected to Cloud CouchDB Server
   - Connected via Event WiFi or Cellular
 - Laptop Connected to Raspberry Pi 3
   - Connected via Ethernet Switch
   - Required for Offline Data Analysis
-
-### Recommended Hardware
-- 6 [Kindle Fire](http://a.co/7w5EHTq) 
-- [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-- Laptop
-
-These recommendations are based upon what we found to be easiest for our scouts to use, while remaining cost effective.
-
+  
 ## Platform Architecture
 ![](https://i.imgur.com/E78J5CI.png)
 
