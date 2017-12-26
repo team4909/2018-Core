@@ -1,7 +1,7 @@
 # The Green Alliance
 Team 4909's 2018+ Scouting System.
 
-We built The Green Alliance to alleviate many of the difficulties regarding scouting.
+The Green Alliance Scouting Platform has been designed from the ground up to enable teams to share data beyond any event, district, or region. This influx of data is especially beneficial to teams at higher levels of play as they have more data to reference in strategic decisions and picking alliance partners. TGA consists of a cross-platform application and a community of FIRSTers willing to gather scouting data for the collective.
 
 ## Devices
 The Green Alliance tries to accomodate the workflows of most teams using the following configurations.
@@ -33,3 +33,6 @@ When connected, devices will connect and sync data to reach [eventual consistenc
 
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
+
+## Community
+[Join our Slack Group](https://join.slack.com/t/thegreenalliance/shared_invite/enQtMjc3NzUyNjIyNzUzLTdjYTI3NmE5MjJiNGQ3NjJjOWJhZjQzZmU5Y2ZlZWNiNzRiZGFkZThjMWZkZjAwNWVjMWNiZGVmYWQ2MzM0YzY)
