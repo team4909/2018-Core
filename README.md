@@ -12,12 +12,12 @@ The Green Alliance tries to accomodate the workflows of most teams using the fol
 - Laptop
 
 ### Supported Configurations
-#### Input Device
-- 6 Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
+#### Input Devices (Sets of 6)
+- Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
   - Syncs directly to Cloud
-- 6 Kindle Fires Connected to Raspberry Pi 3
+- Kindle Fires Connected to Raspberry Pi 3
   - Connected via Bluetooth
-- 6 Laptops Connected to Raspberry Pi 3
+- Laptops Connected to Raspberry Pi 3
   - Connected via Ethernet switch
   
 #### Analysis Device
