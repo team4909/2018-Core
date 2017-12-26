@@ -3,31 +3,53 @@ Team 4909's 2018+ Scouting System.
 
 The Green Alliance Scouting Platform has been designed from the ground up to enable teams to share data beyond any event, district, or region. This influx of data is especially beneficial to teams at higher levels of play as they have more data to reference in strategic decisions and picking alliance partners. TGA consists of a cross-platform application and a community of FIRSTers willing to gather scouting data for the collective.
 
-## Devices
+## Supported Devices
 The Green Alliance tries to accomodate the workflows of most teams using the following configurations.
 
-### Supported Input Device Configurations
-- 6 Devices (Laptop/Tablet/Phone) Connected to Cloud Server
+### Input Device Configurations
+- 6 Devices (Laptop/Tablet/Phone) Connected to Cloud [CouchDB](https://github.com/apache/couchdb) Server
   - Syncs directly to Cloud
-- 6 Kindle Fires Connected to Raspberry Pi
+- 6 [Kindle Fire](http://a.co/7w5EHTq)s Connected to [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
   - Connected via Bluetooth
-- 6 Laptops Connected to Raspberry Pi
+- 6 Laptops Connected to [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
   - Connected via Ethernet switch
   
-### Supported Analysis Device Configurations
-- Device (Laptop/Tablet) Connected to Cloud Server
+### Analysis Device Configurations
+- Device (Laptop/Tablet) Connected to Cloud [CouchDB](https://github.com/apache/couchdb) Server
   - Connected via Event WiFi or Cellular
-- Laptop Connected to Raspberry Pi
+- Laptop Connected to [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
   - Connected via Ethernet Switch
   - Required for Offline Data Analysis
 
-## Architecture
+## Platform Architecture
 ![](https://i.imgur.com/E78J5CI.png)
 
-### Syncing
+### Syncing within TGA
 All devices run either [CouchDB](https://github.com/apache/couchdb) or [PouchDB](https://github.com/pouchdb/pouchdb) to store and sync data. The Bluetooth transfer protocol uses the [pouchdb-replication-stream](https://github.com/pouchdb-community/pouchdb-replication-stream) project to tunnel the API calls between the Kindle Fires and the Raspberry Pi CouchDB server.
 
 When connected, devices will connect and sync data to reach [eventual consistency](http://docs.couchdb.org/en/2.1.1/intro/consistency.html).
+
+### Third-Party Data
+To help scouts, TGA will reference third-party APIs to obtain team names, event schedules and official match results using the [TBA API v3](https://github.com/fletch3555/tba-api-client-javascript) and [FMS Events API v2](https://frcevents2.docs.apiary.io/#). If internet access is not available or should circumstances change, manual override will also be supported.
+
+## Scout Input Interface Design
+### General Data Points
+- [ ] Match Data (can be sourced from TBA/FIRST APIs)
+  - [ ] Match Number 
+  - [ ] Team # Scouted
+- [ ] Scout Metadata
+  - [ ] Team # Scouting
+  - [ ] Scout Initials
+- [ ] Common Notes 
+  - [ ] Brownout
+  - [ ] Foul
+  - [ ] Red Card
+  - [ ] Yellow Card
+### Supported Game-Specific Data Entry Methods
+- [ ] Counter w/ Stepper Buttons
+- [ ] Checkboxes
+- [ ] Radio Buttons
+- [ ] SVG Button Map
 
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
