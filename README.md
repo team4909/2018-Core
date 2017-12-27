@@ -45,7 +45,7 @@ All data will be replicated locally in PouchDB or CouchDB, while the website wil
 ### Third-Party Data
 To help scouts, TGA will reference third-party APIs to obtain team names, event schedules and official match results using the [TBA API v3](https://github.com/fletch3555/tba-api-client-javascript) and [FMS Events API v2](https://frcevents2.docs.apiary.io/#). If internet access is not available or should circumstances change, manual override will also be supported.
 
-## Accessing the Raw Data
+### Accessing the Raw Data
 To leverage the data collected by TGA for your own analytics, you may __replicate__ from the TGA CouchDB server using your existing credentials. The data is stored in a [JSON](https://www.json.org) format.
 
 ## Scout Input Interface Design
