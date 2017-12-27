@@ -66,10 +66,12 @@ To help scouts, TGA will reference third-party APIs to obtain team names, event 
     - [ ] Time
     - [ ] Alliance Station
   - [ ] Alliance Breakdowns
-    - [ ] Average
-    - [ ] Maximum
+    - [ ] Averages
+    - [ ] Maximums
+  - [ ] Team Breakdowns
+    - [ ] Averages
   - [ ] Pit Metrics
-    - [ ] Drivetrain (Wheels/Speeds)
+    - [ ] Drivetrains (Wheels/Speeds)
 - [ ] Graph (Scatter Plot)
   - [ ] Alliance Picklist Creation Utility
 - [ ] Team Averages
