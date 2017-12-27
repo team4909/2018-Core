@@ -8,9 +8,7 @@ service hostname start
 sudo apt-get --yes install avahi-daemon
 sudo update-rc.d avahi-daemon defaults
 
-# For Database Usage
+# For Database Installation
 echo "deb https://apache.bintray.com/couchdb-deb stretch main" | sudo tee -a /etc/apt/sources.list
-
 curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add -
-
 sudo apt-get update && sudo apt-get install couchdb
