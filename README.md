@@ -94,7 +94,7 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
   - [ ] Locally Stored Picklist, Guides Alliance Selection Process
 
 ## Data Transaction Mechanisms  
-- [ ] Event WiFi / Cellular Data (Device <-> Cloud))
+- [ ] Event WiFi / Cellular Data (Device <-> Cloud)
 - [ ] Bluetooth SPP (Tablets <-> Pi)
 - [ ] Ethernet (Laptops <-> Pi)
 - [ ] 6LoWPAN (Pi <-> Pi)
