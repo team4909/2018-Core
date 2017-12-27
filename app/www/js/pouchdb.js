@@ -1,4 +1,4 @@
-const db = new PouchDB(module.exports.internal_db);
+const db = new PouchDB(config.internal_db);
 
 const db_utils = {
     syncDatabase: function (database_credentials) {
@@ -17,9 +17,9 @@ const db_utils = {
     }
 };
 
-db_utils.syncDatabase(module.exports.local_db);
+db_utils.syncDatabase(config.local_db);
 
-const remote_db = module.exports.remote_db;
+const remote_db = config.remote_db;
 remote_db.username = localStorage.getItem('username');
 remote_db.password = localStorage.getItem('password');
 
