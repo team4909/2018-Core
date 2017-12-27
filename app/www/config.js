@@ -14,14 +14,7 @@ const config = {
 
     remote_db: {
         host: "tga-cloud.team4909.com",
-        port: "5984",
-
-        console_colors: {
-            general: 'green',
-            webhook: 'cyan',
-            bt_worker: 'white',
-            error: 'red'
-        }
+        port: "5984"
     }
 };
 
