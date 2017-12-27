@@ -25,4 +25,4 @@ const config = {
     }
 };
 
-module.exports = config;
+if (module) module.exports = config;
