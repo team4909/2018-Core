@@ -91,5 +91,5 @@ To help scouts, TGA will reference third-party APIs to obtain team names, event 
 Please create a GitHub issue for any bugs or new feature requests.
 
 ## Community
-[Contribute to TGA](Contributing.md) 
-[Join our Slack Group](https://join.slack.com/t/thegreenalliance/shared_invite/enQtMjc3NzUyNjIyNzUzLTdjYTI3NmE5MjJiNGQ3NjJjOWJhZjQzZmU5Y2ZlZWNiNzRiZGFkZThjMWZkZjAwNWVjMWNiZGVmYWQ2MzM0YzY)
+- [Contribute to TGA](Contributing.md) 
+- [Join our Slack Group](https://join.slack.com/t/thegreenalliance/shared_invite/enQtMjc3NzUyNjIyNzUzLTdjYTI3NmE5MjJiNGQ3NjJjOWJhZjQzZmU5Y2ZlZWNiNzRiZGFkZThjMWZkZjAwNWVjMWNiZGVmYWQ2MzM0YzY)
