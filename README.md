@@ -80,7 +80,7 @@ To help scouts, TGA will reference third-party APIs to obtain team names, event 
   - [ ] Locally Stored Picklist, Guides Alliance Selection Process
 
 ## Data Transaction Mechanisms  
-- [ ] Event WiFi / Cellular Data (Any Device Types <-> Cloud))
+- [ ] Event WiFi / Cellular Data (Device <-> Cloud))
 - [ ] Bluetooth SPP (Tablets <-> Pi)
 - [ ] Ethernet (Laptops <-> Pi)
 - [ ] 6LoWPAN (Pi <-> Pi)
