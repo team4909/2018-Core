@@ -35,8 +35,18 @@ All devices run either [CouchDB](https://github.com/apache/couchdb) or [PouchDB]
 
 When connected, devices will connect and sync data to reach [eventual consistency](http://docs.couchdb.org/en/2.1.1/intro/consistency.html).
 
+### Hosted Infrastructure
+- Web Hosting via [GitHub Pages](https://pages.github.com)
+- CouchDB on Azure VM
+
+### Offline Usage
+All data will be replicated locally in PouchDB or CouchDB, while the website will be cached for offline access using HTML5 [AppCache](https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache) and [ServiceWorkers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers).
+
 ### Third-Party Data
 To help scouts, TGA will reference third-party APIs to obtain team names, event schedules and official match results using the [TBA API v3](https://github.com/fletch3555/tba-api-client-javascript) and [FMS Events API v2](https://frcevents2.docs.apiary.io/#). If internet access is not available or should circumstances change, manual override will also be supported.
+
+## Accessing the Raw Data
+To leverage the data collected by TGA for your own analytics, you may __replicate__ from the TGA CouchDB server using your existing credentials. The data is stored in a [JSON](https://www.json.org) format.
 
 ## Scout Input Interface Design
 ### General Data Points
