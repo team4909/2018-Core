@@ -25,4 +25,4 @@ const config = {
     }
 };
 
-if (module) module.exports = config;
+if (typeof module != "undefined") module.exports = config;
