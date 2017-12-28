@@ -52,8 +52,9 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 
 ## Scout Input Interface Design
 ### General Data Points
-- [ ] Match Data (can be sourced from TBA/FIRST APIs)
-  - [ ] Match Number 
+- [ ] Match Data (can be sourced from TBA/FIRST APIs or manual)
+  - [ ] Match Number
+    - Prefixed with Q(Qualification), QF(Quarterfinal), SF(Semifinal), F(Final), or R(Replay)
   - [ ] Team # Scouted
 - [ ] Scout Metadata
   - [ ] Team # Scouting
