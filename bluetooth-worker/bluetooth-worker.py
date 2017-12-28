@@ -1,4 +1,4 @@
-from bluetooth import *
+from bluetooth import BluetoothSocket
 import threading
 import requests
 
@@ -38,7 +38,7 @@ def bluetoothWorker(idx):
             receiveDataFromTablets(idx, client_sock, client_info)
             
             # Send Data to Tablets
-            sendDataToTablets(idx, client_sock, client_info)
+            sendDataToTablets(idx, client_sock)
         except IOError:
             # Connection Failed
             connectionTerminated(idx, client_sock, client_info)
@@ -64,7 +64,7 @@ def receiveDataFromTablets(idx, client_sock, client_info):
         print("Device {}: Unable to Process JSON Data from {}".format(idx, client_info[0]))
     
 # Send New Data to BT Worker Thread
-def sendDataToTablets(idx, client_sock, client_info):
+def sendDataToTablets(idx, client_sock):
     for message in deviceQueue[idx][:]:
         client_sock.send(message)
         deviceQueue[idx].remove(message)
