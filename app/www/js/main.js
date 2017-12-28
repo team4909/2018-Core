@@ -48,20 +48,16 @@ $(function () {
     function getMatchSimple(event_match_key, callback) {
         matchApi.getMatchSimple(eventMatchKeyForYear(event_match_key), {
 
-        }, (err, metadata, response) => {
+        }, (err, metadata) => {
             if (!exists(err)) {
                 if (exists(metadata.predicted_time)) metadata.time = metadata.predicted_time;
-
-                function mapTeamKeys(value, index) {
-                    return value.split("frc")[1];
-                }
 
                 callback({
                     "event_match_key": metadata.key.slice(4).replace("_", " ").toUpperCase(),
                     "time": moment(metadata.time).format("hh:mm a").toUpperCase(),
                     "alliances": {
-                        "blue": $.map(metadata.alliances.blue.team_keys, mapTeamKeys),
-                        "red": $.map(metadata.alliances.red.team_keys, mapTeamKeys)
+                        "blue": $.map(metadata.alliances.blue.team_keys, mapTeamKeyToTeamNum),
+                        "red": $.map(metadata.alliances.red.team_keys, mapTeamKeyToTeamNum)
                     }
                 }, err);
             } else {
@@ -72,6 +68,10 @@ $(function () {
 
     function eventMatchKeyForYear(event_match_key) {
         return config.season + event_match_key.replace(" ", "_").toLowerCase();
+    }
+
+    function mapTeamKeyToTeamNum(value) {
+        return value.split("frc")[1];
     }
 
     function exists(object) {
