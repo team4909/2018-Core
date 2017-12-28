@@ -18,6 +18,187 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="libs/adminbsb/theme-green.min.css" rel="stylesheet" />
+
+    <script id="dashboard-template" type="text/x-handlebars-template">
+        <div class="block-header">
+            <h2>DASHBOARD</h2>
+        </div>
+
+        <!-- Widgets -->
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="info-box bg-blue-grey">
+                    <div class="icon">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">ANALYZED TEAM</div>
+                        <div class="number" contenteditable="true">4909</div>
+                    </div>
+                </div>
+                <div class="info-box bg-green">
+                    <div class="icon">
+                        <i class="material-icons">list</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">MATCH NUMBER</div>
+                        <div class="number" contenteditable="true">Q43</div>
+                    </div>
+                </div>
+                <div class="info-box bg-amber">
+                    <div class="icon">
+                        <i class="material-icons">schedule</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">TIME</div>
+                        <div class="number">11:23PM</div>
+                    </div>
+                </div>
+                <div class="info-box bg-red">
+                    <div class="icon">
+                        <i class="material-icons">location_on</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">ALLIANCE STATION</div>
+                        <div class="number">RED 3</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Task Info -->
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header bg-green">
+                        <h2>PREDICTIVE ANALYSIS</h2>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-striped dashboard-task-infos">
+                                <thead>
+                                    <th></th>
+                                    <th class="bg-red">Red Avg.</th>
+                                    <th class="bg-blue">Blue Avg.</th>
+                                    <th class="bg-red">Red Max</th>
+                                    <th class="bg-blue">Blue Max</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Auto. Gears</td>
+                                        <td class="bg-red">2.58</td>
+                                        <td>1.73</td>
+                                        <td class="bg-red">3.00</td>
+                                        <td>2.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Teleop. Gears</td>
+                                        <td>8.42</td>
+                                        <td class="bg-blue">9.48</td>
+                                        <td>10.0</td>
+                                        <td class="bg-blue">11.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Climbs / Match</td>
+                                        <td>1.85</td>
+                                        <td class="bg-blue">2.35</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Climbs / Attempt</td>
+                                        <td class="bg-red">2.76</td>
+                                        <td>2.46</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High Goal (kPa)</td>
+                                        <td class="bg-red">25</td>
+                                        <td>0</td>
+                                        <td class="bg-red">45</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low Goal</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Score</td>
+                                        <td>150</td>
+                                        <td class="bg-blue">180</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Task Info -->
+            <!-- Task Info -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header bg-blue-grey">
+                        <h2>TEAM BREAKDOWN</h2>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-striped dashboard-task-infos">
+                                <thead>
+                                    <th></th>
+                                    <th class="bg-red">FRC 2370</th>
+                                    <th class="bg-red">FRC 58</th>
+                                    <th class="bg-red">FRC 4909</th>
+                                    <th class="bg-blue">FRC 125</th>
+                                    <th class="bg-blue">FRC 3467</th>
+                                    <th class="bg-blue">FRC 5813</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Auto. Gears</td>
+                                        <td>0.86</td>
+                                        <td>0.94</td>
+                                        <td>0.78</td>
+                                        <td>0.91</td>
+                                        <td>0.82</td>
+                                        <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Teleop. Gears</td>
+                                        <td>2.74</td>
+                                        <td>3.05</td>
+                                        <td>2.63</td>
+                                        <td>3.45</td>
+                                        <td>3.27</td>
+                                        <td>2.76</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Climbs / Match</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Climbs / Attempt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High Goal (kPa)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low Goal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Score</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Task Info -->
+
+        </div>
+    </script>
 </head>
 
 <body class="theme-green">
@@ -102,185 +283,8 @@
     </section>
 
     <section class="content">
-        <div class="container-fluid" id="">
-            <div class="block-header">
-                <h2>DASHBOARD</h2>
-            </div>
+        <div class="container-fluid main">
 
-            <!-- Widgets -->
-            <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div class="info-box bg-blue-grey">
-                        <div class="icon">
-                            <i class="material-icons">person</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">ANALYZED TEAM</div>
-                            <div class="number" contenteditable="true">4909</div>
-                        </div>
-                    </div>
-                    <div class="info-box bg-green">
-                        <div class="icon">
-                            <i class="material-icons">list</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">MATCH NUMBER</div>
-                            <div class="number" contenteditable="true">Q43</div>
-                        </div>
-                    </div>
-                    <div class="info-box bg-amber">
-                        <div class="icon">
-                            <i class="material-icons">schedule</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">TIME</div>
-                            <div class="number">11:23PM</div>
-                        </div>
-                    </div>
-                    <div class="info-box bg-red">
-                        <div class="icon">
-                            <i class="material-icons">location_on</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">ALLIANCE STATION</div>
-                            <div class="number">RED 3</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Task Info -->
-                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-green">
-                            <h2>PREDICTIVE ANALYSIS</h2>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-striped dashboard-task-infos">
-                                    <thead>
-                                        <th></th>
-                                        <th class="bg-red">Red Avg.</th>
-                                        <th class="bg-blue">Blue Avg.</th>
-                                        <th class="bg-red">Red Max</th>
-                                        <th class="bg-blue">Blue Max</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Auto. Gears</td>
-                                            <td class="bg-red">2.58</td>
-                                            <td>1.73</td>
-                                            <td class="bg-red">3.00</td>
-                                            <td>2.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Teleop. Gears</td>
-                                            <td>8.42</td>
-                                            <td class="bg-blue">9.48</td>
-                                            <td>10.0</td>
-                                            <td class="bg-blue">11.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Climbs / Match</td>
-                                            <td>1.85</td>
-                                            <td class="bg-blue">2.35</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Climbs / Attempt</td>
-                                            <td class="bg-red">2.76</td>
-                                            <td>2.46</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                        </tr>
-                                        <tr>
-                                            <td>High Goal (kPa)</td>
-                                            <td class="bg-red">25</td>
-                                            <td>0</td>
-                                            <td class="bg-red">45</td>
-                                            <td>0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Low Goal</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Score</td>
-                                            <td>150</td>
-                                            <td class="bg-blue">180</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Task Info -->
-                <!-- Task Info -->
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-blue-grey">
-                            <h2>TEAM BREAKDOWN</h2>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-striped dashboard-task-infos">
-                                    <thead>
-                                        <th></th>
-                                        <th class="bg-red">FRC 2370</th>
-                                        <th class="bg-red">FRC 58</th>
-                                        <th class="bg-red">FRC 4909</th>
-                                        <th class="bg-blue">FRC 125</th>
-                                        <th class="bg-blue">FRC 3467</th>
-                                        <th class="bg-blue">FRC 5813</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Auto. Gears</td>
-                                            <td>0.86</td>
-                                            <td>0.94</td>
-                                            <td>0.78</td>
-                                            <td>0.91</td>
-                                            <td>0.82</td>
-                                            <td>0.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Teleop. Gears</td>
-                                            <td>2.74</td>
-                                            <td>3.05</td>
-                                            <td>2.63</td>
-                                            <td>3.45</td>
-                                            <td>3.27</td>
-                                            <td>2.76</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Climbs / Match</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Climbs / Attempt</td>
-                                        </tr>
-                                        <tr>
-                                            <td>High Goal (kPa)</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Low Goal</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Score</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Task Info -->
-
-            </div>
         </div>
     </section>
 
@@ -288,6 +292,7 @@
     <script src="libs/jquery/jquery.min.js"></script>
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script src="libs/pouchdb/pouchdb.min.js"></script>
+    <script src="libs/handlebars/handlebars-v4.0.11.js"></script>
 
     <!-- Config -->
     <script src="config.js"></script>
