@@ -36,7 +36,6 @@ $(function () {
                     if (object == team_number) template_config.alliance_station = "Blue " + (index + 1);
                 });
 
-
                 // TODO: Compute Stats
                 console.dir(template_config);
 
