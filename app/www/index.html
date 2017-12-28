@@ -19,6 +19,8 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="libs/adminbsb/theme-green.min.css" rel="stylesheet" />
 
+    <link href="css/main.css" rel="stylesheet" />
+
     <script id="dashboard-template" type="text/x-handlebars-template">
         <div class="block-header">
             <h2>DASHBOARD</h2>
@@ -41,8 +43,8 @@
                         <i class="material-icons">list</i>
                     </div>
                     <div class="content">
-                        <div class="text">MATCH NUMBER</div>
-                        <div class="number" contenteditable="true">Q43</div>
+                        <div class="text">EVENT/MATCH KEY</div>
+                        <div class="number" contenteditable="true">MAREA SF1M3</div>
                     </div>
                 </div>
                 <div class="info-box bg-amber">
@@ -51,7 +53,7 @@
                     </div>
                     <div class="content">
                         <div class="text">TIME</div>
-                        <div class="number">11:23PM</div>
+                        <div class="number">11:23 AM</div>
                     </div>
                 </div>
                 <div class="info-box bg-red">
@@ -88,48 +90,6 @@
                                         <td class="bg-red">3.00</td>
                                         <td>2.00</td>
                                     </tr>
-                                    <tr>
-                                        <td>Teleop. Gears</td>
-                                        <td>8.42</td>
-                                        <td class="bg-blue">9.48</td>
-                                        <td>10.0</td>
-                                        <td class="bg-blue">11.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Climbs / Match</td>
-                                        <td>1.85</td>
-                                        <td class="bg-blue">2.35</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Climbs / Attempt</td>
-                                        <td class="bg-red">2.76</td>
-                                        <td>2.46</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>High Goal (kPa)</td>
-                                        <td class="bg-red">25</td>
-                                        <td>0</td>
-                                        <td class="bg-red">45</td>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Low Goal</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Score</td>
-                                        <td>150</td>
-                                        <td class="bg-blue">180</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -164,30 +124,6 @@
                                         <td>0.91</td>
                                         <td>0.82</td>
                                         <td>0.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Teleop. Gears</td>
-                                        <td>2.74</td>
-                                        <td>3.05</td>
-                                        <td>2.63</td>
-                                        <td>3.45</td>
-                                        <td>3.27</td>
-                                        <td>2.76</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Climbs / Match</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Climbs / Attempt</td>
-                                    </tr>
-                                    <tr>
-                                        <td>High Goal (kPa)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Low Goal</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Score</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -293,6 +229,8 @@
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script src="libs/pouchdb/pouchdb.min.js"></script>
     <script src="libs/handlebars/handlebars-v4.0.11.js"></script>
+    <script src="libs/moment.js/moment.js"></script>
+    <script src="libs/tba-api/tba-api.js"></script>
 
     <!-- Config -->
     <script src="config.js"></script>

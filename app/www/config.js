@@ -1,4 +1,6 @@
 const config = {
+    season: 2017,
+
     portal_port: 80,
     webhook_port: 4909,
 
