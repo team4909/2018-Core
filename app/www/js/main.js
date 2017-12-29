@@ -48,16 +48,47 @@ $(function () {
                             templates.dashboard.config.metadata.alliances.blue.push(object.textContent);
                     });
 
-                    console.dir(templates.dashboard.config);
-
                     updateAnalysis();
                 });
+            }
+        },
+        schedule: {
+            template: Handlebars.compile($("#schedule-template").html()),
+            config: {
+                "event_key": "2017marea"
+            },
+            init: () => {
+                templates.schedule.redraw();
+            },
+            redraw: () => {
+                if (navigator.onLine)
+                    matchApi.getEventMatchesSimple(templates.schedule.config.event_key, {}, (err, data) => {
+                        matches = data.sort((a, b) => {
+                            return a.time - b.time;
+                        }).map((datum) => {
+                            return {
+                                "match": datum.key.split("_")[1].toUpperCase(),
+                                "time": readableDate(datum.time),
+                                "alliances": mapTbaAlliances(datum.alliances)
+                            };
+                        });
+
+                        const config = {
+                            per_alliance: matches[0].alliances.red.length,
+                            matches: matches
+                        };
+
+                        templates.container.html(templates.schedule.template(config));
+                    });
+                else
+                    alert("Can't view Schedule Offline");
             }
         }
     };
 
-    // Initialize Templates
-    templates.dashboard.init();
+    //templates.dashboard.init();
+
+    templates.schedule.init();
 
     function updateNextMatch() {
         // TODO: Find Next Match
@@ -104,11 +135,8 @@ $(function () {
 
                 callback({
                     "event_match_key": metadata.key.slice(4).replace("_", " ").toUpperCase(),
-                    "time": moment(metadata.time).format("hh:mm a").toUpperCase(),
-                    "alliances": {
-                        "blue": $.map(metadata.alliances.blue.team_keys, mapTeamKeyToTeamNum),
-                        "red": $.map(metadata.alliances.red.team_keys, mapTeamKeyToTeamNum)
-                    }
+                    "time": readableDate(metadata.time),
+                    "alliances": mapTbaAlliances(metadata.alliances)
                 }, err);
             } else {
                 callback(undefined, err);
@@ -116,8 +144,19 @@ $(function () {
         });
     }
 
+    function readableDate(tbaTimestamp) {
+        return moment(tbaTimestamp * 1000).format("hh:mm a").toUpperCase();
+    }
+
     function eventMatchKeyForYear(event_match_key) {
         return config.season + event_match_key.replace(" ", "_").toLowerCase();
+    }
+
+    function mapTbaAlliances(alliances) {
+        return {
+            "blue": $.map(alliances.blue.team_keys, mapTeamKeyToTeamNum),
+            "red": $.map(alliances.red.team_keys, mapTeamKeyToTeamNum)
+        };
     }
 
     function mapTeamKeyToTeamNum(value) {
