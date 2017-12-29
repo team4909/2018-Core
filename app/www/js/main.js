@@ -33,8 +33,22 @@ $(function () {
                     updateNextMatch();
                 });
 
-                $(".dashboard_team_number").on("blur", () => {
-                    // TODO: Update Team Numbers
+                $(".dashboard-team-number").on("blur", () => {
+                    templates.dashboard.config.metadata.alliances = {
+                        blue: [],
+                        red: []
+                    };
+
+                    const per_alliance = $(".dashboard-team-number").length / 2;
+
+                    $(".dashboard-team-number").each((index, object) => {
+                        if (index < per_alliance)
+                            templates.dashboard.config.metadata.alliances.red.push(object.textContent);
+                        else
+                            templates.dashboard.config.metadata.alliances.blue.push(object.textContent);
+                    });
+
+                    console.dir(templates.dashboard.config);
 
                     updateAnalysis();
                 });
