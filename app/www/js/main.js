@@ -5,55 +5,86 @@ $(function () {
     const matchApi = new tba.MatchApi();
 
     const templates = {
-        dashboard: Handlebars.compile($("#dashboard-template").html())
+        container: $(".main"),
+        dashboard: {
+            template: Handlebars.compile($("#dashboard-template").html()),
+            config: {
+                "team_number": "4909",
+                "metadata": {
+                    "event_match_key": "MAREA SF2M3",
+                    "alliances": {
+                        blue: ["0000", "0000", "0000"],
+                        red: ["0000", "0000", "0000"]
+                    }
+                }
+            },
+            redraw: () => {
+                templates.container.html(templates.dashboard.template(templates.dashboard.config));
+
+                $("#team_number").on("blur", (event) => {
+                    templates.dashboard.config.team_number = $(event.target).text();
+                    updateNextMatch();
+                });
+
+                $("#match_key").on("blur", (event) => {
+                    templates.dashboard.config.metadata.event_match_key = $(event.target).text();
+                    updateMetadata();
+                });
+
+                $(".dashboard_team_number").on("blur", (event) => {
+
+
+                    updateStatistics();
+                });
+            }
+        }
     };
 
-    displayDashboard("1071", "MAREAf_SF1M1", {
-        blue: ["0000", "0000", "0000"],
-        red: ["0000", "0000", "0000"]
-    });
+    // Initialize Templates
+    templates.dashboard.redraw();
 
-    function displayDashboard(team_number, backup_event_match_key, backup_alliances) {
-        function getNextMatchKey(team_number, callback) {
-            callback(undefined, "Unimplemented Endpoint");
-        }
+    updateNextMatch();
 
-        getNextMatchKey(team_number, (event_match_key, err) => {
-            getMatchSimple(!exists(err) ? event_match_key : backup_event_match_key, (match_metadata, err) => {
-                const template_config = {
-                    "team_number": team_number,
-                    "metadata": !exists(err) ? match_metadata : {
-                        "event_match_key": backup_event_match_key,
-                        "alliances": backup_alliances
-                    }
-                };
+    function updateNextMatch() {
+        // templates.dashboard.config.metadata.event_match_key = "MAREA Q2";
+        updateMetadata();
+    }
 
-                template_config.metadata.alliances.red.forEach((object, index) => {
-                    if (object == team_number) {
-                        template_config.alliance_color = "red";
-                        template_config.alliance_station = "Red " + (index + 1);
-                    }
-                });
+    function updateMetadata() {
+        getMatchSimple(templates.dashboard.config.metadata.event_match_key, (match_metadata, err) => {
+            templates.dashboard.config.metadata = undefined;
 
-                template_config.metadata.alliances.blue.forEach((object, index) => {
-                    if (object == team_number) {
-                        template_config.alliance_color = "blue";
-                        template_config.alliance_station = "Blue " + (index + 1);
-                    }
-                });
+            if (!exists(err)) {
+                templates.dashboard.config.metadata = match_metadata;
+            } else {
+                // Manual Team Entry
+            }
 
-                // TODO: Compute Stats
-                console.dir(template_config);
-
-                $(".main").html(templates.dashboard(template_config));
+            templates.dashboard.config.metadata.alliances.red.forEach((object, index) => {
+                if (object == templates.dashboard.config.team_number) {
+                    templates.dashboard.config.metadata.alliance_color = "red";
+                    templates.dashboard.config.metadata.alliance_station = "Red " + (index + 1);
+                }
             });
+
+            templates.dashboard.config.metadata.alliances.blue.forEach((object, index) => {
+                if (object == templates.dashboard.config.team_number) {
+                    templates.dashboard.config.metadata.alliance_color = "blue";
+                    templates.dashboard.config.metadata.alliance_station = "Blue " + (index + 1);
+                }
+            });
+
+            updateStatistics();
         });
     }
 
-    function getMatchSimple(event_match_key, callback) {
-        matchApi.getMatchSimple(eventMatchKeyForYear(event_match_key), {
+    function updateStatistics() {
 
-        }, (err, metadata) => {
+        templates.dashboard.redraw();
+    }
+
+    function getMatchSimple(event_match_key, callback) {
+        matchApi.getMatchSimple(eventMatchKeyForYear(event_match_key), {}, (err, metadata) => {
             if (!exists(err)) {
                 if (exists(metadata.predicted_time)) metadata.time = metadata.predicted_time;
 

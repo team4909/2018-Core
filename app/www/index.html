@@ -35,7 +35,7 @@
                     </div>
                     <div class="content">
                         <div class="text">ANALYZED TEAM</div>
-                        <div class="number" contenteditable="true">{{team_number}}</div>
+                        <div class="number" id="team_number" contenteditable="true">{{team_number}}</div>
                     </div>
                 </div>
                 <div class="info-box bg-green">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="content">
                         <div class="text">EVENT/MATCH KEY</div>
-                        <div class="number" contenteditable="true">{{metadata.event_match_key}}</div>
+                        <div class="number" id="match_key" contenteditable="true">{{metadata.event_match_key}}</div>
                     </div>
                 </div>
                 {{#if metadata.time}}
@@ -57,14 +57,14 @@
                         <div class="number">{{metadata.time}}</div>
                     </div>
                 </div>
-                {{/if}} {{#if alliance_station}}
-                <div class="info-box bg-{{alliance_color}}">
+                {{/if}} {{#if metadata.alliance_station}}
+                <div class="info-box bg-{{metadata.alliance_color}}">
                     <div class="icon">
                         <i class="material-icons">location_on</i>
                     </div>
                     <div class="content">
                         <div class="text">ALLIANCE STATION</div>
-                        <div class="number">{{alliance_station}}</div>
+                        <div class="number">{{metadata.alliance_station}}</div>
                     </div>
                 </div>
                 {{/if}}
