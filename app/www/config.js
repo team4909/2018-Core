@@ -5,8 +5,7 @@ const config = {
     webhook_port: 4909,
 
     database: {
-        matches: "tga-matches-testing",
-        schedule: "tga-schedule-testing"
+        matches: "tga-matches-2018"
     },
 
     local_db: {
