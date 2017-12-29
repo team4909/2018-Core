@@ -76,12 +76,13 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 
 ## Analysis Portal Interface Design
 - [ ] Dashboard (Home)
-  - [ ] Upcoming Match Finder (Editable)
-    - [ ] Team #
-    - [ ] Match #
-  - [ ] Upcoming Match Metadata (API dependent)
-    - [ ] Time
-    - [ ] Alliance Station
+  - [X] Upcoming Match Finder (Editable)
+    - [X] Team #
+  - [X] Upcoming Match Metadata (API Dependent)
+    - [X] Match #
+    - [X] Time
+  - [X] Upcoming Match Metadata (API Independent)
+    - [X] Alliance Station
   - [ ] Alliance Breakdowns
     - [ ] Averages
     - [ ] Maximums
@@ -99,7 +100,7 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
   - [ ] Locally Stored Picklist, Guides Alliance Selection Process
 
 ## Data Transaction Mechanisms  
-- [ ] Event WiFi / Cellular Data (Device <-> Cloud)
+- [X] Event WiFi / Cellular Data (Device <-> Cloud)
 - [ ] Bluetooth SPP (Tablets <-> Pi)
 - [ ] Ethernet (Laptops <-> Pi)
 - [ ] 6LoWPAN (Pi <-> Pi)
