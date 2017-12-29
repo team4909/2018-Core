@@ -118,5 +118,5 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 Please create a GitHub issue for any bugs or new feature requests.
 
 ## Community
-- [Contribute to TGA](Contributing.md) 
+- [Contribute to TGA](CONTRIBUTING.md) 
 - [Join our Slack Group](https://join.slack.com/t/thegreenalliance/shared_invite/enQtMjc3NzUyNjIyNzUzLTdjYTI3NmE5MjJiNGQ3NjJjOWJhZjQzZmU5Y2ZlZWNiNzRiZGFkZThjMWZkZjAwNWVjMWNiZGVmYWQ2MzM0YzY)
