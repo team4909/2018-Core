@@ -91,8 +91,6 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
     - [ ] Maximums
   - [ ] Team Breakdowns
     - [ ] Averages
-  - [ ] Pit Metrics
-    - [ ] Drivetrains (Wheels/Speeds)
 - [ ] Team Averages
   - [ ] Alliance Picklist Creation Utility
 - [ ] Scouting Input
@@ -103,12 +101,14 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 - [ ] Alliance Selection
   - [ ] Locally Stored Picklist, Guides Alliance Selection Process
 - [ ] Match Schedule
-  - [ ] Fetched from TBA/FIRST using Event Key
+  - [X] Fetched from TBA/FIRST using Event Key
+- [ ] Pit Scouting
+  - [ ] Drivetrains (Wheels/Speeds)
 
 ## Data Transaction Mechanisms  
 - [X] Event WiFi / Cellular Data (Device <-> Cloud)
 - [ ] Bluetooth SPP (Tablets <-> Pi)
-- [ ] Ethernet (Laptops <-> Pi)
+- [X] Ethernet (Laptops <-> Pi)
 <hr>
 
 - [ ] 6LoWPAN (Pi <-> Pi)
