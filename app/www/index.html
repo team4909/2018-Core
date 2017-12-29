@@ -47,6 +47,7 @@
                         <div class="number" contenteditable="true">{{metadata.event_match_key}}</div>
                     </div>
                 </div>
+                {{#if metadata.time}}
                 <div class="info-box bg-amber">
                     <div class="icon">
                         <i class="material-icons">schedule</i>
@@ -56,6 +57,7 @@
                         <div class="number">{{metadata.time}}</div>
                     </div>
                 </div>
+                {{/if}} {{#if alliance_station}}
                 <div class="info-box bg-{{alliance_color}}">
                     <div class="icon">
                         <i class="material-icons">location_on</i>
@@ -65,6 +67,7 @@
                         <div class="number">{{alliance_station}}</div>
                     </div>
                 </div>
+                {{/if}}
             </div>
             <!-- Task Info -->
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
@@ -109,9 +112,9 @@
                                 <thead>
                                     <th></th>
                                     {{#each metadata.alliances.red}}
-                                    <th class="bg-red">FRC {{this}}</th>
+                                    <th class="bg-red">FRC <span class="dashboard-team-number">{{this}}</span></th>
                                     {{/each}} {{#each metadata.alliances.blue}}
-                                    <th class="bg-blue">FRC {{this}}</th>
+                                    <th class="bg-blue">FRC <span class="dashboard-team-number">{{this}}</span></th>
                                     {{/each}}
                                 </thead>
                                 <tbody>
@@ -131,7 +134,6 @@
                 </div>
             </div>
             <!-- #END# Task Info -->
-
         </div>
     </script>
 </head>
