@@ -35,7 +35,7 @@
                     </div>
                     <div class="content">
                         <div class="text">ANALYZED TEAM</div>
-                        <div class="number" contenteditable="true">4909</div>
+                        <div class="number" contenteditable="true">{{team_number}}</div>
                     </div>
                 </div>
                 <div class="info-box bg-green">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="content">
                         <div class="text">EVENT/MATCH KEY</div>
-                        <div class="number" contenteditable="true">MAREA SF1M3</div>
+                        <div class="number" contenteditable="true">{{metadata.event_match_key}}</div>
                     </div>
                 </div>
                 <div class="info-box bg-amber">
@@ -53,16 +53,16 @@
                     </div>
                     <div class="content">
                         <div class="text">TIME</div>
-                        <div class="number">11:23 AM</div>
+                        <div class="number">{{metadata.time}}</div>
                     </div>
                 </div>
-                <div class="info-box bg-red">
+                <div class="info-box bg-{{alliance_color}}">
                     <div class="icon">
                         <i class="material-icons">location_on</i>
                     </div>
                     <div class="content">
                         <div class="text">ALLIANCE STATION</div>
-                        <div class="number">RED 3</div>
+                        <div class="number">{{alliance_station}}</div>
                     </div>
                 </div>
             </div>
@@ -108,12 +108,11 @@
                             <table class="table table-striped dashboard-task-infos">
                                 <thead>
                                     <th></th>
-                                    <th class="bg-red">FRC 2370</th>
-                                    <th class="bg-red">FRC 58</th>
-                                    <th class="bg-red">FRC 4909</th>
-                                    <th class="bg-blue">FRC 125</th>
-                                    <th class="bg-blue">FRC 3467</th>
-                                    <th class="bg-blue">FRC 5813</th>
+                                    {{#each metadata.alliances.red}}
+                                    <th class="bg-red">FRC {{this}}</th>
+                                    {{/each}} {{#each metadata.alliances.blue}}
+                                    <th class="bg-blue">FRC {{this}}</th>
+                                    {{/each}}
                                 </thead>
                                 <tbody>
                                     <tr>

@@ -29,11 +29,17 @@ $(function () {
                 };
 
                 template_config.metadata.alliances.red.forEach((object, index) => {
-                    if (object == team_number) template_config.alliance_station = "Red " + (index + 1);
+                    if (object == team_number) {
+                        template_config.alliance_color = "red";
+                        template_config.alliance_station = "Red " + (index + 1);
+                    }
                 });
 
                 template_config.metadata.alliances.blue.forEach((object, index) => {
-                    if (object == team_number) template_config.alliance_station = "Blue " + (index + 1);
+                    if (object == team_number) {
+                        template_config.alliance_color = "blue";
+                        template_config.alliance_station = "Blue " + (index + 1);
+                    }
                 });
 
                 // TODO: Compute Stats

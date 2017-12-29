@@ -1,3 +1,7 @@
 .info-box .content div {
     text-transform: uppercase;
 }
+
+th {
+    text-align: center;
+}
