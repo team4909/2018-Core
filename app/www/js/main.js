@@ -28,7 +28,7 @@ $(function () {
                     updateNextMatch();
                 });
 
-                $(".dashboard_team_number").on("blur", (event) => {
+                $(".dashboard_team_number").on("blur", () => {
                     // TODO: Update Team Numbers
 
                     updateAnalysis();
