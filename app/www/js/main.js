@@ -86,9 +86,7 @@ $(function () {
         }
     };
 
-    //templates.dashboard.init();
-
-    templates.schedule.init();
+    templates.dashboard.init();
 
     function updateNextMatch() {
         // TODO: Find Next Match
