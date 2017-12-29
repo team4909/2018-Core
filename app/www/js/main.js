@@ -10,8 +10,9 @@ $(function () {
             template: Handlebars.compile($("#dashboard-template").html()),
             config: {
                 "team_number": "4909",
+                "api": true,
                 "metadata": {
-                    "event_match_key": "MAREA SF2M3",
+                    "event_match_key": "",
                     "alliances": {
                         blue: ["0000", "0000", "0000"],
                         red: ["0000", "0000", "0000"]
@@ -26,15 +27,10 @@ $(function () {
                     updateNextMatch();
                 });
 
-                $("#match_key").on("blur", (event) => {
-                    templates.dashboard.config.metadata.event_match_key = $(event.target).text();
-                    updateMetadata();
-                });
-
                 $(".dashboard_team_number").on("blur", (event) => {
+                    // TODO: Update Team Numbers
 
-
-                    updateStatistics();
+                    updateAnalysis();
                 });
             }
         }
@@ -46,39 +42,36 @@ $(function () {
     updateNextMatch();
 
     function updateNextMatch() {
-        // templates.dashboard.config.metadata.event_match_key = "MAREA Q2";
-        updateMetadata();
-    }
+        // TODO: Find Next Match
+        const err = "Not Implemented";
 
-    function updateMetadata() {
+        templates.dashboard.config.metadata.event_match_key = "";
+        templates.dashboard.config.api = !exists(err);
+
+
         getMatchSimple(templates.dashboard.config.metadata.event_match_key, (match_metadata, err) => {
-            templates.dashboard.config.metadata = undefined;
-
             if (!exists(err)) {
                 templates.dashboard.config.metadata = match_metadata;
-            } else {
-                // Manual Team Entry
             }
-
-            templates.dashboard.config.metadata.alliances.red.forEach((object, index) => {
-                if (object == templates.dashboard.config.team_number) {
-                    templates.dashboard.config.metadata.alliance_color = "red";
-                    templates.dashboard.config.metadata.alliance_station = "Red " + (index + 1);
-                }
-            });
-
-            templates.dashboard.config.metadata.alliances.blue.forEach((object, index) => {
-                if (object == templates.dashboard.config.team_number) {
-                    templates.dashboard.config.metadata.alliance_color = "blue";
-                    templates.dashboard.config.metadata.alliance_station = "Blue " + (index + 1);
-                }
-            });
 
             updateStatistics();
         });
     }
 
-    function updateStatistics() {
+    function updateAnalysis() {
+        templates.dashboard.config.metadata.alliances.red.forEach((object, index) => {
+            if (object == templates.dashboard.config.team_number) {
+                templates.dashboard.config.metadata.alliance_color = "red";
+                templates.dashboard.config.metadata.alliance_station = "Red " + (index + 1);
+            }
+        });
+
+        templates.dashboard.config.metadata.alliances.blue.forEach((object, index) => {
+            if (object == templates.dashboard.config.team_number) {
+                templates.dashboard.config.metadata.alliance_color = "blue";
+                templates.dashboard.config.metadata.alliance_station = "Blue " + (index + 1);
+            }
+        });
 
         templates.dashboard.redraw();
     }

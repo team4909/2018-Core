@@ -38,13 +38,14 @@
                         <div class="number" id="team_number" contenteditable="true">{{team_number}}</div>
                     </div>
                 </div>
+                {{#if api}}
                 <div class="info-box bg-green">
                     <div class="icon">
                         <i class="material-icons">list</i>
                     </div>
                     <div class="content">
                         <div class="text">EVENT/MATCH KEY</div>
-                        <div class="number" id="match_key" contenteditable="true">{{metadata.event_match_key}}</div>
+                        <div class="number" id="match_key">{{metadata.event_match_key}}</div>
                     </div>
                 </div>
                 {{#if metadata.time}}
@@ -57,7 +58,7 @@
                         <div class="number">{{metadata.time}}</div>
                     </div>
                 </div>
-                {{/if}} {{#if metadata.alliance_station}}
+                {{/if}} {{/if}} {{#if metadata.alliance_station}}
                 <div class="info-box bg-{{metadata.alliance_color}}">
                     <div class="icon">
                         <i class="material-icons">location_on</i>
@@ -112,9 +113,9 @@
                                 <thead>
                                     <th></th>
                                     {{#each metadata.alliances.red}}
-                                    <th class="bg-red">FRC <span class="dashboard-team-number">{{this}}</span></th>
+                                    <th class="bg-red">FRC <span class="dashboard-team-number" {{#unless @root.api}} contenteditable="true" {{/unless}}>{{this}}</span></th>
                                     {{/each}} {{#each metadata.alliances.blue}}
-                                    <th class="bg-blue">FRC <span class="dashboard-team-number">{{this}}</span></th>
+                                    <th class="bg-blue">FRC <span class="dashboard-team-number" {{#unless @root.api}} contenteditable="true" {{/unless}}>{{this}}</span></th>
                                     {{/each}}
                                 </thead>
                                 <tbody>
