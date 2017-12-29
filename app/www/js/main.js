@@ -19,6 +19,11 @@ $(function () {
                     }
                 }
             },
+            init: () => {
+                templates.dashboard.redraw();
+
+                updateNextMatch();
+            },
             redraw: () => {
                 templates.container.html(templates.dashboard.template(templates.dashboard.config));
 
@@ -38,9 +43,7 @@ $(function () {
     };
 
     // Initialize Templates
-    templates.dashboard.redraw();
-
-    updateNextMatch();
+    templates.dashboard.init();
 
     function updateNextMatch() {
         // TODO: Find Next Match
