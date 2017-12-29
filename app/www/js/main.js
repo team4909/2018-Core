@@ -24,6 +24,7 @@ $(function () {
 
                 $("#team_number").on("blur", (event) => {
                     templates.dashboard.config.team_number = $(event.target).text();
+
                     updateNextMatch();
                 });
 
@@ -48,13 +49,16 @@ $(function () {
         templates.dashboard.config.metadata.event_match_key = "";
         templates.dashboard.config.api = !exists(err);
 
+        templates.dashboard.redraw();
 
         getMatchSimple(templates.dashboard.config.metadata.event_match_key, (match_metadata, err) => {
-            if (!exists(err)) {
+            if (!exists(err) && templates.dashboard.config.api) {
                 templates.dashboard.config.metadata = match_metadata;
             }
 
-            updateStatistics();
+            templates.dashboard.redraw();
+
+            updateAnalysis();
         });
     }
 
