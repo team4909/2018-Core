@@ -53,6 +53,7 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 ## Scout Input Interface Design
 ### General Data Points
 - [ ] Match Data
+  - [ ] Event
   - [ ] Match Type
     - Q   (Qualification)
     - QF  (Quarterfinal)
