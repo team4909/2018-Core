@@ -54,11 +54,11 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 ### General Data Points
 - [ ] Match Data (can be sourced from TBA/FIRST APIs or manual)
   - [ ] Match Number
-    - Q   (Qualification)
-    - QF  (Quarterfinal)
-    - SF  (Semifinal)
-    - F   (Final)
-    - R   (Replay)
+    - Q__   (Qualification)
+    - QF__M__  (Quarterfinal)
+    - SF__M__  (Semifinal)
+    - F__M__   (Final)
+    - R__   (Replay)
   - [ ] Team # Scouted
 - [ ] Scout Metadata
   - [ ] Team # Scouting
