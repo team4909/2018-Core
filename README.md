@@ -74,6 +74,7 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 - [ ] Checkboxes
 - [ ] Radio Buttons
 <hr>
+
 - [ ] SVG Button Map
 
 ## Analysis Portal Interface Design
@@ -96,6 +97,7 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
   - [ ] Alliance Picklist Creation Utility
 - [ ] Scouting Input
 <hr>
+
 - [ ] Graph (Scatter Plot)
   - [ ] Alliance Picklist Creation Utility
 - [ ] Alliance Selection
@@ -108,6 +110,7 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 - [ ] Bluetooth SPP (Tablets <-> Pi)
 - [ ] Ethernet (Laptops <-> Pi)
 <hr>
+
 - [ ] 6LoWPAN (Pi <-> Pi)
 
 ## Bugs / Feature Requests
