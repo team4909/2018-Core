@@ -8,9 +8,9 @@ $(function () {
         dashboard: Handlebars.compile($("#dashboard-template").html())
     };
 
-    displayDashboard("1071", "MAREA_SF1M1", {
-        blue: [],
-        red: []
+    displayDashboard("1071", "MAREAf_SF1M1", {
+        blue: ["0000", "0000", "0000"],
+        red: ["0000", "0000", "0000"]
     });
 
     function displayDashboard(team_number, backup_event_match_key, backup_alliances) {
