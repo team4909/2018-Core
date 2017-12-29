@@ -68,10 +68,10 @@ If you need credentials, please contact us at `team4909@gmail.com`
   - [ ] Team # Scouting (cached # input)
   - [ ] Scout Initials (text input)
 - [ ] Common Notes (checkboxes)
-  - [ ] Brownout  
-  - [ ] Foul
-  - [ ] Red Card
-  - [ ] Yellow Card
+  - Brownout  
+  - Foul
+  - Red Card
+  - Yellow Card
 ### Supported Game-Specific Data Entry Methods
 - [ ] Counter w/ Stepper Buttons
 - [ ] Checkboxes
