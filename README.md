@@ -52,13 +52,14 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 
 ## Scout Input Interface Design
 ### General Data Points
-- [ ] Match Data (can be sourced from TBA/FIRST APIs or manual)
-  - [ ] Match Number
-    - Q__   (Qualification)
-    - QF__M__  (Quarterfinal)
-    - SF__M__  (Semifinal)
-    - F__M__   (Final)
-    - R__   (Replay)
+- [ ] Match Data
+  - [ ] Match Type
+    - Q   (Qualification)
+    - QF  (Quarterfinal)
+    - SF  (Semifinal)
+    - F   (Final)
+    - R   (Replay)
+  - [ ] Match #
   - [ ] Team # Scouted
 - [ ] Scout Metadata
   - [ ] Team # Scouting
@@ -72,6 +73,7 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 - [ ] Counter w/ Stepper Buttons
 - [ ] Checkboxes
 - [ ] Radio Buttons
+<hr>
 - [ ] SVG Button Map
 
 ## Analysis Portal Interface Design
@@ -90,20 +92,22 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
     - [ ] Averages
   - [ ] Pit Metrics
     - [ ] Drivetrains (Wheels/Speeds)
-- [ ] Graph (Scatter Plot)
-  - [ ] Alliance Picklist Creation Utility
 - [ ] Team Averages
+  - [ ] Alliance Picklist Creation Utility
+- [ ] Scouting Input
+<hr>
+- [ ] Graph (Scatter Plot)
   - [ ] Alliance Picklist Creation Utility
 - [ ] Alliance Selection
   - [ ] Locally Stored Picklist, Guides Alliance Selection Process
 - [ ] Match Schedule
   - [ ] Fetched from TBA/FIRST using Event Key
-- [ ] Scouting Input
 
 ## Data Transaction Mechanisms  
 - [X] Event WiFi / Cellular Data (Device <-> Cloud)
 - [ ] Bluetooth SPP (Tablets <-> Pi)
 - [ ] Ethernet (Laptops <-> Pi)
+<hr>
 - [ ] 6LoWPAN (Pi <-> Pi)
 
 ## Bugs / Feature Requests
