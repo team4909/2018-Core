@@ -50,6 +50,8 @@ To leverage the data collected by TGA for additional analysis, you may __replica
 
 TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 
+If you need credentials, please contact us at `team4909@gmail.com`
+
 ## Scout Input Interface Design
 ### General Data Points
 - [ ] Match Data
