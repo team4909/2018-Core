@@ -94,10 +94,11 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
   - [ ] Alliance Picklist Creation Utility
 - [ ] Team Averages
   - [ ] Alliance Picklist Creation Utility
-- [ ] Match Schedule
-  - [ ] Fetched from TBA/FIRST using Event Key
 - [ ] Alliance Selection
   - [ ] Locally Stored Picklist, Guides Alliance Selection Process
+- [ ] Match Schedule
+  - [ ] Fetched from TBA/FIRST using Event Key
+- [ ] Scouting Input
 
 ## Data Transaction Mechanisms  
 - [X] Event WiFi / Cellular Data (Device <-> Cloud)
