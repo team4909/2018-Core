@@ -121,4 +121,4 @@ Please create a GitHub issue for any bugs or new feature requests.
 
 ## Community
 - [Contribute to TGA](CONTRIBUTING.md) 
-- [Join our Slack Group](https://join.slack.com/t/thegreenalliance/shared_invite/enQtMjc3NzUyNjIyNzUzLTdjYTI3NmE5MjJiNGQ3NjJjOWJhZjQzZmU5Y2ZlZWNiNzRiZGFkZThjMWZkZjAwNWVjMWNiZGVmYWQ2MzM0YzY)
+- [Join our Slack Group](https://join.slack.com/t/thegreenalliance/shared_invite/enQtMjkxNzYyNDQ5ODg4LTk4NTQ0ZjU3NGU3YzMwZjhiNTcyYTE2MzYzNDAzZTg5MzcxZWVlYzhkNGExZDhhNWVjY2YxMjlkOGZhYTY5OGU)
