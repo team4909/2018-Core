@@ -76,9 +76,7 @@ If you need credentials, please contact us at `team4909@gmail.com`
 - [ ] Counter w/ Stepper Buttons
 - [ ] Checkboxes
 - [ ] Radio Buttons
-<hr>
-
-- [ ] SVG Button Map
+- [X] SVG Button Map
 
 ## Analysis Portal Interface Design
 - [ ] Dashboard (Home)
@@ -105,8 +103,6 @@ If you need credentials, please contact us at `team4909@gmail.com`
   - [ ] Locally Stored Picklist, Guides Alliance Selection Process
 - [ ] Match Schedule
   - [X] Fetched from TBA/FIRST using Event Key
-- [ ] Pit Scouting
-  - [ ] Drivetrains (Wheels/Speeds)
 
 ## Data Transaction Mechanisms  
 - [X] Event WiFi / Cellular Data (Device <-> Cloud)
