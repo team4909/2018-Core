@@ -30,7 +30,7 @@ libs/fonts/roboto/roboto-v18-cyrillic-ext_latin-regular.svg
 libs/fonts/roboto/roboto-v18-cyrillic-ext_latin-regular.ttf    
 libs/fonts/roboto/roboto-v18-cyrillic-ext_latin-regular.woff    
 libs/fonts/roboto/roboto-v18-cyrillic-ext_latin-regular.woff2
-libs/fonts.css
+libs/fonts/fonts.css
 libs/handlebars/handlebars-v4.0.11.js
 libs/jquery/jquery.js
 libs/jquery/jquery.min.js
