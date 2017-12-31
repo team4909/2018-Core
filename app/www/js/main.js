@@ -90,7 +90,48 @@ $(function () {
 
     function updateNextMatch() {
         // TODO: Find Next Match
-        const err = "Not Implemented";
+        
+        templates.dashboard.config.team_number = '4909';
+        config.season = '2017';
+        
+        matchApi.getTeamMatchesByYearSimple("frc"+templates.dashboard.config.team_number, config.season, opts, callback, {}, (err, data) => {
+            
+            if (!exists(err)) {
+                if (exists(metadata.predicted_time)) metadata.time = metadata.predicted_time;
+
+                callback({
+                    templates.dashboard.config.metadata.event_match_key = "";
+                    templates.dashboard.config.api = !exists(err);
+
+                    templates.dashboard.redraw();
+
+                    getMatchSimple(templates.dashboard.config.metadata.event_match_key, (match_metadata, err) => {
+                     if (!exists(err) && templates.dashboard.config.api) {
+                     templates.dashboard.config.metadata = match_metadata;
+                    
+                    array.forEach(metadata.predicted_time = data.sort(x)) => {
+                    return x.metadata.predicted.time 
+                }.
+                
+                    return {
+                    "event_match_key": metadata.key.slice(4).replace("_", " ").toUpperCase(),
+                    "time": readableDate(datum.predicted_time),
+                    "alliances": mapTbaAlliances(datum.alliances), 
+                    "match": datum.key.split("_")[1].toUpperCase()
+                }
+            }
+
+            templates.dashboard.redraw();
+
+            updateAnalysis();
+        });
+              }, err);
+
+        } else {
+                callback(undefined, err);
+            }
+        });
+      }
 
         templates.dashboard.config.metadata.event_match_key = "";
         templates.dashboard.config.api = !exists(err);
