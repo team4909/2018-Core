@@ -109,7 +109,7 @@ $(function () {
                         "time": readableDate(datum.predicted_time),
                         "alliances": mapTbaAlliances(datum.alliances), 
                         "match": datum.key.split("_")[1].toUpperCase()
-                     }
+                    }
                 }  
 
             templates.dashboard.redraw();
