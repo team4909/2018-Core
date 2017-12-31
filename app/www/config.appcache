@@ -2,6 +2,7 @@ CACHE MANIFEST
 
 CACHE:
 css/main.css
+js/admin.js
 js/main.js
 js/pouchdb.js
 libs/adminbsb/materialize.css
