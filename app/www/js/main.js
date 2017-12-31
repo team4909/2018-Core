@@ -90,18 +90,21 @@ $(function () {
 
     function updateNextMatch() {
         // TODO: Find Next Match
-         matchApi.getTeamMatchesByYearSimple("frc"+templates.dashboard.config.team_number, config.season, {}, (err, data) => {
+       matchApi.getTeamMatchesByYearSimple("frc"+templates.dashboard.config.team_number, config.season, {}, (err, data) => {
             
             if (!exists(err)) {
+                
                 if (exists(datum.predicted_time)) datum.time = datum.predicted_time;
 
                 callback({
+                    
                     templates.dashboard.config.api = !exists(err);
 
                     templates.dashboard.redraw();
 
                     array.forEach(datum.predicted_time = data.sort(x)) => {
                     return x.datum.predicted.time - y.datum.predicted.time;
+                    
                 }).map((datum) => {
                  
                     return {
