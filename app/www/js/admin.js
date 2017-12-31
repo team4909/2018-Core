@@ -55,25 +55,10 @@ $.AdminBSB.leftSideBar = {
         });
 
         //Set menu height
-        _this.setMenuHeight();
         _this.checkStatuForResize(true);
         $(window).resize(function () {
-            _this.setMenuHeight();
             _this.checkStatuForResize(false);
         });
-    },
-    setMenuHeight: function (isFirstTime) {
-        if (typeof $.fn.slimScroll != 'undefined') {
-            var configs = $.AdminBSB.options.leftSideBar;
-            var height = ($(window).height() - ($('.legal').outerHeight() + $('.user-info').outerHeight() + $('.navbar').innerHeight()));
-            var $el = $('.list');
-
-            //Scroll active menu item when page load, if option set = true
-            if ($.AdminBSB.options.leftSideBar.scrollActiveItemWhenPageLoad) {
-                var activeItemOffsetTop = $('.menu .list li.active')[0].offsetTop
-                if (activeItemOffsetTop > 150) $el.slimscroll({ scrollTo: activeItemOffsetTop + 'px' });
-            }
-        }
     },
     checkStatuForResize: function (firstTime) {
         var $body = $('body');
