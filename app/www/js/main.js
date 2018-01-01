@@ -89,6 +89,7 @@ $(function () {
     templates.dashboard.init();
 
     function updateNextMatch() {
+<<<<<<< HEAD
         // TODO: Find Next Match
        matchApi.getTeamMatchesByYearSimple("frc"+templates.dashboard.config.team_number, config.season, {}, (err, data) => {
             
@@ -114,10 +115,47 @@ $(function () {
                         "match": datum.key.split("_")[1].toUpperCase()
                     }
                 }  
+=======
+        matchApi.getTeamMatchesByYearSimple("frc" + templates.dashboard.config.team_number, config.season, {}, (err, data) => {
+            // assume error, set to true if next match found
+            templates.dashboard.config.api = false;
+
+            if(!exists(err)) {
+                // set each match's time to its predicted time because those are more accurate
+                for (const match of data) {
+                    const predictedTime = match.predicted_time;
+                    if (exists(predictedTime)) match.time = predictedTime;
+                }
+
+                // sort data by time, earliest to latest
+                data.sort((a, b) => {
+                    if (a.time < b.time) return -1;
+                    if (a.time > b.time) return 1;
+                    return 0;
+                });
+
+                const unixNow = moment().unix();
+                const nextMatch = data.find(m => m.time > unixNow);
+
+                if (exists(nextMatch)) {
+                    templates.dashboard.config.metadata.event_match_key = nextMatch.key.slice(4).replace("_", " ").toUpperCase();
+                    templates.dashboard.config.api = true;
+                }
+            }
+>>>>>>> 408ebc86298576826ab7c20c2ba316d1d9aa7802
 
             templates.dashboard.redraw();
 
-            updateAnalysis();
+            getMatchSimple(templates.dashboard.config.metadata.event_match_key, (match_metadata, err) => {
+                if (!exists(err) && templates.dashboard.config.api) {
+                    templates.dashboard.config.metadata = match_metadata;
+                }
+
+                templates.dashboard.redraw();
+
+                updateAnalysis();
+            });
+
         });
               }, err);
 
