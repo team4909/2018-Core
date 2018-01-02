@@ -62,23 +62,11 @@ $(function () {
             },
             redraw: () => {
                 if (navigator.onLine)
-                    matchApi.getEventMatchesSimple(templates.schedule.config.event_key, {}, (err, data) => {
-                        matches = data.sort((a, b) => {
-                            return a.time - b.time;
-                        }).map((datum) => {
-                            return {
-                                "match": datum.key.split("_")[1].toUpperCase(),
-                                "time": readableDate(datum.time),
-                                "alliances": mapTbaAlliances(datum.alliances)
-                            };
-                        });
+                    matchApi.getEventMatchesSimple(templates.schedule.config.event_key, {}, (err, matches) => {
+                        templates.schedule.config.matches = sortTbaMatchRecordsByTime(matches);
+                        templates.schedule.config.per_alliance = templates.schedule.config.matches[0].alliances.red.length;
 
-                        const config = {
-                            per_alliance: matches[0].alliances.red.length,
-                            matches: matches
-                        };
-
-                        templates.container.html(templates.schedule.template(config));
+                        templates.container.html(templates.schedule.template(templates.schedule.config));
                     });
                 else
                     alert("Can't view Schedule Offline");
@@ -89,22 +77,27 @@ $(function () {
     templates.dashboard.init();
 
     function updateNextMatch() {
-        // TODO: Find Next Match
-        const err = "Not Implemented";
+        matchApi.getTeamMatchesByYearSimple("frc" + templates.dashboard.config.team_number, config.season, {}, (err, matches) => {
+            // assume error, set to true if next match found
+            templates.dashboard.config.api = false;
 
-        templates.dashboard.config.metadata.event_match_key = "";
-        templates.dashboard.config.api = !exists(err);
+            if(!exists(err)) {
+                const unixNow = moment().unix();
+                
+                // Parse TBA Record, Sort by Time and Return Next Match
+                const nextMatch = sortTbaMatchRecordsByTime(matches).find(m => m.epoch_time > unixNow);
 
-        templates.dashboard.redraw();
+                if (exists(nextMatch)) {
+                    templates.dashboard.config.api = true;
 
-        getMatchSimple(templates.dashboard.config.metadata.event_match_key, (match_metadata, err) => {
-            if (!exists(err) && templates.dashboard.config.api) {
-                templates.dashboard.config.metadata = match_metadata;
+                    templates.dashboard.config.metadata = nextMatch;
+
+                    // Only run Analysis if Metadata found
+                    updateAnalysis();
+                }
             }
 
             templates.dashboard.redraw();
-
-            updateAnalysis();
         });
     }
 
@@ -125,29 +118,24 @@ $(function () {
 
         templates.dashboard.redraw();
     }
-
-    function getMatchSimple(event_match_key, callback) {
-        matchApi.getMatchSimple(eventMatchKeyForYear(event_match_key), {}, (err, metadata) => {
-            if (!exists(err)) {
-                if (exists(metadata.predicted_time)) metadata.time = metadata.predicted_time;
-
-                callback({
-                    "event_match_key": metadata.key.slice(4).replace("_", " ").toUpperCase(),
-                    "time": readableDate(metadata.time),
-                    "alliances": mapTbaAlliances(metadata.alliances)
-                }, err);
-            } else {
-                callback(undefined, err);
-            }
-        });
+    
+    function sortTbaMatchRecordsByTime(records){
+        return records.map(parseTbaMatchRecord).sort((a, b) => a.epoch_time - b.epoch_time);
+    }
+    
+    // Converts a TBA simple match record to the TGA format
+    function parseTbaMatchRecord(metadata) {
+        return {
+            "event_match_key": metadata.key.slice(4).replace("_", " ").toUpperCase(),
+            "match": metadata.key.split("_")[1].toUpperCase(),
+            "epoch_time": metadata.predicted_time || metadata.time,
+            "time": readableDate(metadata.predicted_time || metadata.time),
+            "alliances": mapTbaAlliances(metadata.alliances)
+        };
     }
 
     function readableDate(tbaTimestamp) {
         return moment(tbaTimestamp * 1000).format("hh:mm a").toUpperCase();
-    }
-
-    function eventMatchKeyForYear(event_match_key) {
-        return config.season + event_match_key.replace(" ", "_").toLowerCase();
     }
 
     function mapTbaAlliances(alliances) {
