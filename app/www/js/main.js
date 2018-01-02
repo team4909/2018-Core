@@ -138,10 +138,6 @@ $(function () {
         return moment(tbaTimestamp * 1000).format("hh:mm a").toUpperCase();
     }
 
-    function eventMatchKeyForYear(event_match_key) {
-        return config.season + event_match_key.replace(" ", "_").toLowerCase();
-    }
-
     function mapTbaAlliances(alliances) {
         return {
             "blue": $.map(alliances.blue.team_keys, mapTeamKeyToTeamNum),
