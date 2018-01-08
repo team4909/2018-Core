@@ -15,7 +15,7 @@ The Green Alliance tries to accomodate the workflows of most teams by supporting
 #### Input Devices (Sets of 6)
 - Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
   - Syncs directly to Cloud
-- Kindle Fires Connected to Raspberry Pi 3
+- Android Tablets Connected to Raspberry Pi 3
   - Connected via Bluetooth
 - Laptops Connected to Raspberry Pi 3
   - Connected via Ethernet switch
