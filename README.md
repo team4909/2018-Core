@@ -14,17 +14,19 @@ The Green Alliance tries to accomodate the workflows of most teams by supporting
 ### Supported Configurations
 #### Input Devices (Sets of 6)
 - Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
-  - Syncs directly to Cloud
-- Android Tablets Connected to Raspberry Pi 3
+  - Connected via Event WiFi or Cellular
+- **Android Devices(v4.1+ w/ BT4.0+)** Connected to **Raspberry Pi 3**
   - Connected via Bluetooth
-- Laptops Connected to Raspberry Pi 3
-  - Connected via Ethernet switch
+  - Required for Offline Data Analysis
+- Laptops Connected to **Raspberry Pi 3**
+  - Connected via **Ethernet** switch
+  - Required for Offline Data Analysis
   
 #### Analysis Device
-- Device (Laptop/Tablet) Connected to Cloud CouchDB Server
+- Device (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
   - Connected via Event WiFi or Cellular
-- Laptop Connected to Raspberry Pi 3
-  - Connected via Ethernet Switch
+- Laptop Connected to **Raspberry Pi 3**
+  - Connected via **Ethernet** Switch
   - Required for Offline Data Analysis
   
 ## Platform Architecture
