@@ -9,21 +9,14 @@ The Green Alliance tries to accomodate the workflows of most teams by supporting
 ### Recommended Hardware
 - 6x [Kindle Fire](http://a.co/7w5EHTq) 
 - [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-- Laptop
+- Laptop w/ Ethernet Port
 
-### Supported Configurations
-#### Input Devices (Sets of 6)
+### Supported Devices
 - Hybrid(Online/Offline) Usage
   - **Android Devices(v4.1+)** Connected to **Raspberry Pi 3**
     - Connected via **Bluetooth 4.0+**
-  - Laptops Connected to **Raspberry Pi 3**
-    - Connected via **Ethernet** switch
-- Online Usage Only
-  - Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
-    - Connected via Event WiFi or Cellular
-  
-#### Analysis Device
-- Hybrid(Online/Offline) Usage
+    - Max. of six devices per Pi
+      - Additional Raspberry Pi's may be connected via **Ethernet** switch
   - Laptops Connected to **Raspberry Pi 3**
     - Connected via **Ethernet** switch
 - Online Usage Only
@@ -43,7 +36,8 @@ When connected, devices will connect and sync data to reach [eventual consistenc
 - CouchDB on Azure VM
 
 ### Offline Usage
-All data will be replicated locally in PouchDB or CouchDB, while the website will be cached for offline access using HTML5 [AppCache](https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache) and [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers).
+All data will be replicated locally in PouchDB or CouchDB, while the website will be cached for offline access using HTML5 [AppCache](https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache)
+<!--and [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers).-->
 
 ### Third-Party Data
 To help scouts, TGA will reference third-party APIs to obtain team names, event schedules and official match results using the [TBA API v3](https://github.com/fletch3555/tba-api-client-javascript) and [FMS Events API v2](https://frcevents2.docs.apiary.io/#). If internet access is not available or should circumstances change, manual override will also be supported.
