@@ -13,22 +13,23 @@ The Green Alliance tries to accomodate the workflows of most teams by supporting
 
 ### Supported Configurations
 #### Input Devices (Sets of 6)
-- Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
-  - Connected via Event WiFi or Cellular
-- **Android Devices(v4.1+ w/ BT4.0+)** Connected to **Raspberry Pi 3**
-  - Connected via Bluetooth
-  - Required for Offline Data Analysis
-- Laptops Connected to **Raspberry Pi 3**
-  - Connected via **Ethernet** switch
-  - Required for Offline Data Analysis
+- Hybrid(Online/Offline) Usage
+  - **Android Devices(v4.1+)** Connected to **Raspberry Pi 3**
+    - Connected via **Bluetooth 4.0+**
+  - Laptops Connected to **Raspberry Pi 3**
+    - Connected via **Ethernet** switch
+- Online Usage Only
+  - Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
+    - Connected via Event WiFi or Cellular
   
 #### Analysis Device
-- Device (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
-  - Connected via Event WiFi or Cellular
-- Laptop Connected to **Raspberry Pi 3**
-  - Connected via **Ethernet** Switch
-  - Required for Offline Data Analysis
-  
+- Hybrid(Online/Offline) Usage
+  - Laptops Connected to **Raspberry Pi 3**
+    - Connected via **Ethernet** switch
+- Online Usage Only
+  - Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
+    - Connected via Event WiFi or Cellular
+    
 ## Platform Architecture
 ![](https://i.imgur.com/E78J5CI.png)
 
