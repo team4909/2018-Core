@@ -50,29 +50,29 @@ If you need credentials, please contact us at `team4909@gmail.com`
 
 ## Scout Input Interface Design
 ### General Data Points
-- [ ] Match Data
-  - [ ] Event (cached text input)
-  - [ ] Match Type (radio buttons)
+- Match Data
+  - Event (cached text input)
+  - Match Type (radio buttons)
     - Q   (Qualification)
     - QF  (Quarterfinal)
     - SF  (Semifinal)
     - F   (Final)
     - R   (Replay)
-  - [ ] Match # (# input)
-  - [ ] Team # Scouted (# input)
-- [ ] Scout Metadata
-  - [ ] Team # Scouting (cached # input)
-  - [ ] Scout Initials (text input)
-- [ ] Common Notes (checkboxes)
+  - Match # (# input)
+  - Team # Scouted (# input)
+- Scout Metadata
+  - Team # Scouting (cached # input)
+  - Scout Initials (text input)
+- Common Notes (checkboxes)
   - Brownout  
   - Foul
   - Red Card
   - Yellow Card
 ### Supported Game-Specific Data Entry Methods
-- [ ] Counter w/ Stepper Buttons
-- [ ] Checkboxes
-- [ ] Radio Buttons
-- [X] SVG Button Map
+- Counter w/ Stepper Buttons
+- Checkboxes
+- Radio Buttons
+- SVG Button Map
 
 ## Analysis Portal Interface Design
 - [ ] Dashboard (Home)
