@@ -24,19 +24,19 @@ function input_server(options) {
 	});
 
 	app.listen(options.config.webhook_port);
-	console.log(`Webhook: Listening at http://localhost:4909`.webhook)
+	console.log(`Webhook: Listening at http://localhost:4909`)
 
 	const btworker = spawn('sudo', ['python3', 'bt_worker.py']);
 
 	btworker.stdout.on('data', (data) => {
-		console.log(`BT Worker: ${data}`.bt_worker);
+		console.log(`BT Worker: ${data}`);
 	});
 
 	btworker.stderr.on('data', (data) => {
-		console.error(`BT Worker: Error ${data}`.error);
+		console.error(`BT Worker: Error ${data}`);
 	});
 
 	btworker.on('close', (code) => {
-		console.log(`BT Worker: Exited with code ${code}`.bt_worker);
+		console.log(`BT Worker: Exited with code ${code}`);
 	});
 }
