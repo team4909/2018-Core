@@ -10,7 +10,6 @@ $.AdminBSB.leftSideBar = {
         var _this = this;
         var $body = $('body');
         var $overlay = $('.overlay');
-        console.log($overlay)
 
         //Close sidebar
         $(window).click(function (e) {
