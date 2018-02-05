@@ -5,3 +5,16 @@
 th {
     text-align: center;
 }
+
+.input-group .input-group-addon {
+    padding-left: 15px;
+    color: white;
+    background-color: #4caf50;
+    width: 30%;
+}
+
+.input-group input {
+    color: black;
+    background-color: #e0e0e0;
+    text-align: right;
+}
