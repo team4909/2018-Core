@@ -54,6 +54,7 @@ If you need credentials, please contact us at `team4909@gmail.com`
 - [ ] Scouting Input
 
 <hr>
+
 - [ ] Dashboard (Home)
 - [ ] Graph (Scatter Plot)
 - [ ] Alliance Selection
