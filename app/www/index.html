@@ -26,44 +26,35 @@
     <section class="content">
         <div class="container-fluid" data-page="dashboard" style="display: none;">
             <div class="block-header">
-                <h2>DASHBOARD</h2>
+                <h2>ONLINE DASHBOARD</h2>
             </div>
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 metadata">
                     <div class="info-box bg-blue-grey">
                         <div class="icon">
                             <i class="material-icons">person</i>
                         </div>
                         <div class="content">
                             <div class="text">ANALYZED TEAM</div>
-                            <div class="number" id="team_number" contenteditable="true">{{team_number}}</div>
+                            <div class="number" id="team_number" contenteditable="true">0000</div>
                         </div>
                     </div>
-                    <div class="info-box bg-green">
+                    <div class="info-box bg-green online-only">
                         <div class="icon">
                             <i class="material-icons">list</i>
                         </div>
                         <div class="content">
                             <div class="text">EVENT/MATCH KEY</div>
-                            <div class="number" id="match_key">{{metadata.event_match_key}}</div>
+                            <div class="number" id="match_key"></div>
                         </div>
                     </div>
-                    <div class="info-box bg-amber">
+                    <div class="info-box bg-amber online-only">
                         <div class="icon">
                             <i class="material-icons">schedule</i>
                         </div>
                         <div class="content">
                             <div class="text">TIME</div>
-                            <div class="number">{{metadata.time}}</div>
-                        </div>
-                    </div>
-                    <div class="info-box bg-{{metadata.alliance_color}}">
-                        <div class="icon">
-                            <i class="material-icons">location_on</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">ALLIANCE STATION</div>
-                            <div class="number">{{metadata.alliance_station}}</div>
+                            <div class="number" id="match_time"></div>
                         </div>
                     </div>
                 </div>
@@ -131,324 +122,361 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid" data-page="config" style="display: none;">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        CONFIG
+                    </h2>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="conf-un" class="form-control" placeholder="USERNAME" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="password" id="conf-pw" class="form-control" placeholder="PASSWORD" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="conf-bt-mac" class="form-control" placeholder="BLUETOOTH MAC ADDRESS" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid" data-page="input">
-            <div class="row"><div id="wizard_horizontal">
-                                <h2>METADATA</h2>
-                                <section>
-                                    <div class="card">
-                    <div class="header">
-                        <h2>
-                            MATCH SCOUTING METADATA
-                        </h2>
-                    </div>
-                    <div class="body">
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="EVENT KEY" />
+            <div class="row">
+                <div id="wizard_horizontal">
+                    <h2>METADATA</h2>
+                    <section>
+                        <div class="card match-metadata">
+                            <div class="header">
+                                <h2>
+                                    MATCH SCOUTING METADATA
+                                </h2>
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="m-event-key" class="form-control" placeholder="EVENT KEY" />
+                                            </div>
+                                        </div>
+                                        <h2 class="card-inside-title">CURRENT MATCH: </h2>
                                     </div>
-                                </div>
-                                <h2 class="card-inside-title">CURRENT MATCH: </h2>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" placeholder="TEAM BEING SCOUTED" />
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="number" id="m-scouted" class="form-control" placeholder="TEAM BEING SCOUTED" />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" placeholder="MATCH NUMBER" />
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="number" id="m-number" class="form-control" placeholder="MATCH NUMBER" />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <input name="group5" type="radio" id="qual-match" class="with-gap radio-col-green" checked="">
-                                <label for="qual-match">QUALIFICATION</label>
-                                <input name="group5" type="radio" id="qf-match" class="with-gap radio-col-green">
-                                <label for="qf-match">QUARTERFINAL</label>
-                                <input name="group5" type="radio" id="sf-match" class="with-gap radio-col-green">
-                                <label for="sf-match">SEMIFINAL</label>
-                                <input name="group5" type="radio" id="final-match" class="with-gap radio-col-green">
-                                <label for="final-match">FINAL</label>
-                                <input name="group5" type="radio" id="replay-match" class="with-gap radio-col-green">
-                                <label for="replay-match">REPLAY</label>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" placeholder="MATCH TYPE NUMBER (ex. Semifinal 1)" />
+                                    <div class="col-sm-6">
+                                        <input name="match-type" type="radio" id="qual-match" value="QM" class="with-gap radio-col-green" checked="">
+                                        <label for="qual-match">QUALIFICATION</label>
+                                        <input name="match-type" type="radio" id="qf-match" value="QF" class="with-gap radio-col-green">
+                                        <label for="qf-match">QUARTERFINAL</label>
+                                        <input name="match-type" type="radio" id="sf-match" value="SF" class="with-gap radio-col-green">
+                                        <label for="sf-match">SEMIFINAL</label>
+                                        <input name="match-type" type="radio" id="final-match" value="F" class="with-gap radio-col-green">
+                                        <label for="final-match">FINAL</label>
+                                        <input name="match-type" type="radio" id="replay-match" value="R" class="with-gap radio-col-green">
+                                        <label for="replay-match">REPLAY</label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <h2 class="card-inside-title">CURRENT SCOUT: </h2>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" placeholder="SCOUT TEAM" />
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="number" id="m-sub-number" class="form-control" placeholder="MATCH TYPE NUMBER (ex. Semifinal 1)" />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" placeholder="SCOUT INITIALS" />
+                                    <div class="col-sm-12">
+                                        <h2 class="card-inside-title">CURRENT SCOUT: </h2>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="number" id="m-scouting" class="form-control" placeholder="SCOUT TEAM" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="m-scout" class="form-control" placeholder="SCOUT INITIALS" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                                </section>
+                    </section>
 
-                                <h2>AUTO</h2>
-                                <section>
-                                    <div class="card">
-                    <div class="header">
-                        <h2>
-                            AUTONOMOUS PERIOD
-                        </h2>
-                    </div>
-                    <div class="body">
-                        <div class="row clearfix">
-                            <div class="col-sm-6">
-                                <input type="checkbox" id="crossed-the-line" class="filled-in chk-col-green">
-                                <label for="crossed-the-line">CROSSED THE LINE</label>
+                    <h2>AUTO</h2>
+                    <section>
+                        <div class="card">
+                            <div class="header">
+                                <h2>
+                                    AUTONOMOUS PERIOD
+                                </h2>
                             </div>
-                            <div class="col-sm-6">
-                                <input type="checkbox" id="opponent-auto" class="filled-in chk-col-green">
-                                <label for="opponent-auto">DID INCORRECT SIDE AUTO</label>
-                            </div>
-                            <div class="col-sm-12">
-                                <h2 class="card-inside-title">CUBES PLACED: </h2>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">ON SWITCH</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="3">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-sm-6">
+                                        <input type="checkbox" id="crossed-the-line" class="filled-in chk-col-green">
+                                        <label for="crossed-the-line">CROSSED THE LINE</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="checkbox" id="opponent-auto" class="filled-in chk-col-green">
+                                        <label for="opponent-auto">DID INCORRECT SIDE AUTO</label>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h2 class="card-inside-title">CUBES PLACED: </h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">ON SWITCH</span>
+                                            <input type="number" class="form-control input-number" data-counter="auto_cubes_switch" value="0" min="0" max="3">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-counter="auto_cubes_switch" data-type="minus" data-field="">
                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="auto_cubes_switch" data-type="plus" data-field="">
                     <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">ON SCALE</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="3">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                            </button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">ON SCALE</span>
+                                            <input type="number" class="form-control input-number" data-counter="auto_cubes_scale" value="0" min="0" max="3">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-counter="auto_cubes_scale" data-type="minus" data-field="">
                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="auto_cubes_scale" data-type="plus" data-field="">
                     <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">IN EXCHANGE</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="3">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                            </button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">IN EXCHANGE</span>
+                                            <input type="number" class="form-control input-number" data-counter="auto_cubes_exchange" value="0" min="0" max="3">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-counter="auto_cubes_exchange" data-type="minus" data-field="">
                     <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="auto_cubes_exchange" data-type="plus" data-field="">
                     <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
+                                            </button>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                                </section>
+                    </section>
 
-                                <h2>TELEOP</h2>
-                                <section>
-                                    <div class="card">
-                    <div class="header">
-                        <h2>
-                            TELEOPERATED PERIOD
-                        </h2>
-                    </div>
-                    <div class="body">
-                        <div class="row clearfix">
-                            <div class="col-xs-12 col-sm-6">
-                                
-                                <h2 class="card-inside-title">CUBES PLACED: </h2>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">ON SWITCH</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="50">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                    <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                    <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">ON SCALE</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="50">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                    <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                    <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">IN EXCHANGE</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="50">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                    <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                    <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div></div>
-                            <div class="col-xs-12 col-sm-6">
-                                
-                                <h2 class="card-inside-title">CUBES RECEIVED: </h2>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">FROM PLAYER</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="50">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                    <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                    <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">FROM FLOOR</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="50">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                    <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                    <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon1">DROPPED</span>
-                                    <input type="number" class="form-control input-number" value="0" min="0" max="50">
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                    <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                    </span>
-                                    <span class="input-group-btn">
-                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                    <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                    </span>
-                                </div>
+                    <h2>TELEOP</h2>
+                    <section>
+                        <div class="card">
+                            <div class="header">
+                                <h2>
+                                    TELEOPERATED PERIOD
+                                </h2>
                             </div>
-                            <div class="col-sm-12">
-                            <h2 class="card-inside-title">Comments:</h2>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-xs-12 col-sm-6">
+
+                                        <h2 class="card-inside-title">CUBES PLACED: </h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">ON SWITCH</span>
+                                            <input type="number" class="form-control input-number" data-counter="tele_cubes_switch" value="0" min="0" max="50">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-counter="tele_cubes_switch" data-type="minus" data-field="">
+                    <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="tele_cubes_switch"  data-type="plus" data-field="">
+                    <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">ON SCALE</span>
+                                            <input type="number" class="form-control input-number" data-counter="tele_cubes_scale" value="0" min="0" max="50">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-counter="tele_cubes_scale" data-type="minus" data-field="">
+                    <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="tele_cubes_scale" data-type="plus" data-field="">
+                    <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">IN EXCHANGE</span>
+                                            <input type="number" class="form-control input-number" data-counter="tele_cubes_exchange" value="0" min="0" max="50">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-counter="tele_cubes_exchange" data-type="minus" data-field="">
+                    <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="tele_cubes_exchange" data-type="plus" data-field="">
+                    <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+
+                                        <h2 class="card-inside-title">CUBES RECEIVED: </h2>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">FROM PLAYER</span>
+                                            <input type="number" class="form-control input-number" data-counter="tele_cubes_player" value="0" min="0" max="50">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-counter="tele_cubes_player"  data-type="minus" data-field="">
+                    <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="tele_cubes_player"  data-type="plus" data-field="">
+                    <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">FROM FLOOR</span>
+                                            <input type="number" class="form-control input-number" data-counter="tele_cubes_floor" value="0" min="0" max="50">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-counter="tele_cubes_floor"  data-type="minus" data-field="">
+                    <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="tele_cubes_floor"  data-type="plus" data-field="">
+                    <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">DROPPED</span>
+                                            <input type="number" class="form-control input-number" data-counter="tele_cubes_dropped" value="0" min="0" max="50">
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-counter="tele_cubes_dropped"  data-type="minus" data-field="">
+                    <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                            </span>
+                                            <span class="input-group-btn">
+                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-counter="tele_cubes_dropped"  data-type="plus" data-field="">
+                    <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h2 class="card-inside-title">Comments:</h2>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="reckless-driving" class="filled-in chk-col-green">
+                                        <label for="reckless-driving">RECKLESS DRIVING</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="accurate-cube-placer" class="filled-in chk-col-green">
+                                        <label for="accurate-cube-placer">ACCURATE CUBE PLACER</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="disabled" class="filled-in chk-col-green">
+                                        <label for="disabled">DISABLED</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="top-heavy" class="filled-in chk-col-green">
+                                        <label for="top-heavy">TOP HEAVY</label>
+                                    </div>
                                 </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="reckless-driving" class="filled-in chk-col-green">
-                                <label for="reckless-driving">RECKLESS DRIVING</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="accurate-cube-placer" class="filled-in chk-col-green">
-                                <label for="accurate-cube-placer">ACCURATE CUBE PLACER</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="disabled" class="filled-in chk-col-green">
-                                <label for="disabled">DISABLED</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="top-heavy" class="filled-in chk-col-green">
-                                <label for="top-heavy">TOP HEAVY</label>
                             </div>
                         </div>
-                    </div>
+                    </section>
+
+                    <h2>ENDGAME</h2>
+                    <section>
+                        <div class="card">
+                            <div class="header">
+                                <h2>
+                                    ENDGAME PERIOD
+                                </h2>
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="drove-on-platform" class="filled-in chk-col-green">
+                                        <label for="drove-on-platform">DROVE ON PLATFORM</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="lifted-by-partners" class="filled-in chk-col-green">
+                                        <label for="lifted-by-partners">LIFTED BY PARTNERS</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="climbed" class="filled-in chk-col-green">
+                                        <label for="climbed">CLIMBED THEMSELVES</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="lifted-partners" class="filled-in chk-col-green">
+                                        <label for="lifted-partners">LIFTED PARTNERS</label>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h2 class="card-inside-title">Comments:</h2>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="not-present" class="filled-in chk-col-green">
+                                        <label for="not-present">NOT PRESENT</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="robot-failure" class="filled-in chk-col-green">
+                                        <label for="robot-failure">ROBOT FAILURE</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="foul" class="filled-in chk-col-green">
+                                        <label for="foul">FOUL</label>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <input type="checkbox" id="carded" class="filled-in chk-col-green">
+                                        <label for="carded">RED/YELLOW CARD</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                                </section>
-
-                                <h2>ENDGAME</h2>
-                                <section>
-                                    <div class="card">
-                    <div class="header">
-                        <h2>
-                            ENDGAME PERIOD
-                        </h2>
-                    </div>
-                    <div class="body">
-                        <div class="row clearfix">
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="drove-on-platform" class="filled-in chk-col-green">
-                                <label for="drove-on-platform">DROVE ON PLATFORM</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="lifted-by-partners" class="filled-in chk-col-green">
-                                <label for="lifted-by-partners">LIFTED BY PARTNERS</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="climbed" class="filled-in chk-col-green">
-                                <label for="climbed">CLIMBED THEMSELVES</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="lifted-partners" class="filled-in chk-col-green">
-                                <label for="lifted-partners">LIFTED PARTNERS</label>
-                            </div>
-                            <div class="col-sm-12">
-                            <h2 class="card-inside-title">Comments:</h2>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="not-present" class="filled-in chk-col-green">
-                                <label for="not-present">NOT PRESENT</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="robot-failure" class="filled-in chk-col-green">
-                                <label for="robot-failure">ROBOT FAILURE</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="foul" class="filled-in chk-col-green">
-                                <label for="foul">FOUL</label>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <input type="checkbox" id="carded" class="filled-in chk-col-green">
-                                <label for="carded">RED/YELLOW CARD</label>
-                            </div></div></div></div>
-                                </section>
-                            </div>
-
-                
-                
             </div>
         </div>
     </section>
@@ -466,40 +494,39 @@
         <aside id="leftsidebar" class="sidebar">
             <div class="menu">
                 <ul class="list navigation">
-                    <li> <!--data-page="dashboard"-->
+                    <!--
+                    <li data-page="dashboard" class="active">
                         <a href="#">
                             <i class="material-icons">home</i>
                             <span>Dashboard</span>
                         </a>
                     </li>
+-->
                     <li data-page="input" class="active">
                         <a href="#">
                             <i class="material-icons">mode_edit</i>
                             <span>Scouting Input</span>
                         </a>
                     </li>
-                    <li>
+<!--
+                    <li data-page="averages">
                         <a href="#">
                             <i class="material-icons">insert_chart</i>
                             <span>Team Averages</span>
                         </a>
                     </li>
-<!--
-                    <li>
+-->
+                    <li data-page="config">
                         <a href="#">
-                            <i class="material-icons">format_list_numbered</i>
-                            <span>Alliance Selection</span>
+                            <i class="material-icons">settings</i>
+                            <span>Config</span>
                         </a>
                     </li>
--->
                 </ul>
             </div>
             <div class="legal">
                 <div class="copyright">
                     The Green Alliance by <a href="http://team4909.org">Team 4909</a>.
-                </div>
-                <div class="version">
-                    <b>Version: </b> 0.1.0
                 </div>
             </div>
         </aside>
