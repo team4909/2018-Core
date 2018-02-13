@@ -1,8 +1,7 @@
 # This should be executed from Root of TGA Repository
 
 # Change Hostname
-sudo hostname the-green-alliance
-sudo "the-green-alliance" > /etc/hostname
+echo "the-green-alliance" | sudo tee /etc/hostname > /dev/null
 sudo sed -i 's/127.0.1.1.*/127.0.1.1\t'"the-green-alliance"'/g' /etc/hosts
 service hostname start
 
