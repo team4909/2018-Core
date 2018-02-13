@@ -48,65 +48,22 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 
 If you need credentials, please contact us at `team4909@gmail.com`
 
-## Scout Input Interface Design
-### General Data Points
-- Match Data
-  - Event (cached text input)
-  - Match Type (radio buttons)
-    - Q   (Qualification)
-    - QF  (Quarterfinal)
-    - SF  (Semifinal)
-    - F   (Final)
-    - R   (Replay)
-  - Match # (# input)
-  - Team # Scouted (# input)
-- Scout Metadata
-  - Team # Scouting (cached # input)
-  - Scout Initials (text input)
-- Common Notes (checkboxes)
-  - Brownout  
-  - Foul
-  - Red Card
-  - Yellow Card
-### Supported Game-Specific Data Entry Methods
-- Counter w/ Stepper Buttons
-- Checkboxes
-- Radio Buttons
-- SVG Button Map
-
 ## Analysis Portal Interface Design
-- [ ] Dashboard (Home)
-  - [X] Upcoming Match Finder (Editable)
-    - [X] Team #
-  - [X] Upcoming Match Metadata (API Dependent)
-    - [X] Match #
-    - [X] Time
-  - [X] Upcoming Match Metadata (API Independent)
-    - [X] Alliance Station
-  - [ ] Alliance Breakdowns
-    - [ ] Averages
-    - [ ] Maximums
-  - [ ] Team Breakdowns
-    - [ ] Averages
 - [ ] Team Averages
   - [ ] Alliance Picklist Creation Utility
 - [ ] Scouting Input
+
 <hr>
 
+- [ ] Dashboard (Home)
 - [ ] Graph (Scatter Plot)
-  - [ ] Alliance Picklist Creation Utility
 - [ ] Alliance Selection
-  - [ ] Locally Stored Picklist, Guides Alliance Selection Process
-- [ ] Match Schedule
-  - [X] Fetched from TBA/FIRST using Event Key
+- [ ] Match Schedule fetched from TBA/FIRST
 
 ## Data Transaction Mechanisms  
 - [X] Event WiFi / Cellular Data (Device <-> Cloud)
-- [ ] Bluetooth SPP (Tablets <-> Pi)
+- [X] Bluetooth SPP (Tablets <-> Pi)
 - [X] Ethernet (Laptops <-> Pi)
-<hr>
-
-- [ ] 6LoWPAN (Pi <-> Pi)
 
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
