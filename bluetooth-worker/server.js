@@ -6,6 +6,9 @@ const app = require('express')(),
 		spawn
 	} = require('child_process');
 
+const nano = require('nano')('http://localhost:5984'),
+    db = nano.db.use('tga-2018');
+
 input_server({
 	config: config
 });
@@ -19,7 +22,9 @@ function input_server(options) {
 	// Handle JSON POST Req, Sent By Py. as Data Flows In
 	app.post('/new_msg ', function(req, res) {
 		const msg_data = req.body.msg_data;
-
+        
+        db.insert(msg_data);
+        
 		res.end();
 	});
 
