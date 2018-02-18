@@ -1,5 +1,5 @@
 from bluetooth import BluetoothSocket
-from bluetooth import RFCOMM
+from bluetooth import *
 import threading
 import requests
 
