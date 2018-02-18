@@ -18,7 +18,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
-    <engine name="android" spec="^6.2.3" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
+    <engine name="android" spec="^6.4.0" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="org.team4909.bluetooth" spec="../bluetooth-plugin" />
 </widget>
