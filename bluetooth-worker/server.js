@@ -29,7 +29,7 @@ function input_server() {
 	app.listen(4909);
 	console.log(`Webhook: Listening at http://localhost:4909`)
 
-	const btworker = spawn('sudo', ['python3', 'bt_worker.py']);
+	const btworker = spawn('sudo', ['python3', 'bluetooth-worker.py']);
 
 	btworker.stdout.on('data', (data) => {
 		console.log(`BT Worker: ${data}`);
