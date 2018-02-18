@@ -9,14 +9,14 @@ The Green Alliance tries to accomodate the workflows of most teams by supporting
 ### Recommended Hardware
 - 6x [Kindle Fire](http://a.co/7w5EHTq) 
 - [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-- Laptop w/ Ethernet Port
+- Laptop(w/ Chrome) w/ Ethernet Port
 
 ### Supported Devices
 - Hybrid(Online/Offline) Usage
   - **Android Devices(v4.1+)** Connected to **Raspberry Pi 3**
     - Connected via **Bluetooth 4.0+** (max. of six devices per Pi)
       - Additional Raspberry Pi's may be tethered via **Ethernet** switch
-  - Laptops Connected to **Raspberry Pi 3**
+  - Laptops(w/ Chrome) Connected to **Raspberry Pi 3**
     - Connected via **Ethernet** switch
 - Online Usage Only
   - Devices (Laptop/Tablet/Phone) Connected to Cloud CouchDB Server
