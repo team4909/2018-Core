@@ -33,6 +33,7 @@ sudo apt-get --yes install libboost-python-dev
 sudo apt-get --yes install libboost-thread-dev
 sudo apt-get --yes install libbluetooth-dev
 sudo apt-get --yes install libglib2.0-dev
+sudo apt-get --yes install bluez
 sudo apt-get --yes install python-bluez
 
 # For Python Bluetooth Libraries
