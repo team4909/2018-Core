@@ -9,11 +9,9 @@ const app = require('express')(),
 const nano = require('nano')('http://localhost:5984'),
     db = nano.db.use('tga-2018');
 
-input_server({
-	config: config
-});
+input_server();
 
-function input_server(options) {
+function input_server() {
 	// Silently Ignore Incorrect JSON Input
 	app.use(bodyParser.json()).use(function(error, req, res, next) {
 		res.end();
@@ -28,7 +26,7 @@ function input_server(options) {
 		res.end();
 	});
 
-	app.listen(options.config.webhook_port);
+	app.listen(4909);
 	console.log(`Webhook: Listening at http://localhost:4909`)
 
 	const btworker = spawn('sudo', ['python3', 'bt_worker.py']);
