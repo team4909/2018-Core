@@ -18,10 +18,8 @@ $(function () {
         bodyTag: 'section',
         transitionEffect: 'slideLeft',
         onFinished: function (event, currentIndex) {
-            localStorage.setItem("event", $(`#m-event-key`).val());
-
             match = {
-                "event_key": $(`#m-event-key`).val(),
+                "event_key": localStorage.get("event"),
                 "match_number": Number($(`#m-number`).val()),
                 "match_type": $('input[name=match-type]:checked').val(),
                 "match_type_number": Number($(`#m-sub-number`).val()),
@@ -70,7 +68,6 @@ $(function () {
             $(`.match-metadata`).val("");
             $(`input[data-counter]`).val("0");
             $(`input[type='checkbox']`).prop("checked", false);
-            $(`#m-event-key`).val(localStorage.getItem("event"));
             $('#wizard_horizontal').steps('restart')
         }
     });
@@ -116,7 +113,11 @@ $(function () {
         });
     });
     $("#team_number").trigger("DOMSubtreeModified");
-
+    
+    $("#m-event-key").val(localStorage.getItem("event")).on("change", () => {
+        localStorage.setItem("event", $("#m-event-key").val());
+    });
+    
     $("#conf-un").val(localStorage.getItem("username")).on("change", () => {
         localStorage.setItem("username", $("#conf-un").val());
     });
@@ -134,7 +135,6 @@ $(function () {
     } else {
         $("#conf-bt-mac").hide();
     }
-
 
     function getNextTeamMatch(team, callback) {
         matchApi.getTeamMatchesByYearSimple("frc" + team, 2017, {}, (err, matches) => {
