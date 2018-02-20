@@ -1,8 +1,4 @@
 $(function () {
-    if (!!window.cordova) {
-        bluetooth.init(JSON.stringify(match), console.log, console.error);
-    }
-
     const apiKey = tba.ApiClient.instance.authentications['apiKey'];
     apiKey.apiKey = 'poguusggy4HtnMS6jZI7nEASojzPhzhdIoBUGYUk4QzqZ0FjYiHZLugOhkVl0OKe';
     const matchApi = new tba.MatchApi();
@@ -94,7 +90,9 @@ $(function () {
     });
 
     if (navigator.onLine != true) {
-        window.dispatchEvent(new Event('offline'))
+        window.dispatchEvent(new Event('offline'));
+    } else {
+        window.dispatchEvent(new Event('online'));
     }
 
     $("#team_number").on("focus", () => {
@@ -102,12 +100,10 @@ $(function () {
             $("#team_number").text("");
     });
 
-    $("#team_number").on("blur", () => {
+    $("body").on('DOMSubtreeModified', "#team_number", function () {
         if ($("#team_number").text() == "")
             $("#team_number").text("0000");
-    });
-
-    $("body").on('DOMSubtreeModified', "#team_number", function () {
+        
         $(".online-only").hide();
 
         getNextTeamMatch($("#team_number").text(), (match) => {
@@ -119,33 +115,26 @@ $(function () {
             }
         });
     });
+    $("#team_number").trigger("DOMSubtreeModified");
 
-    $("#conf-un").val(localStorage.getItem("username"));
-    $("#conf-pw").val(localStorage.getItem("password"));
-    $("#conf-bt-mac").val(localStorage.getItem("mac_addr"));
-
-    if (!window.cordova) {
-        $("#conf-bt-mac").hide();
-    }
-
-    $("#conf-un").on("change", () => {
+    $("#conf-un").val(localStorage.getItem("username")).on("change", () => {
         localStorage.setItem("username", $("#conf-un").val());
     });
-
-    $("#conf-pw").on("change", () => {
+    
+    $("#conf-pw").val(localStorage.getItem("password")).on("change", () => {
         localStorage.setItem("password", $("#conf-pw").val());
     });
 
-    $("#conf-bt-mac").on("change", () => {
-        localStorage.setItem("mac_addr", $("#conf-bt-mac").val());
+    if (!!window.cordova) {
+        $("#conf-bt-mac").val(localStorage.getItem("mac_addr")).on("change", () => {
+            localStorage.setItem("mac_addr", $("#conf-bt-mac").val());
 
-        if (!!window.cordova) {
             bluetooth.initConnection(localStorage.getItem("mac_addr"), console.log, console.error);
-        }
-    });
+        }).trigger("change");
+    } else {
+        $("#conf-bt-mac").hide();
+    }
 
-    $("#team_number").trigger("DOMSubtreeModified");
-    $("#conf-bt-mac").trigger("change");
 
     function getNextTeamMatch(team, callback) {
         matchApi.getTeamMatchesByYearSimple("frc" + team, 2017, {}, (err, matches) => {
