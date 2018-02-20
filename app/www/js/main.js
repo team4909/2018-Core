@@ -1,4 +1,8 @@
 $(function () {
+    if (!!window.cordova) {
+        bluetooth.init(JSON.stringify(match), console.log, console.error);
+    }
+
     const apiKey = tba.ApiClient.instance.authentications['apiKey'];
     apiKey.apiKey = 'poguusggy4HtnMS6jZI7nEASojzPhzhdIoBUGYUk4QzqZ0FjYiHZLugOhkVl0OKe';
     const matchApi = new tba.MatchApi();
