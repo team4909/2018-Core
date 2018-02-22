@@ -3,6 +3,19 @@ Team 4909's 2018+ Scouting System.
 
 The Green Alliance Scouting Platform has been designed from the ground up to enable teams to share data beyond any event, district, or region. This influx of data is especially beneficial to teams at higher levels of play as they have more data to reference in strategic decisions and picking alliance partners. TGA consists of a cross-platform application and a community of FIRSTers willing to gather scouting data for the collective.
 
+## Installation
+
+### Raspberry Pi 3 Configuration (for offline TGA usage only)
+1) Install [Raspbian w/ Desktop](https://www.raspberrypi.org/downloads/raspbian/) to your Raspberry Pi 3
+2) Run `curl -sL http://thegreenalliance.team4909.org/INSTALL.sh | sudo -E bash -` in Terminal on the Pi
+3) For Bluetooth usage, pair 6 Android devices using the Bluetooth GUI in the OS
+
+### Android Tablets (for online/offline TGA usage, enables Bluetooth -> Pi)
+> TODO
+
+### Browser-based Scouting/Analysis Devices (Laptop/iOS devices)
+Visit thegreenalliance.team4909.org, and you're done! The app will save itself on your device and update whenever it is connected to the internet.
+
 ## Supported Hardware
 The Green Alliance tries to accomodate the workflows of most teams by supporting a variety of configurations.
 
@@ -48,22 +61,10 @@ TGA CouchDB Server: `tga-cloud.team4909.org:5984`
 
 If you need credentials, please contact us at `team4909@gmail.com`
 
-## Analysis Portal Interface Design
-- [ ] Team Averages
-  - [ ] Alliance Picklist Creation Utility
-- [ ] Scouting Input
-
-<hr>
-
-- [ ] Dashboard (Home)
-- [ ] Graph (Scatter Plot)
-- [ ] Alliance Selection
-- [ ] Match Schedule fetched from TBA/FIRST
-
 ## Data Transaction Mechanisms  
-- [X] Event WiFi / Cellular Data (Device <-> Cloud)
-- [X] Bluetooth SPP (Tablets <-> Pi)
-- [X] Ethernet (Laptops <-> Pi)
+- Event WiFi / Cellular Data (Device <-> Cloud)
+- Bluetooth SPP (Tablets <-> Pi)
+- Ethernet (Laptops <-> Pi)
 
 ## Bugs / Feature Requests
 Please create a GitHub issue for any bugs or new feature requests.
