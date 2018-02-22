@@ -40,7 +40,6 @@ libs/jquery/jquery.min.map
 libs/moment.js/moment.js
 libs/pouchdb/pouchdb.min.js
 libs/tba-api/tba-api.js
-config.js
 index.html
    
 NETWORK:
