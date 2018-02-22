@@ -18,10 +18,8 @@ $(function () {
         bodyTag: 'section',
         transitionEffect: 'slideLeft',
         onFinished: function (event, currentIndex) {
-            localStorage.setItem("event", $(`#m-event-key`).val());
-
             match = {
-                "event_key": $(`#m-event-key`).val(),
+                "event_key": localStorage.get("event"),
                 "match_number": Number($(`#m-number`).val()),
                 "match_type": $('input[name=match-type]:checked').val(),
                 "match_type_number": Number($(`#m-sub-number`).val()),
@@ -70,7 +68,6 @@ $(function () {
             $(`.match-metadata`).val("");
             $(`input[data-counter]`).val("0");
             $(`input[type='checkbox']`).prop("checked", false);
-            $(`#m-event-key`).val(localStorage.getItem("event"));
             $('#wizard_horizontal').steps('restart')
         }
     });
@@ -90,7 +87,9 @@ $(function () {
     });
 
     if (navigator.onLine != true) {
-        window.dispatchEvent(new Event('offline'))
+        window.dispatchEvent(new Event('offline'));
+    } else {
+        window.dispatchEvent(new Event('online'));
     }
 
     $("#team_number").on("focus", () => {
@@ -98,12 +97,10 @@ $(function () {
             $("#team_number").text("");
     });
 
-    $("#team_number").on("blur", () => {
+    $("body").on('DOMSubtreeModified', "#team_number", function () {
         if ($("#team_number").text() == "")
             $("#team_number").text("0000");
-    });
-
-    $("body").on('DOMSubtreeModified', "#team_number", function () {
+        
         $(".online-only").hide();
 
         getNextTeamMatch($("#team_number").text(), (match) => {
@@ -115,33 +112,29 @@ $(function () {
             }
         });
     });
-
-    $("#conf-un").val(localStorage.getItem("username"));
-    $("#conf-pw").val(localStorage.getItem("password"));
-    $("#conf-bt-mac").val(localStorage.getItem("mac_addr"));
-
-    if (!window.cordova) {
-        $("#conf-bt-mac").hide();
-    }
-
-    $("#conf-un").on("change", () => {
+    $("#team_number").trigger("DOMSubtreeModified");
+    
+    $("#m-event-key").val(localStorage.getItem("event")).on("change", () => {
+        localStorage.setItem("event", $("#m-event-key").val());
+    });
+    
+    $("#conf-un").val(localStorage.getItem("username")).on("change", () => {
         localStorage.setItem("username", $("#conf-un").val());
     });
-
-    $("#conf-pw").on("change", () => {
+    
+    $("#conf-pw").val(localStorage.getItem("password")).on("change", () => {
         localStorage.setItem("password", $("#conf-pw").val());
     });
 
-    $("#conf-bt-mac").on("change", () => {
-        localStorage.setItem("mac_addr", $("#conf-bt-mac").val());
+    if (!!window.cordova) {
+        $("#conf-bt-mac").val(localStorage.getItem("mac_addr")).on("change", () => {
+            localStorage.setItem("mac_addr", $("#conf-bt-mac").val());
 
-        if (!!window.cordova) {
             bluetooth.initConnection(localStorage.getItem("mac_addr"), console.log, console.error);
-        }
-    });
-
-    $("#team_number").trigger("DOMSubtreeModified");
-    $("#conf-bt-mac").trigger("change");
+        }).trigger("change");
+    } else {
+        $("#conf-bt-mac").hide();
+    }
 
     function getNextTeamMatch(team, callback) {
         matchApi.getTeamMatchesByYearSimple("frc" + team, 2017, {}, (err, matches) => {

@@ -1,6 +1,6 @@
 const db = new PouchDB("tga-2018");
 
-db.sync(`http://admin:password@thegreenalliance.local:5984/tga-2018`, {
+db.sync(`http://admin:password@the-green-alliance.local:5984/tga-2018`, {
     live: true,
     retry: true
 }).on('paused', function (info) {

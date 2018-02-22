@@ -1,4 +1,5 @@
 from bluetooth import BluetoothSocket
+from bluetooth import *
 import threading
 import requests
 
