@@ -1,0 +1,11 @@
+[Unit]
+Description=The Green Alliance
+After=multi-user.target
+ 
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /home/pi/the-green-alliance/bluetooth-worker/server.js
+Restart=on-abort
+ 
+[Install]
+WantedBy=multi-user.target 
