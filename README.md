@@ -10,7 +10,7 @@ The Green Alliance Scouting Platform has been designed from the ground up to ena
 2) Run `curl -sL http://thegreenalliance.team4909.org/INSTALL.sh | sudo -E bash -` in Terminal on the Pi
 3) For Bluetooth usage, pair 6 Android devices using the Bluetooth GUI in the OS
 
-### Android Tablets (for online/offline TGA usage, enables Bluetooth -> Pi)
+### Android Devices (for online/offline TGA usage, enables Bluetooth -> Pi)
 > TODO
 
 ### Browser-based Scouting/Analysis Devices (Laptop/iOS devices)
