@@ -70,3 +70,7 @@ chmod +x /home/pi/the-green-alliance/bluetooth-worker/server.js
 sudo systemctl daemon-reload
 sudo systemctl enable bt-worker.service
 sudo systemctl start bt-worker.service
+
+sleep 5
+echo "TGA DB Daemon Status"
+sudo systemctl status bt-worker.service
