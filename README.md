@@ -43,6 +43,8 @@ All devices run either [CouchDB](https://github.com/apache/couchdb) or [PouchDB]
 
 When connected, devices will connect and sync data to reach [eventual consistency](http://docs.couchdb.org/en/2.1.1/intro/consistency.html).
 
+**EDIT** Due to time constraints, the Bluetooth transfer protocol will **not** support bidirectional communication for the 2018 competition season.
+
 ### Hosted Infrastructure
 - Web Hosting via [GitHub Pages](https://pages.github.com)
 - CouchDB on Azure VM
