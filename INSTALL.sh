@@ -22,11 +22,11 @@ curl -X PUT $HOST/_users
 curl -X PUT $HOST/_replicator
 curl -X PUT $HOST/_global_changes
 curl -X PUT $HOST/tga-2018
-curl -X PUT $HOST/_config/httpd/enable_cors -d '"true"'
-curl -X PUT $HOST/_config/cors/origins -d '"*"'
-curl -X PUT $HOST/_config/cors/credentials -d '"true"'
-curl -X PUT $HOST/_config/cors/methods -d '"GET, PUT, POST, HEAD, DELETE"'
-curl -X PUT $HOST/_config/cors/headers -d '"accept, authorization, content-type, origin, referer, x-csrf-token"'
+curl -X PUT $HOST/_node/nonode@nohost/_config/httpd/enable_cors -d '"true"'
+curl -X PUT $HOST/_node/nonode@nohost/_config/cors/origins -d '"*"'
+curl -X PUT $HOST/_node/nonode@nohost/_config/cors/credentials -d '"true"'
+curl -X PUT $HOST/_node/nonode@nohost/_config/cors/methods -d '"GET, PUT, POST, HEAD, DELETE"'
+curl -X PUT $HOST/_node/nonode@nohost/_config/cors/headers -d '"accept, authorization, content-type, origin, referer, x-csrf-token"'
 
 # For Webhook Server (Node)
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
