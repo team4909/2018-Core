@@ -9,7 +9,7 @@ cd /home/pi/the-green-alliance
 # Change Hostname
 echo "the-green-alliance" | sudo tee /etc/hostname > /dev/null
 sudo sed -i 's/127.0.1.1.*/127.0.1.1\t'"the-green-alliance"'/g' /etc/hosts
-service hostname start
+sudo hostname "the-green-alliance"
 
 # For Ethernet Tethering to Pi
 sudo apt-get --yes install avahi-daemon
