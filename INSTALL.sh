@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+# Clone Repo
 cd /home/pi
 git clone https://github.com/FRCteam4909/the-green-alliance.git
-cd /home/pi/the-green-alliance
 
-# This should be executed from Root of TGA Repository
+# Update Repo
+cd /home/pi/the-green-alliance
+git checkout -f master
+git pull
 
 # Change Hostname
 echo "the-green-alliance" | sudo tee /etc/hostname > /dev/null
