@@ -1,3 +1,9 @@
+#!/usr/bin/env bash
+
+cd /home/pi
+git clone https://github.com/FRCteam4909/the-green-alliance.git
+cd /home/pi/the-green-alliance
+
 # This should be executed from Root of TGA Repository
 
 # Change Hostname
@@ -16,8 +22,8 @@ curl -sSL https://get.docker.com | sh
 sudo docker run -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -p 5984:5984 -d --restart=always matthiasg/rpi-couchdb
 sleep 1
 
+# Config DB
 HOST=http://admin:password@127.0.0.1:5984
-
 curl -X PUT $HOST/_users
 curl -X PUT $HOST/_replicator
 curl -X PUT $HOST/_global_changes
@@ -33,7 +39,7 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # For Webhook Server (Node Dependencies)
-cd bluetooth-worker
+cd /home/pi/the-green-alliance/bluetooth-worker
 sudo npm install
 
 # For Python Bluetooth Dependencies
@@ -53,3 +59,11 @@ sudo sed -i 's/bluetoothd/bluetoothd -C/g' /lib/systemd/system/bluetooth.service
 sudo systemctl daemon-reload
 sudo service bluetooth restart
 sudo sdptool add SP
+
+# Start Bluetooth Worker Daemon
+sudo cp /home/pi/the-green-alliance/bluetooth-worker/bt-worker.service /lib/systemd/system/
+sudo chmod 644 /lib/systemd/system/bt-worker.service
+chmod +x /home/pi/the-green-alliance/bluetooth-worker/server.js
+sudo systemctl daemon-reload
+sudo systemctl enable bt-worker.service
+sudo systemctl start bt-worker.service
