@@ -27,8 +27,7 @@ The Green Alliance tries to accomodate the workflows of most teams by supporting
 ### Supported Devices
 - Hybrid(Online/Offline) Usage
   - **Android Devices(v4.1+)** Connected to **Raspberry Pi 3**
-    - Connected via **Bluetooth 4.0+** (max. of six devices per Pi)
-      - Additional Raspberry Pi's may be tethered via **Ethernet** switch
+    - Connected via **Bluetooth 4.0+** (max. of six devices)
   - Laptops(w/ Chrome) Connected to **Raspberry Pi 3**
     - Connected via **Ethernet** switch
 - Online Usage Only
