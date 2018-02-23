@@ -36,6 +36,8 @@ def bluetoothWorker(idx):
             receiveDataFromTablets(idx, client_sock, client_info)
         except IOError:
             # Attempt Reconnection
+            print("Worker {}: Lost Connection on RFCOMM channel {}...".format(idx, port))
+            print("Worker {}: Waiting for reconnection on RFCOMM channel {}...".format(idx, port))
             client_sock, client_info = server_sock.accept()
             print("Device {} Connected".format(idx))
 
