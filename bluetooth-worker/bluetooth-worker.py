@@ -54,11 +54,9 @@ def receiveDataFromTablets(idx, client_sock, client_info):
     try:
         requests.post(data_webhook, json=raw_data)
         print("Device {}: Succesfully Processed Data from {}".format(idx, client_info[0]))
-    except requests.packages.urllib3.exceptions.NewConnectionError:
-    except requests.packages.urllib3.exceptions.MaxRetryError:
-    except requests.exceptions.ConnectionError:
+    except (requests.packages.urllib3.exceptions.NewConnectionError, requests.packages.urllib3.exceptions.MaxRetryError, requests.exceptions.ConnectionError) as error:
         print("Worker {}: Unable to Connect to Webhook")
-    except json.decoder.JSONDecodeError:
+    except (json.decoder.JSONDecodeError) as error:
         print("Device {}: Unable to Process JSON Data from {}".format(idx, client_info[0]))
 
 # Start Application
