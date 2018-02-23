@@ -1,7 +1,7 @@
 {
     "name": "tga-android-2018",
     "displayName": "TGA Android",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Team 4909's 2018+ Scouting System",
     "main": "index.js",
     "scripts": {

@@ -31,7 +31,6 @@ def bluetoothWorker(idx):
 
     # Attempt Connection
     client_sock, client_info = server_sock.accept()
-    connectionEstablished(idx, client_sock, client_info)
     
     while True:
         try:
@@ -41,12 +40,8 @@ def bluetoothWorker(idx):
             # Send Data to Tablets
             sendDataToTablets(idx, client_sock)
         except IOError:
-            # Connection Failed
-            connectionTerminated(idx, client_sock, client_info)
-            
             # Attempt Reconnection
             client_sock, client_info = server_sock.accept()
-            connectionEstablished(idx, client_sock, client_info)
 
     client_sock.close()
     server_sock.close()

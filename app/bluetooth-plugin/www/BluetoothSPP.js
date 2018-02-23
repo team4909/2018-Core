@@ -18,7 +18,7 @@ module.exports = {
             exports.isConnected = true;
 
             for (data of cache.get()) {
-                this.sendData(data);
+                bluetooth.sendData(data);
             }
 
             success();

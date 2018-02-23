@@ -100,7 +100,7 @@ $(function () {
     $("body").on('DOMSubtreeModified', "#team_number", function () {
         if ($("#team_number").text() == "")
             $("#team_number").text("0000");
-        
+
         $(".online-only").hide();
 
         getNextTeamMatch($("#team_number").text(), (match) => {
@@ -113,28 +113,29 @@ $(function () {
         });
     });
     $("#team_number").trigger("DOMSubtreeModified");
-    
+
     $("#m-event-key").val(localStorage.getItem("event")).on("change", () => {
         localStorage.setItem("event", $("#m-event-key").val());
     });
-    
+
     $("#conf-un").val(localStorage.getItem("username")).on("change", () => {
         localStorage.setItem("username", $("#conf-un").val());
     });
-    
+
     $("#conf-pw").val(localStorage.getItem("password")).on("change", () => {
         localStorage.setItem("password", $("#conf-pw").val());
     });
 
-    if (!!window.cordova) {
+    $("#conf-bt-mac").hide();
+    document.addEventListener("deviceready", () => {
         $("#conf-bt-mac").val(localStorage.getItem("mac_addr")).on("change", () => {
             localStorage.setItem("mac_addr", $("#conf-bt-mac").val());
 
             bluetooth.initConnection(localStorage.getItem("mac_addr"), console.log, console.error);
         }).trigger("change");
-    } else {
-        $("#conf-bt-mac").hide();
-    }
+        
+        $("#conf-bt-mac").show();
+    }, false);
 
     function getNextTeamMatch(team, callback) {
         matchApi.getTeamMatchesByYearSimple("frc" + team, 2017, {}, (err, matches) => {
