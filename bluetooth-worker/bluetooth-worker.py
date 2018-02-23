@@ -29,7 +29,7 @@ def bluetoothWorker(idx):
 
     # Attempt Connection
     client_sock, client_info = server_sock.accept()
-    print("Device {} Connected".format(idx))
+    print(" - Connected to Device {} ".format(idx))
     
     while True:
         try:
@@ -40,7 +40,7 @@ def bluetoothWorker(idx):
             print("Worker {}: Lost Connection on RFCOMM channel {}...".format(idx, port))
             print("Worker {}: Waiting for reconnection on RFCOMM channel {}...".format(idx, port))
             client_sock, client_info = server_sock.accept()
-            print("Device {} Connected".format(idx))
+            print(" - Connected to Device {} ({})".format(idx, client_info[0]))
 
     client_sock.close()
     server_sock.close()
@@ -49,15 +49,15 @@ def bluetoothWorker(idx):
 # Recv. New Data from BT Worker Thread
 def receiveDataFromTablets(idx, client_sock, client_info):
     raw_data = client_sock.recv(1024).decode("utf-8")
-    print("Device {}: Received {}".format(idx, raw_data))
+    print(" - Received {} from Device {} ({})".format(raw_data, idx, client_info[0]))
     
     try:
         requests.post(data_webhook, json=raw_data)
-        print("Device {}: Succesfully Processed Data from {}".format(idx, client_info[0]))
+        print(" - Device {}: Succesfully Processed Data from {}".format(idx, client_info[0]))
     except (requests.packages.urllib3.exceptions.NewConnectionError, requests.packages.urllib3.exceptions.MaxRetryError, requests.exceptions.ConnectionError) as error:
-        print("Worker {}: Unable to Connect to Webhook")
+        print("Worker {}: Unable to Connect to Webhook".format(idx))
     except (json.decoder.JSONDecodeError) as error:
-        print("Device {}: Unable to Process JSON Data from {}".format(idx, client_info[0]))
+        print(" - Device {}: Unable to Process JSON Data from {}".format(idx, client_info[0]))
 
 # Start Application
 print("Starting Threads...")
