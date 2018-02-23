@@ -15,33 +15,29 @@ server_sock.listen(1)
 
 port = server_sock.getsockname()[1]
 
-
 # Advertise Serial Port Profile
 advertise_service( server_sock, "TGA Bluetooth Server",
                    service_id = uuid,
                    service_classes = [ uuid, SERIAL_PORT_CLASS ],
                    profiles = [ SERIAL_PORT_PROFILE ])
 
-deviceQueue = [[] for i in range(deviceCount)]
-
 # Bluetooth Worker Thread
 def bluetoothWorker(idx):
     # Thread Started
-    print("Device {}: Waiting for connection on RFCOMM channel {}...".format(idx, port))
+    print("Worker {}: Waiting for connection on RFCOMM channel {}...".format(idx, port))
 
     # Attempt Connection
     client_sock, client_info = server_sock.accept()
+    print("Device {} Connected".format(idx))
     
     while True:
         try:
             # Receive Data from Tablets
             receiveDataFromTablets(idx, client_sock, client_info)
-            
-            # Send Data to Tablets
-            sendDataToTablets(idx, client_sock)
         except IOError:
             # Attempt Reconnection
             client_sock, client_info = server_sock.accept()
+            print("Device {} Connected".format(idx))
 
     client_sock.close()
     server_sock.close()
@@ -50,21 +46,14 @@ def bluetoothWorker(idx):
 # Recv. New Data from BT Worker Thread
 def receiveDataFromTablets(idx, client_sock, client_info):
     raw_data = client_sock.recv(1024).decode("utf-8")
+    print("Device {}: Received {}".format(idx, raw_data);
     
     try:
         requests.post(data_webhook, json=raw_data)
-        
         print("Device {}: Succesfully Processed Data from {}".format(idx, client_info[0]))
-        
     except json.decoder.JSONDecodeError:
         print("Device {}: Unable to Process JSON Data from {}".format(idx, client_info[0]))
-    
-# Send New Data to BT Worker Thread
-def sendDataToTablets(idx, client_sock):
-    for message in deviceQueue[idx][:]:
-        client_sock.send(message)
-        deviceQueue[idx].remove(message)
-    
+
 # Start Application
 print("Starting Threads...")
     
