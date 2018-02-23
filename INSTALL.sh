@@ -9,7 +9,7 @@ cd /home/pi/the-green-alliance
 git checkout -f master
 git pull
 
-echo
+# TL;DR of Script
 echo
 echo "The Green Alliance Pi Installer Script will do the following: "
 echo " - change device hostname to the 'the-green-alliance' "
@@ -17,7 +17,6 @@ echo " - enable ethernet tethering"
 echo " - enable SSH for remote access"
 echo " - install and configure the CouchDB datastore"
 echo " - install and configure the TGA Bluetooth syncing server"
-echo
 echo
 echo "You may press Ctrl+C now to abort this script."
 echo "+ sleep 20"
@@ -42,7 +41,7 @@ sudo systemctl start ssh
 # For Database Installation
 echo "Installing CouchDB Server..."
 curl -sSL https://get.docker.com | sh
-sudo docker run -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -p 5984:5984 -d --restart=always matthiasg/rpi-couchdb
+sudo docker run -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -p 5984:5984 -d --restart=always --name tga-couchdb matthiasg/rpi-couchdb
 sleep 1
 
 # Config DB
