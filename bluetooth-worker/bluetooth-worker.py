@@ -46,7 +46,7 @@ def bluetoothWorker(idx):
 # Recv. New Data from BT Worker Thread
 def receiveDataFromTablets(idx, client_sock, client_info):
     raw_data = client_sock.recv(1024).decode("utf-8")
-    print("Device {}: Received {}".format(idx, raw_data);
+    print("Device {}: Received {}".format(idx, raw_data))
     
     try:
         requests.post(data_webhook, json=raw_data)
