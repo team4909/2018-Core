@@ -80,7 +80,7 @@ sudo pip3 install requests
 echo "Starting Bluetooth Daemon..."
 sudo sed -i 's/bluetoothd/bluetoothd -C/g' /lib/systemd/system/bluetooth.service
 sudo systemctl daemon-reload
-sudo service bluetooth restart
+sudo systemctl restart bluetooth
 sudo sdptool add SP
 
 # Start Bluetooth Worker Daemon
@@ -90,7 +90,7 @@ sudo chmod 644 /lib/systemd/system/bt-worker.service
 chmod +x /home/pi/the-green-alliance/bluetooth-worker/server.js
 sudo systemctl daemon-reload
 sudo systemctl enable bt-worker.service
-sudo systemctl start bt-worker.service
+sudo systemctl restart bt-worker.service
 
 # Inform User to Reboot
 echo
