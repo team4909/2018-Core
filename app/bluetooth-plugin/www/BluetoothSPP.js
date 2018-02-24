@@ -10,37 +10,32 @@ var cache = {
     }
 };
 
+var prevMacAddr = "";
+
 module.exports = {
-    isConnected: false,
-
     initConnection: function (macAddr, success, error) {
-        exec(function () {
-            exports.isConnected = true;
-
+        prevMacAddr = macAddr;
+        
+        exec(function (msg) {
             for (data of cache.get()) {
-                bluetooth.sendData(data);
+                bluetooth.sendRawData(data);
             }
 
-            success();
+            success(`Connected to server: ${msg}`);
         }, function (err) {
-            exports.isConnected = false;
-
-            error(err);
+            error(`Could not connect to server: ${err}`);
         }, 'BluetoothSPP', 'initConnection', [macAddr]);
     },
+    sendRawData: function (data, success, error) {
+        exec(success, function (err) {
+            cache.add(data);
+        }, 'BluetoothSPP', 'sendData', [data]);
+    },
     sendData: function (data, success, error) {
-        if (exports.isConnected) {
-            exec(function () {
-                success();
-            }, function (err) {
-                exports.isConnected = false;
+        exec(success, function (err) {
+            cache.add(data);
 
-                cache.add(data);
-
-                error(err);
-            }, 'BluetoothSPP', 'sendData', [data]);
-        } else {
-            error("The Server is not Connected.");
-        }
+            bluetooth.initConnection(prevMacAddr, success, error)
+        }, 'BluetoothSPP', 'sendData', [data]);
     }
 };
