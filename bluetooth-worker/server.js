@@ -18,7 +18,7 @@ function input_server() {
 	});
 
 	// Handle JSON POST Req, Sent By Py. as Data Flows In
-	app.post('/new_msg ', function(req, res) {
+	app.post('/new_msg', function(req, res) {
 		const msg_data = req.body.msg_data;
         
         db.insert(msg_data);
