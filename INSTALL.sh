@@ -84,11 +84,17 @@ sudo sdptool add SP
 
 # Start Bluetooth Worker Daemon
 echo "Starting TGA Bluetooth Worker Daemon..."
+sudo cp /home/pi/the-green-alliance/bluetooth-worker/bt-worker-hook.service /lib/systemd/system/
 sudo cp /home/pi/the-green-alliance/bluetooth-worker/bt-worker.service /lib/systemd/system/
+sudo chmod 644 /lib/systemd/system/bt-worker-hook.service
 sudo chmod 644 /lib/systemd/system/bt-worker.service
 chmod +x /home/pi/the-green-alliance/bluetooth-worker/server.js
+chmod +x /home/pi/the-green-alliance/bluetooth-worker/bluetooth-worker.py
 sudo systemctl daemon-reload
+
+sudo systemctl enable bt-worker-hook.service
 sudo systemctl enable bt-worker.service
+sudo systemctl restart bt-worker-hook.service
 sudo systemctl restart bt-worker.service
 
 # Inform User to Reboot
