@@ -4,7 +4,8 @@ After=multi-user.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/node /home/pi/the-green-alliance/bluetooth-worker/server.js
+User=pi
+ExecStart=sudo /usr/bin/node /home/pi/the-green-alliance/bluetooth-worker/server.js
 Restart=on-abort
  
 [Install]
