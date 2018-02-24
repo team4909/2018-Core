@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Type=simple
 User=pi
-ExecStart=sudo /usr/bin/python3 /home/pi/the-green-alliance/bluetooth-worker/bluetooth-worker.py
+ExecStart=/usr/bin/sudo /usr/bin/python3 /home/pi/the-green-alliance/bluetooth-worker/bluetooth-worker.py
 Restart=on-abort
  
 [Install]
