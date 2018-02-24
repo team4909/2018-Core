@@ -29,7 +29,7 @@ def bluetoothWorker(idx):
 
     # Attempt Connection
     client_sock, client_info = server_sock.accept()
-    print(" - Connected to Device {} ".format(idx))
+    print(" - Connected to Device {} ({})".format(idx, client_info[0]))
     
     while True:
         try:

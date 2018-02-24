@@ -36,10 +36,12 @@ function input_server() {
 	});
 
 	btworker.stderr.on('data', (data) => {
-		console.error(`BT Worker: Error ${data}`);
+		console.log(`BT Worker: Exited with error ${data}`);
+        process.exit(-1);
 	});
 
 	btworker.on('close', (code) => {
 		console.log(`BT Worker: Exited with code ${code}`);
+        process.exit(-1);
 	});
 }
