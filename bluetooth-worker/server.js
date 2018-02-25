@@ -14,8 +14,17 @@ app.use(bodyParser.json()).use(function (error, req, res, next) {
 app.post('/new_msg', function (req, res) {
     const msg_data = req.body.msg_data;
 
-    db.insert(msg_data);
+    console.log("New Data:");
+    console.dir(msg_data);
 
+    db.insert(msg_data, msg_data._id, function (err, body, header) {
+        if (err) {
+            console.log("Error" + err.message);
+        } else {
+            console.log("Success");
+        }
+    });
+    
     res.end();
 });
 
