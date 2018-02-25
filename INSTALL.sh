@@ -88,8 +88,8 @@ sudo cp /home/pi/the-green-alliance/bluetooth-worker/bt-worker-hook.service /lib
 sudo cp /home/pi/the-green-alliance/bluetooth-worker/bt-worker.service /lib/systemd/system/
 sudo chmod 644 /lib/systemd/system/bt-worker-hook.service
 sudo chmod 644 /lib/systemd/system/bt-worker.service
-chmod +x /home/pi/the-green-alliance/bluetooth-worker/server.js
-chmod +x /home/pi/the-green-alliance/bluetooth-worker/bluetooth-worker.py
+sudo chmod +x /home/pi/the-green-alliance/bluetooth-worker/server.js
+sudo chmod +x /home/pi/the-green-alliance/bluetooth-worker/bluetooth-worker.py
 sudo systemctl daemon-reload
 
 sudo systemctl enable bt-worker-hook.service
