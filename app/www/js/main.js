@@ -19,7 +19,7 @@ $(function () {
         transitionEffect: 'slideLeft',
         onFinished: function (event, currentIndex) {
             match = {
-                "event_key": localStorage.get("event"),
+                "event_key": localStorage.getItem("event"),
                 "match_number": Number($(`#m-number`).val()),
                 "match_type": $('input[name=match-type]:checked').val(),
                 "match_type_number": Number($(`#m-sub-number`).val()),
