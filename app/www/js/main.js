@@ -55,7 +55,7 @@ $(function () {
                 "comments_card": Number($("#carded").prop("checked"))
             };
 
-            match["_id"] = "2018" + match.event_key + "_" + match.match_type + match.match_number + (match.match_type_number ? "m" + match.match_type_number : "");
+            match["_id"] = "2018" + match.event_key + "_" + match.match_type + match.match_number + (match.match_type_number ? "m" + match.match_type_number : "") + "_" + match.team_number;
             match["_id"] = match["_id"].toLowerCase();
 
             db.put(match);
