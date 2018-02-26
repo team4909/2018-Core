@@ -1,3 +1,10 @@
+$(applicationCache).bind(
+    "cached",
+    function (event) {
+        alert("The Green Alliance Scouting Platform has been successfully cached on your device.");
+    }
+);
+
 $(function () {
     const apiKey = tba.ApiClient.instance.authentications['apiKey'];
     apiKey.apiKey = 'poguusggy4HtnMS6jZI7nEASojzPhzhdIoBUGYUk4QzqZ0FjYiHZLugOhkVl0OKe';
@@ -133,7 +140,7 @@ $(function () {
 
             bluetooth.initConnection(localStorage.getItem("mac_addr"), console.log, console.error);
         }).trigger("change");
-        
+
         $("#conf-bt-mac").show();
     }, false);
 
