@@ -8,11 +8,13 @@ The Green Alliance Scouting Platform has been designed from the ground up to ena
 ### Raspberry Pi 3 Configuration (for offline TGA usage only)
 1) Install [Raspbian w/ Desktop](https://www.raspberrypi.org/downloads/raspbian/) to your Raspberry Pi 3
 2) Run `curl -sL http://thegreenalliance.team4909.org/INSTALL.sh | sudo -E bash -` in Terminal on the Pi
-3) For Bluetooth usage, pair 6 Android devices using the Bluetooth GUI in the OS
-4) Take note of the Bluetooth MAC Address of the Pi
+
+    The script will log the Bluetooth MAC Address prior to finishing, please take note of that ID for tablet usage.
+3) For Bluetooth usage, pair 6 Android devices using the Bluetooth GUI in the Pi OS
 
 ### Android Devices (for online/offline TGA usage, enables Bluetooth -> Pi)
-> TODO
+1) Enable [Installing via APK File](https://www.wikihow.tech/Install-APK-Files-on-Android)
+2) Download & Install APK from `LINK PENDING`
 
 ### Browser-based Scouting/Analysis Devices (Laptop/iOS devices)
 Visit [thegreenalliance.team4909.org](http://thegreenalliance.team4909.org), and you're done! The app will save itself on your device and update whenever it is connected to the internet.
