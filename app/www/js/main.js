@@ -1,7 +1,7 @@
 $(applicationCache).bind(
     "cached",
     function (event) {
-        alert("The Green Alliance Scouting Platform has been successfully cached on your device.");
+        alert("The Green Alliance Scouting Platform has been successfully cached on your device!");
     }
 );
 
