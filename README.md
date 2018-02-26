@@ -9,7 +9,7 @@ The Green Alliance Scouting Platform has been designed from the ground up to ena
 1) Install [Raspbian w/ Desktop](https://www.raspberrypi.org/downloads/raspbian/) to your Raspberry Pi 3
 2) Run `curl -sL http://thegreenalliance.team4909.org/INSTALL.sh | sudo -E bash -` in Terminal on the Pi
 
-    The script will log the Bluetooth MAC Address prior to finishing, please take note of that ID for tablet usage.
+    The script will log the Bluetooth MAC Address prior to finishing, please take note of that ID for Android Bluetooth usage.
 3) For Bluetooth usage, pair 6 Android devices using the Bluetooth GUI in the Pi OS
 
 ### Android Devices (for online/offline TGA usage, enables Bluetooth -> Pi)
