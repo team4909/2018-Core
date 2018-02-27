@@ -16,6 +16,8 @@ echo "You may press Ctrl+C now to abort this script."
 echo "+ sleep 20"
 sleep 20
 
+sudo apt-get -qq --yes install git
+
 # Clone Repo
 cd /home/pi
 git clone https://github.com/FRCteam4909/the-green-alliance.git
