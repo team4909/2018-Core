@@ -51,8 +51,8 @@ echo "[TGA] Installing CouchDB Server..."
 curl -sSL https://get.docker.com | sh
 sudo docker run -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -p 5984:5984 -d --restart=always --name tga-couchdb matthiasg/rpi-couchdb
 
-echo "+ sleep 5"
-sleep 5
+echo "+ sleep 30"
+sleep 30
 # Config DB
 echo "[TGA] Configuring CouchDB Server..."
 curl -X PUT http://admin:password@127.0.0.1:5984/_users
