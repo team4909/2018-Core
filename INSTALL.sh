@@ -40,6 +40,8 @@ sudo update-rc.d avahi-daemon defaults
 
 # Enable SSH
 echo "[TGA] Enabling SSH Server..."
+sudo rm /etc/ssh/ssh_host_*
+sudo dpkg-reconfigure openssh-server
 sudo systemctl enable ssh
 sudo systemctl start ssh
 
