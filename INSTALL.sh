@@ -5,7 +5,7 @@ echo
 echo "THE GREEN ALLIANCE SCOUTING PLATFORM"
 echo " - INSTALLER SCRIPT"
 echo
-echo" will do the following: "
+echo " will do the following: "
 echo " - change device hostname to the 'the-green-alliance' "
 echo " - enable ethernet tethering"
 echo " - enable SSH for remote access"
