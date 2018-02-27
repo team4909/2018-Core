@@ -6,12 +6,13 @@ The Green Alliance Scouting Platform has been designed from the ground up to ena
 ## Installation
 
 ### Raspberry Pi 3 Configuration (for offline TGA usage only)
-1) Install [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/) to your Raspberry Pi 3
+1) Install [Raspbian Lite (not Desktop)](https://www.raspberrypi.org/downloads/raspbian/) to your Raspberry Pi 3
 2) Run `sudo raspi-config` to configure the correct keyboard layout
-3) Run `curl -sL http://thegreenalliance.team4909.org/INSTALL.sh | sudo -E bash -` on the Pi
+3) [Configure WiFi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/setting-up-wifi-with-occidentalis) if not using Ethernet for Install Procedure
+4) Run `curl -sL http://thegreenalliance.team4909.org/INSTALL.sh | sudo -E bash -` on the Pi
 
     Please read the resulting output as it provides important information regarding configuration.
-4) For Bluetooth usage, pair up to six Android devices [using the Terminal on the Pi OS](https://www.cnet.com/how-to/how-to-setup-bluetooth-on-a-raspberry-pi-3/)
+5) For Bluetooth usage, pair up to six Android devices [using the Terminal on the Pi OS](https://www.cnet.com/how-to/how-to-setup-bluetooth-on-a-raspberry-pi-3/)
 
 ### Android Devices (for online/offline TGA usage, enables Bluetooth -> Pi)
 1) Enable [Installing via APK File](https://www.wikihow.tech/Install-APK-Files-on-Android)
