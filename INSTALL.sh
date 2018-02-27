@@ -86,7 +86,6 @@ sudo pip3 -q install requests
 
 # Start Bluetooth Daemon
 echo "[TGA] Starting OS Bluetooth Daemon..."
-sudo usermod -G bluetooth -a pi
 sudo sed -i 's/bluetoothd/bluetoothd -C/g' /lib/systemd/system/bluetooth.service
 sudo systemctl daemon-reload
 sudo systemctl restart bluetooth
