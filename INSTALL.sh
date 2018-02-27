@@ -16,6 +16,7 @@ echo "You may press Ctrl+C now to abort this script."
 echo "+ sleep 20"
 sleep 20
 
+sudo apt-get update
 sudo apt-get -qq --yes install git
 
 # Clone Repo
@@ -79,11 +80,13 @@ sudo apt-get -qq --yes install libbluetooth-dev
 sudo apt-get -qq --yes install libglib2.0-dev
 sudo apt-get -qq --yes install bluez
 sudo apt-get -qq --yes install python-bluez
-sudo pip3 install pybluez
-sudo pip3 install requests
+sudo apt-get -qq --yes install python3-pip
+sudo pip3 -q install pybluez
+sudo pip3 -q install requests
 
 # Start Bluetooth Daemon
 echo "[TGA] Starting OS Bluetooth Daemon..."
+sudo usermod -G bluetooth -a pi
 sudo sed -i 's/bluetoothd/bluetoothd -C/g' /lib/systemd/system/bluetooth.service
 sudo systemctl daemon-reload
 sudo systemctl restart bluetooth
