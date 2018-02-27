@@ -1,7 +1,8 @@
 [Unit]
 Description=The Green Alliance
-After=multi-user.target
- 
+After=bluetooth.service
+Requires=bluetooth.service
+
 [Service]
 Type=simple
 ExecStart=/usr/bin/python3 /home/pi/the-green-alliance/bluetooth-worker/bluetooth-worker.py
