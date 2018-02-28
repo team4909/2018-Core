@@ -12,10 +12,8 @@ app.use(bodyParser.json()).use(function (error, req, res, next) {
 
 // Handle JSON POST Req, Sent By Py. as Data Flows In
 app.post('/new_msg', function (req, res) {
-    const msg_data = req.body;
-
     console.log("New Data:");
-    console.dir(msg_data);
+    console.dir(req.body);
 
     db.insert(msg_data, msg_data._id, function (err, body, header) {
         if (err) {
