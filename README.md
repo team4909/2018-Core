@@ -18,11 +18,9 @@ The Green Alliance Scouting Platform has been designed from the ground up to ena
 2) Download & Install APK from `https://goo.gl/xoWPmL`
 
 ### Browser-based Scouting/Analysis Devices (Laptop/iOS devices)
-Visit [thegreenalliance.team4909.org](http://thegreenalliance.team4909.org), and wait for the alert saying that the webpage has been cached.
+Visit [thegreenalliance.team4909.org](http://thegreenalliance.team4909.org), and wait for the alert saying that the webpage has been cached. The app will save itself on your device and update whenever it is connected to the internet.
 
 Note: this only occurs when there is a newer version of the site not yet cached
-
-The app will save itself on your device and update whenever it is connected to the internet.
 
 ## Supported Hardware
 The Green Alliance tries to accomodate the workflows of most teams by supporting a variety of configurations.
