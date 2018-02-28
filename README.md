@@ -15,7 +15,7 @@ The Green Alliance Scouting Platform has been designed from the ground up to ena
 
 ### Android Devices (for online/offline TGA usage, enables Bluetooth -> Pi)
 1) Enable [Installing via APK File](https://www.wikihow.tech/Install-APK-Files-on-Android)
-2) Download & Install APK from `LINK PENDING`
+2) Download & Install APK from `https://goo.gl/xoWPmL`
 
 ### Browser-based Scouting/Analysis Devices (Laptop/iOS devices)
 Visit [thegreenalliance.team4909.org](http://thegreenalliance.team4909.org), and you're done!
