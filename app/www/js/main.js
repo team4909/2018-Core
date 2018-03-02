@@ -5,6 +5,13 @@ $(applicationCache).bind(
     }
 );
 
+$(applicationCache).bind(
+    "updateready",
+    function (event) {
+        alert("The Green Alliance Scouting Platform has been successfully updated on your device! Please reload the page to use the new version.");
+    }
+);
+
 $(function () {
     const apiKey = tba.ApiClient.instance.authentications['apiKey'];
     apiKey.apiKey = 'poguusggy4HtnMS6jZI7nEASojzPhzhdIoBUGYUk4QzqZ0FjYiHZLugOhkVl0OKe';
