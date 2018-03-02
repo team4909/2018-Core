@@ -15,7 +15,7 @@ app.post('/new_msg', function (req, res) {
     console.log("New Data:");
     console.dir(req.body);
 
-    db.insert(msg_data, msg_data._id, function (err, body, header) {
+    db.insert(req.body, req.body._id, function (err, body, header) {
         if (err) {
             console.log("Error" + err.message);
         } else {
