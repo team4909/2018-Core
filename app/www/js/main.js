@@ -72,7 +72,7 @@ $(function () {
             }
 
             // Clear Form
-            $(`.match-metadata`).val("");
+            $(`.match-metadata input`).val("");
             $(`input[data-counter]`).val("0");
             $(`input[type='checkbox']`).prop("checked", false);
             $('#wizard_horizontal').steps('restart')
