@@ -72,7 +72,8 @@ $(function () {
             }
 
             // Clear Form
-            $(`.match-metadata input`).val("");
+            $(`.match-metadata input[type='text']`).val("");
+            $("#m-event-key").val(localStorage.getItem("event"));
             $(`input[data-counter]`).val("0");
             $(`input[type='checkbox']`).prop("checked", false);
             $('#wizard_horizontal').steps('restart')
