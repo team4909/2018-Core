@@ -48,6 +48,7 @@ sudo systemctl start ssh
 
 # For Database Installation
 echo "[TGA] Installing CouchDB Server..."
+export CHANNEL=stable
 curl -sSL https://get.docker.com | sh
 sudo docker run -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -p 5984:5984 -d --restart=always --name tga-couchdb matthiasg/rpi-couchdb
 
