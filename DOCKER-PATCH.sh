@@ -4,3 +4,5 @@ sudo apt-get remove docker-ce
 
 export CHANNEL=stable
 curl -sSL https://get.docker.com | sh
+
+sudo docker start tga-couchdb
