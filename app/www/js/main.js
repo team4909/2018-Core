@@ -12,10 +12,60 @@ $(applicationCache).bind(
     }
 );
 
+var matchTable, avgTable;
+
 $(function () {
     const apiKey = tba.ApiClient.instance.authentications['apiKey'];
     apiKey.apiKey = 'poguusggy4HtnMS6jZI7nEASojzPhzhdIoBUGYUk4QzqZ0FjYiHZLugOhkVl0OKe';
     const matchApi = new tba.MatchApi();
+
+    getDatabaseMatches((headers, matches) => {
+        matchTable = $('#matches').DataTable({
+            data: matches,
+            scrollX: true,
+            columns: headers
+        });
+    });
+
+    getDatabaseAverages((headers, matches) => {
+        avgTable = $('#averages').DataTable({
+            data: matches,
+            scrollX: true,
+            columns: headers
+        });
+    });
+
+    function updateMatchDataViews() {
+        getDatabaseMatches((headers, matches) => {
+            matchTable.clear();
+            matchTable.rows.add(matches);
+            matchTable.draw();
+        });
+    }
+
+    function updateAverageDataViews() {
+        getDatabaseAverages((headers, matches) => {
+            avgTable.clear();
+            avgTable.rows.add(matches);
+            avgTable.draw();
+        });
+    }
+
+    setInterval(() => {
+        updateMatchDataViews();
+        updateAverageDataViews();
+    }, 500);
+
+    getDatabaseAverages((headers, matches) => {
+        avgTable = $('#average').DataTable({
+            data: [],
+            scrollX: true,
+            columns: headers
+        });
+
+        avgTable.rows.add(matches);
+        avgTable.draw();
+    });
 
     $(".navigation li[data-page]").click((event) => {
         const page = $(event.currentTarget).attr("data-page");
@@ -201,25 +251,10 @@ $(function () {
         return typeof object != undefined && object != null;
     }
 
-    function getDatabaseMatches(callback) {
-        db.allDocs({
-            include_docs: true
-        }).then((docs) => {
-            matches = _.map(docs.rows, function (match) {
-                return match.doc;
-            });
-            matches = _.reject(matches, function (match) {
-                return match.event_key == "practice";
-            });
-
-            callback(matches);
-        });
-    }
-
     $("button[data-type='minus']").click((event) => {
         const counter = $(event.currentTarget).attr("data-counter");
         const existing = Number($(`input[data-counter='${counter}']`).val());
-        
+
         if (existing > 0)
             $(`input[data-counter='${counter}']`).val(existing - 1);
     });

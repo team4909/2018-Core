@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="msapplication-tap-highlight" content="no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
     <title>The Green Alliance</title>
 
     <!-- Fonts -->
@@ -15,6 +15,7 @@
 
     <!-- Bootstrap Core Css -->
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/datatables/jquery.dataTables.min.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="libs/adminbsb/style.min.css" rel="stylesheet">
@@ -157,6 +158,30 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" data-page="matches" style="display: none;">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        TEAM MATCHES
+                    </h2>
+                </div>
+                <div class="body">
+                    <table id="matches" class="display"></table>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" data-page="averages" style="display: none;">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        TEAM AVERAGES
+                    </h2>
+                </div>
+                <div class="body">
+                    <table id="averages" class="display"></table>
                 </div>
             </div>
         </div>
@@ -511,14 +536,18 @@
                             <span>Scouting Input</span>
                         </a>
                     </li>
-<!--
                     <li data-page="averages">
                         <a href="#">
                             <i class="material-icons">insert_chart</i>
                             <span>Team Averages</span>
                         </a>
                     </li>
--->
+                    <li data-page="matches">
+                        <a href="#">
+                            <i class="material-icons">list</i>
+                            <span>Team Matches</span>
+                        </a>
+                    </li>
                     <li data-page="config">
                         <a href="#">
                             <i class="material-icons">settings</i>
@@ -552,11 +581,12 @@
     </div>
 
     <!-- Core Js -->
-	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
     <script src="libs/jquery/jquery.min.js"></script>
     <script src="libs/jquery.steps/jquery.steps.js"></script>
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libs/underscore/underscore-min.js.css"></script>
+    <script src="libs/underscore/underscore-min.js"></script>
+    <script src="libs/datatables/jquery.dataTables.min.js"></script>
     <script src="libs/pouchdb/pouchdb.min.js"></script>
     <script src="libs/pouchdb/pouchdb.find.js"></script>
     <script src="libs/handlebars/handlebars-v4.0.11.js"></script>

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 3/2/18 19:01:32
+# 3/2/18 20:dfsf2312323123sdf23112312ewrwer123213123211232123423132q324q123213ewrew12312asd14212312321312yiu879687q2444431213s12312asdewrwedf123132s:32
 
 CACHE:
 css/main.css
@@ -41,6 +41,9 @@ libs/moment.js/moment.js
 libs/pouchdb/pouchdb.min.js
 libs/tba-api/tba-api.js
 index.html
+libs/underscore/underscore-min.js
+libs/datatables/jquery.dataTables.min.css
+libs/datatables/jquery.dataTables.min.js
    
 NETWORK:
 *
