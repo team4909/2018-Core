@@ -114,12 +114,13 @@ function getDatabaseAverages(callback) {
         
             averages = {
                 event_key: matches[0]["event_key"],
-                team_number: matches[0]["team_number"]
             };
             
             averagesCalc.forEach((e,i) => {
                 averages[e.key] = e.value
             });
+            
+            averages.team_number = matches[0]["team_number"];
             
             // RIP out Metadata
             averages.grouping_key = undefined;
