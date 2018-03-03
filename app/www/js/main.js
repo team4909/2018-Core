@@ -80,6 +80,7 @@ $(function () {
 
             // Clear Form
             $(`.match-metadata input[type='text']`).val("");
+            $(`.match-metadata input[type='number']`).val("");
             $("#m-event-key").val(localStorage.getItem("event"));
             $(`input[data-counter]`).val("0");
             $(`input[type='checkbox']`).prop("checked", false);
@@ -200,10 +201,25 @@ $(function () {
         return typeof object != undefined && object != null;
     }
 
+    function getDatabaseMatches(callback) {
+        db.allDocs({
+            include_docs: true
+        }).then((docs) => {
+            matches = _.map(docs.rows, function (match) {
+                return match.doc;
+            });
+            matches = _.reject(matches, function (match) {
+                return match.event_key == "practice";
+            });
+
+            callback(matches);
+        });
+    }
+
     $("button[data-type='minus']").click((event) => {
         const counter = $(event.currentTarget).attr("data-counter");
         const existing = Number($(`input[data-counter='${counter}']`).val());
-
+        
         if (existing > 0)
             $(`input[data-counter='${counter}']`).val(existing - 1);
     });
