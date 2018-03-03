@@ -35,10 +35,12 @@ function getDatabaseMatches(callback) {
 
         headers = [
             "Event Key", "Team #", "Match",
-            "Line Cross", "Auto. Switch", "Auto. Scale", "Auto. Exchange",
+            "Line Cross", "Opp. Auto", "Auto. Switch", "Auto. Scale", "Auto. Exchange",
             "Teleop. Switch", "Teleop. Scale", "Teleop. Exchange",
             "Teleop. from Portal", "Teleop. from Floor", "Teleop. Dropped",
-            "Platform", "Climbed", "Lifted", "Lifted Others"
+            "Platform", "Climbed", "Lifted", "Lifted Others",
+            "Cube Placing", "Bad Driving", "Top Heavy", "Disabled",
+            "Robot Failure", "Carded", "Foul", "Not Present"
         ];
 
         headers = _.map(headers, function (header) {
@@ -54,6 +56,7 @@ function getDatabaseMatches(callback) {
                 (match["match_type"] + match["match_number"] + (match["match_type_number"] ? "m" + match.match_type_number : "")).toUpperCase(),
 
                 match["auto_crossed_line"],
+                match["comments_opponent_auto"],
                 match["auto_cubes_on_switch"],
                 match["auto_cubes_on_scale"],
                 match["auto_cubes_exchanged"],
@@ -68,7 +71,16 @@ function getDatabaseMatches(callback) {
                 match["endgame_platform"],
                 match["endgame_climbed"],
                 match["endgame_lifted_by_partners"],
-                match["endgame_lifted_partners"]
+                match["endgame_lifted_partners"],
+        
+                match["comments_accurate_cube_placer"],
+                match["comments_reckless_driving"],
+                match["comments_top_heavy"],
+                match["comments_disabled"],
+                match["comments_robot_failure"],
+                match["comments_card"],
+                match["comments_foul"],
+                match["comments_not_present"]
             ];
         });
 
@@ -122,10 +134,12 @@ function getDatabaseAverages(callback) {
         
         headers = [
             "Event Key", "Team #",
-            "Line Cross", "Auto. Switch", "Auto. Scale", "Auto. Exchange",
+            "Line Cross", "Opp. Auto", "Auto. Switch", "Auto. Scale", "Auto. Exchange",
             "Teleop. Switch", "Teleop. Scale", "Teleop. Exchange",
             "Teleop. from Portal", "Teleop. from Floor", "Teleop. Dropped",
-            "Platform", "Climbed", "Lifted", "Lifted Others"
+            "Platform", "Climbed", "Lifted", "Lifted Others",
+            "Cube Placing", "Bad Driving", "Top Heavy", "Disabled",
+            "Robot Failure", "Carded", "Foul", "Not Present"
         ];
 
         headers = _.map(headers, function (header) {
@@ -140,6 +154,7 @@ function getDatabaseAverages(callback) {
                 match["team_number"],
 
                 match["auto_crossed_line"],
+                match["comments_opponent_auto"],
                 match["auto_cubes_on_switch"],
                 match["auto_cubes_on_scale"],
                 match["auto_cubes_exchanged"],
@@ -154,7 +169,16 @@ function getDatabaseAverages(callback) {
                 match["endgame_platform"],
                 match["endgame_climbed"],
                 match["endgame_lifted_by_partners"],
-                match["endgame_lifted_partners"]
+                match["endgame_lifted_partners"],
+        
+                match["comments_accurate_cube_placer"],
+                match["comments_reckless_driving"],
+                match["comments_top_heavy"],
+                match["comments_disabled"],
+                match["comments_robot_failure"],
+                match["comments_card"],
+                match["comments_foul"],
+                match["comments_not_present"]
             ];
         });
         
