@@ -108,7 +108,7 @@ function getDatabaseAverages(callback) {
                     new Map()),
                 ([key, [sum, count]]) => ({
                     key,
-                    value: sum / count
+                    value: (sum / count).toFixed(2)
                 })
             );
         
