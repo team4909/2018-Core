@@ -51,10 +51,10 @@ $(function () {
         });
     }
 
-    setInterval(() => {
+//    setInterval(() => {
         updateMatchDataViews();
         updateAverageDataViews();
-    }, 500);
+//    }, 500);
 
     getDatabaseAverages((headers, matches) => {
         avgTable = $('#average').DataTable({
