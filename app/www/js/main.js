@@ -125,7 +125,7 @@ $(function () {
             db.put(match);
 
             if (!!window.cordova) {
-                bluetooth.sendData(JSON.stringify(match), console.log, console.error);
+                bluetooth.sendData(JSON.stringify(match), log, error);
             }
 
             // Clear Form
@@ -197,7 +197,7 @@ $(function () {
         $("#conf-bt-mac").val(localStorage.getItem("mac_addr")).on("change", () => {
             localStorage.setItem("mac_addr", $("#conf-bt-mac").val());
 
-            bluetooth.initConnection(localStorage.getItem("mac_addr"), console.log, console.error);
+            bluetooth.initConnection(localStorage.getItem("mac_addr"), log, error);
         }).trigger("change");
 
         $("#conf-bt-mac").show();

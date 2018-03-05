@@ -1,17 +1,25 @@
 const db = new PouchDB("tga-2018");
 
+function log(msg){
+    console.log(msg);
+}
+
+function error(msg){
+    console.error(msg);
+}
+
 db.sync(`http://admin:password@the-green-alliance.local:5984/tga-2018`, {
     live: true,
     retry: true
 }).on('error', function (err) {
-    console.error(`Replication Error: ${JSON.stringify(err)}`);
+    error(`Local Replication Error: ${err.reason}`);
 });
 
-db.sync(`http://${localStorage.getItem('username')}:${localStorage.getItem('password')}@tga-cloud.team4909.org:5984/tga-2018`, {
+db.sync(`http://${(localStorage.getItem('username')).split(' ').join('')}:${localStorage.getItem('password')}@tga-cloud.team4909.org:5984/tga-2018`, {
     live: true,
     retry: true
 }).on('error', function (err) {
-    console.error(`Replication Error: ${JSON.stringify(err)}`);
+    error(`Cloud Replication Error: ${err.reason}`);
 });
 
 function getDatabaseMatches(callback) {
