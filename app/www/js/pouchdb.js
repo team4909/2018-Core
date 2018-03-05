@@ -42,7 +42,8 @@ function getDatabaseMatches(callback) {
         });
 
         headers = [
-            "Event Key", "Team #", "Match",
+            "Event Key", "Team #", 
+            //"Match",
             "Line Cross", "Opp. Auto", "Auto. Switch", "Auto. Scale", "Auto. Exchange",
             "Teleop. Switch", "Teleop. Scale", "Teleop. Exchange",
             "Teleop. from Portal", "Teleop. from Floor", "Teleop. Dropped",
@@ -61,7 +62,7 @@ function getDatabaseMatches(callback) {
             return [
                 match["event_key"].toUpperCase(),
                 match["team_number"],
-                (match["match_type"] + match["match_number"] + (match["match_type_number"] ? "m" + match.match_type_number : "")).toUpperCase(),
+//                (match["match_type"] + match["match_number"] + (match["match_type_number"] ? "m" + match.match_type_number : "")).toUpperCase(),
 
                 match["auto_crossed_line"],
                 match["comments_opponent_auto"],
