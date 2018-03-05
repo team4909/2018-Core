@@ -49,7 +49,8 @@ function getDatabaseMatches(callback) {
             "Teleop. from Portal", "Teleop. from Floor", "Teleop. Dropped",
             "Platform", "Climbed", "Lifted", "Lifted Others",
             "Cube Placing", "Bad Driving", "Top Heavy", "Disabled",
-            "Robot Failure", "Carded", "Foul", "Not Present"
+            "Robot Failure", "Carded", "Foul", "Not Present",
+            "Scout"
         ];
 
         headers = _.map(headers, function (header) {
@@ -89,7 +90,9 @@ function getDatabaseMatches(callback) {
                 match["comments_robot_failure"],
                 match["comments_card"],
                 match["comments_foul"],
-                match["comments_not_present"]
+                match["comments_not_present"],
+                
+                match["scout_team"] + "-" + match["scout_initials"]
             ];
         });
 
