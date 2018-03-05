@@ -28,6 +28,8 @@ cd /home/pi/the-green-alliance
 git checkout -f master
 git pull
 
+chmod +x /home/pi/the-green-alliance/TGA-DEBUG.sh
+
 # Change Hostname to 'the-green-alliance'
 echo "[TGA] Changing Hostname to 'the-green-alliance' ..."
 echo "the-green-alliance" | sudo tee /etc/hostname > /dev/null
