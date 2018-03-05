@@ -12,6 +12,21 @@ $(applicationCache).bind(
     }
 );
 
+
+function updateData() {
+    getDatabaseMatches((headers, matches) => {
+        matchTable.clear();
+        matchTable.rows.add(matches);
+        matchTable.draw();
+    });
+
+    getDatabaseAverages((headers, matches) => {
+        avgTable.clear();
+        avgTable.rows.add(matches);
+        avgTable.draw();
+    });
+}
+
 var matchTable, avgTable;
 
 $(function () {
@@ -35,37 +50,7 @@ $(function () {
         });
     });
 
-    function updateMatchDataViews() {
-        getDatabaseMatches((headers, matches) => {
-            matchTable.clear();
-            matchTable.rows.add(matches);
-            matchTable.draw();
-        });
-    }
-
-    function updateAverageDataViews() {
-        getDatabaseAverages((headers, matches) => {
-            avgTable.clear();
-            avgTable.rows.add(matches);
-            avgTable.draw();
-        });
-    }
-
-//    setInterval(() => {
-        updateMatchDataViews();
-        updateAverageDataViews();
-//    }, 500);
-
-    getDatabaseAverages((headers, matches) => {
-        avgTable = $('#average').DataTable({
-            data: [],
-            scrollX: true,
-            columns: headers
-        });
-
-        avgTable.rows.add(matches);
-        avgTable.draw();
-    });
+    updateData();
 
     $(".navigation li[data-page]").click((event) => {
         const page = $(event.currentTarget).attr("data-page");
