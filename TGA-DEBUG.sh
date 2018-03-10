@@ -7,10 +7,10 @@ echo "Latest Git Commit: "
 cd ~/the-green-alliance && git show --oneline -s
 echo
 echo "Webhook Logs: "
-sudo systemctl status bt-worker-hook.service
+sudo journalctl -u bt-worker-hook.service -b
 echo
 echo "Bluetooth Worker Logs: "
-sudo systemctl status bt-worker.service
+sudo journalctl -u bt-worker.service -b
 echo
 echo "Docker CouchDB Status: "
 sudo docker ps -a -f name=tga-couchdb
