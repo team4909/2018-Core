@@ -1,6 +1,6 @@
 echo
 echo "This script runs a bunch of logging utilities to help in"
-echo "debuggin issues with TGA. Please post the resulting output"
+echo "debugging issues with TGA. Please post the resulting output"
 echo "in #issues on Slack to get help."
 echo
 echo "Latest Git Commit: "
