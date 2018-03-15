@@ -36,8 +36,8 @@ function getDatabaseMatches(callback) {
             return match._id.indexOf("_design") > -1;
         });
         matches = _.map(matches, function (match) {
-            match["grouping_key"] = match["event_key"].toUpperCase().replace(/[0-9]/g, '') + match["team_number"];
-            match["event_key"] = match["event_key"].toUpperCase().replace(/[0-9]/g, '');
+            match["grouping_key"] = match["event_key"].toUpperCase().replace(/^[0-9]+/, '') + match["team_number"];
+            match["event_key"] = match["event_key"].toUpperCase().replace(/^[0-9]+/, '');
             match["team_number"] = "FRC"+match["team_number"];
             
             return match;
