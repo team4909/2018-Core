@@ -36,6 +36,10 @@ function getDatabaseMatches(callback) {
             return match._id.indexOf("_design") > -1;
         });
         matches = _.map(matches, function (match) {
+            if(!match["event_key"]){
+                match["event_key"] = "PRACTICE";
+            }
+            
             match["grouping_key"] = match["event_key"].toUpperCase().replace(/^[0-9]+/, '') + match["team_number"];
             match["event_key"] = match["event_key"].toUpperCase().replace(/^[0-9]+/, '');
             match["team_number"] = "FRC"+match["team_number"];
