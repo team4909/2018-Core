@@ -1,3 +1,20 @@
+const events = ["ABCA", "ALHU", "ARC", "ARLI", "AUSC", "AUSP", "AZFL", "AZPX", "BCVI", "CAAV", "CADA", "CAFR",
+                "CAIR", "CAPO", "CARS", "CARV", "CASD", "CASF", "CASJ", "CAVE", "CHCMP", "CMPMI", "CMPTX", "CODE",
+                "CTHAR", "CTSCT", "CTWAT", "CUR", "DAL", "DAR", "FLOR", "FLWP", "GAALB", "GACMP", "GACOL", "GADAL",
+                "GADUL", "GAGAI", "GAL", "GUSH", "HIHO", "HOP", "IACF", "IDBO", "ILCH", "ILPE", "INCMP", "INMIS",
+                "INPLA", "INWLA", "ISCMP", "ISDE1", "ISDE2", "ISDE3", "ISDE4", "LAKE", "MABOS", "MABRI", "MAREA",
+                "MAWOR", "MDEDG", "MDOXO", "MELEW", "MIALP", "MIANN", "MIBEL", "MICEN", "MICMP", "MICMP1", "MICMP2",
+                "MICMP3", "MICMP4", "MIESC", "MIFOR", "MIGAY", "MIGIB", "MIGUL", "MIKE2", "MIKEN", "MIKET", "MILAK",
+                "MILAN", "MILIN", "MILIV", "MILSU", "MIMAR", "MIMID", "MIMIL", "MISHE", "MISJO", "MISOU", "MITRY",
+                "MITVC", "MIWAT", "MIWMI", "MNDU", "MNDU2", "MNMI", "MNMI2", "MOKC", "MOKC2", "MOSL", "MRCMP", "MXMO",
+                "MXTO", "NCASH", "NCCMP", "NCGRE", "NCPEM", "NCWIN", "NDGF", "NECMP", "NEW", "NHDUR", "NHGRS", "NJBRI",
+                "NJFLA", "NJSKI", "NJTAB", "NVLV", "NYLI", "NYLI2", "NYNY", "NYRO", "NYSU", "NYTR", "NYUT", "OHCL",
+                "OHMV", "OKOK", "ONBAR", "ONCMP", "ONCMP1", "ONCMP2", "ONHAM", "ONLON", "ONNOB", "ONNYO", "ONOSH",
+                "ONTO1", "ONWAT", "ONWIN", "ORLAK", "ORORE", "ORWIL", "PACA", "PAHAT", "PAPHI", "PAWCH", "PNCMP",
+                "QCMO", "RISMI", "ROE", "SCMB", "SHMI", "TES", "TNKN", "TUIS", "TUR", "TXDA", "TXEL", "TXHO", "TXLU",
+                "TXPA", "TXSA", "UTWV", "VABLA", "VAGDC", "VAGLE", "VAHAY", "VAPOR", "WAAHS", "WAAMV", "WAMOU", "WASNO",
+                "WASPO", "WAYAK", "WEEK0", "WILA", "WIMI"];
+
 $(applicationCache).bind(
     "cached",
     function (event) {
@@ -141,22 +158,26 @@ $(function () {
             match["_id"] = "2018" + match.event_key + "_" + match.match_type + match.match_number + (match.match_type_number ? "m" + match.match_type_number : "") + "_" + match.team_number;
             match["_id"] = match["_id"].toLowerCase();
 
-            if(match.team_number >= 1 && match.team_number <=  7331){
-                db.put(match);
+            if (events.includes(match.event_key)) {
+                if (match.team_number >= 1 && match.team_number <= 7331) {
+                    db.put(match);
 
-                if (!!window.cordova) {
-                    bluetooth.sendData(JSON.stringify(match), log, error);
+                    if (!!window.cordova) {
+                        bluetooth.sendData(JSON.stringify(match), log, error);
+                    }
+
+                    // Clear Form
+                    $(`.match-metadata input[type='text']`).val("");
+                    $(`.match-metadata input[type='number']`).val("");
+                    $("#m-event-key").val(localStorage.getItem("event"));
+                    $(`input[data-counter]`).val("0");
+                    $(`input[type='checkbox']`).prop("checked", false);
+                    $('#wizard_horizontal').steps('restart');
+                } else {
+                    alert("Please double check your team number, the current one seems invalid!");
                 }
-
-                // Clear Form
-                $(`.match-metadata input[type='text']`).val("");
-                $(`.match-metadata input[type='number']`).val("");
-                $("#m-event-key").val(localStorage.getItem("event"));
-                $(`input[data-counter]`).val("0");
-                $(`input[type='checkbox']`).prop("checked", false);
-                $('#wizard_horizontal').steps('restart');
             } else {
-                alert("Please double check your team number, the current one seems invalid!");
+                alert("Invalid Event Key, please update and resubmit.");
             }
         }
     });
