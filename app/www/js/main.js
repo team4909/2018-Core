@@ -25,9 +25,21 @@ function updateData() {
         avgTable.rows.add(matches);
         avgTable.draw();
     });
+    
+    getTeamAverages((headers, matches) => {
+        avgTeamTable.clear();
+        avgTeamTable.rows.add(matches);
+        avgTeamTable.draw();
+    });
+    
+    getEventAverages((headers, matches) => {
+        avgEventTable.clear();
+        avgEventTable.rows.add(matches);
+        avgEventTable.draw();
+    });
 }
 
-var matchTable, avgTable;
+var matchTable, avgTable, avgTeamTable, avgEventTable;
 
 $(function () {
     const apiKey = tba.ApiClient.instance.authentications['apiKey'];
@@ -44,6 +56,22 @@ $(function () {
 
     getDatabaseAverages((headers, matches) => {
         avgTable = $('#averages').DataTable({
+            data: matches,
+            scrollX: true,
+            columns: headers
+        });
+    });
+    
+    getTeamAverages((headers, matches) => {
+        avgTeamTable = $('#taverages').DataTable({
+            data: matches,
+            scrollX: true,
+            columns: headers
+        });
+    });
+
+    getEventAverages((headers, matches) => {
+        avgEventTable = $('#eaverages').DataTable({
             data: matches,
             scrollX: true,
             columns: headers

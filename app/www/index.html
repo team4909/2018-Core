@@ -167,7 +167,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        TEAM MATCHES
+                        COMPETITION MATCHES
                     </h2>
                 </div>
                 <div class="body">
@@ -181,13 +181,41 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        TEAM AVERAGES
+                        EVENT TEAM AVERAGES
                     </h2>
                 </div>
                 <div class="body">
                     <button type="button" class="btn btn-success btn-lg btn-block" onclick="updateData()">Reload Data</button>
                     <hr>
                     <table id="averages" class="display"></table>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" data-page="taverages" style="display: none;">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        GLOBAL TEAM AVERAGES
+                    </h2>
+                </div>
+                <div class="body">
+                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="updateData()">Reload Data</button>
+                    <hr>
+                    <table id="taverages" class="display"></table>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" data-page="eaverages" style="display: none;">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        EVENT AVERAGES
+                    </h2>
+                </div>
+                <div class="body">
+                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="updateData()">Reload Data</button>
+                    <hr>
+                    <table id="eaverages" class="display"></table>
                 </div>
             </div>
         </div>
@@ -545,19 +573,31 @@
                     <li data-page="averages">
                         <a href="#">
                             <i class="material-icons">insert_chart</i>
-                            <span>Team Averages</span>
+                            <span>Event Team Averages</span>
+                        </a>
+                    </li>
+                    <li data-page="eaverages">
+                        <a href="#">
+                            <i class="material-icons">bubble_chart</i>
+                            <span>Event Averages</span>
+                        </a>
+                    </li>
+                    <li data-page="taverages">
+                        <a href="#">
+                            <i class="material-icons">multiline_chart</i>
+                            <span>Global Team Averages</span>
                         </a>
                     </li>
                     <li data-page="matches">
                         <a href="#">
                             <i class="material-icons">list</i>
-                            <span>Team Matches</span>
+                            <span>Competition Matches</span>
                         </a>
                     </li>
                     <li data-page="config">
                         <a href="#">
                             <i class="material-icons">settings</i>
-                            <span>Config</span>
+                            <span>Settings</span>
                         </a>
                     </li>
                 </ul>
