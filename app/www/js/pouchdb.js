@@ -350,7 +350,7 @@ function getTeamAverages(callback) {
         });
         
         headers = [
-            "Event Key", "Team #",
+            "Team #",
             "Line Cross", "Opp. Auto", "Auto. Switch", "Auto. Scale", "Auto. Exchange",
             "Teleop. Switch", "Teleop. Scale", "Teleop. Exchange",
             "Teleop. from Portal", "Teleop. from Floor", "Teleop. Dropped",
@@ -367,7 +367,6 @@ function getTeamAverages(callback) {
 
         matchesArray = _.map(averages, function (match) {
             return [
-                match["event_key"],
                 match["team_number"],
 
                 match["auto_crossed_line"],
