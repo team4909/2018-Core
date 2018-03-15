@@ -13,6 +13,10 @@ $(applicationCache).bind(
 );
 
 
+if(localStorage.getItem("event")){
+    localStorage.setItem("event","");
+}
+
 function updateData() {
     getDatabaseMatches((headers, matches) => {
         matchTable.clear();
@@ -96,7 +100,7 @@ $(function () {
         transitionEffect: 'slideLeft',
         onFinished: function (event, currentIndex) {
             match = {
-                "event_key": localStorage.getItem("event"),
+                "event_key": (localStorage.getItem("event")).toUpperCase().replace(/^[0-9]+/, ''),
                 "match_number": Number($(`#m-number`).val()),
                 "match_type": $('input[name=match-type]:checked').val(),
                 "match_type_number": Number($(`#m-sub-number`).val()),
