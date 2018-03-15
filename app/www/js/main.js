@@ -99,6 +99,8 @@ $(function () {
         bodyTag: 'section',
         transitionEffect: 'slideLeft',
         onFinished: function (event, currentIndex) {
+            localStorage.setItem("event", $("#m-event-key").val());
+            
             match = {
                 "event_key": (localStorage.getItem("event")).toUpperCase().replace(/^[0-9]+/, ''),
                 "match_number": Number($(`#m-number`).val()),
@@ -139,19 +141,23 @@ $(function () {
             match["_id"] = "2018" + match.event_key + "_" + match.match_type + match.match_number + (match.match_type_number ? "m" + match.match_type_number : "") + "_" + match.team_number;
             match["_id"] = match["_id"].toLowerCase();
 
-            db.put(match);
+            if(match.team_number >= 1 && match.team_number <=  7331){
+                db.put(match);
 
-            if (!!window.cordova) {
-                bluetooth.sendData(JSON.stringify(match), log, error);
+                if (!!window.cordova) {
+                    bluetooth.sendData(JSON.stringify(match), log, error);
+                }
+
+                // Clear Form
+                $(`.match-metadata input[type='text']`).val("");
+                $(`.match-metadata input[type='number']`).val("");
+                $("#m-event-key").val(localStorage.getItem("event"));
+                $(`input[data-counter]`).val("0");
+                $(`input[type='checkbox']`).prop("checked", false);
+                $('#wizard_horizontal').steps('restart');
+            } else {
+                alert("Please double check your team number, the current one seems invalid!");
             }
-
-            // Clear Form
-            $(`.match-metadata input[type='text']`).val("");
-            $(`.match-metadata input[type='number']`).val("");
-            $("#m-event-key").val(localStorage.getItem("event"));
-            $(`input[data-counter]`).val("0");
-            $(`input[type='checkbox']`).prop("checked", false);
-            $('#wizard_horizontal').steps('restart')
         }
     });
 
