@@ -71,7 +71,11 @@ $(function () {
         matchTable = $('#matches').DataTable({
             data: matches,
             scrollX: true,
-            columns: headers
+            columns: headers,
+            "columnDefs": [
+                { "searchable": true, "targets": [0,1] },
+                { "searchable": false, "targets": "_all" },
+            ]
         });
     });
 
@@ -79,7 +83,11 @@ $(function () {
         avgTable = $('#averages').DataTable({
             data: matches,
             scrollX: true,
-            columns: headers
+            columns: headers,
+            "columnDefs": [
+                { "searchable": true, "targets": [0,1,2,-1] },
+                { "searchable": false, "targets": "_all" },
+            ]
         });
     });
     
@@ -87,7 +95,11 @@ $(function () {
         avgTeamTable = $('#taverages').DataTable({
             data: matches,
             scrollX: true,
-            columns: headers
+            columns: headers,
+            "columnDefs": [
+                { "searchable": true, "targets": [0,1] },
+                { "searchable": false, "targets": "_all" },
+            ]
         });
     });
 
@@ -95,7 +107,11 @@ $(function () {
         avgEventTable = $('#eaverages').DataTable({
             data: matches,
             scrollX: true,
-            columns: headers
+            columns: headers,
+            "columnDefs": [
+                { "searchable": true, "targets": [0] },
+                { "searchable": false, "targets": "_all" },
+            ]
         });
     });
 
