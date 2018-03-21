@@ -42,7 +42,7 @@ function getDatabaseMatches(callback) {
             
             match["grouping_key"] = match["event_key"].toUpperCase().replace(/^[0-9]+/, '') + match["team_number"];
             match["event_key"] = match["event_key"].toUpperCase().replace(/^[0-9]+/, '');
-            match["team_number"] = "FRC"+match["team_number"];
+            match["team_number"] = match["team_number"];
             
             return match;
         });
